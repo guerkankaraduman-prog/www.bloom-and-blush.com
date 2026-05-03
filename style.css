@@ -80,6 +80,49 @@ nav a {
 
 /* MOBILE */
 @media(max-width:768px){
+  .hero {
+  height: 90vh;
+  background: linear-gradient(to bottom, #fff0f5, #ffffff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  font-weight: 600;
+  color: #111;
+}
+
+.hero-content p {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.hero-buttons {
+  margin-top: 20px;
+}
+
+.btn {
+  padding: 12px 25px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 500;
+  margin: 5px;
+  display: inline-block;
+}
+
+.btn.primary {
+  background: #ff4d88;
+  color: white;
+}
+
+.btn.secondary {
+  border: 1px solid #ff4d88;
+  color: #ff4d88;
+}
   .hero h1 {
     font-size: 32px;
   }
