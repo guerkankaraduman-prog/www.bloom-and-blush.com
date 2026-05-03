@@ -4,69 +4,212 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Fashion Trends 2026 | Bloom & Blush</title>
+<title>Fashion | Bloom & Blush</title>
 
-<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Jost&display=swap" rel="stylesheet">
 
 <style>
-  :root {
-    --rose: #f2a7b8;
-    --blush: #fce4ec;
-    --deep-rose: #c2185b;
-    --petal: #fdf0f4;
-    --cream: #fff8f9;
-    --mauve: #d4789a;
-    --text: #3a1a26;
-    --text-light: #8a4a62;
-    --gold: #d4a96a;
-    --white: #ffffff;
-  }
+body {
+    margin: 0;
+    font-family: 'Jost', sans-serif;
+    background: #fafafa;
+    color: #111;
+}
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+/* NAV */
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 40px;
+    background: white;
+}
 
-  html { scroll-behavior: smooth; }
+nav a {
+    text-decoration: none;
+    margin-left: 20px;
+    color: #111;
+}
 
+/* HERO */
+.hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 80px;
+    align-items: center;
+}
 
-<section class="fashion-hero">
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 52px;
+}
 
-    <!-- LEFT TEXT -->
-    <div class="fashion-left">
-        <p class="tag">FASHION EDIT 2026</p>
-        <h1>Luxury <em>Spring</em> Looks</h1>
-        <p class="desc">
-            Zeitlose Outfits, minimalistische Eleganz und luxuriöse Vibes –
-            inspiriert von den neuesten Trends.
-        </p>
+.hero p {
+    color: #666;
+}
 
-        <div class="buttons">
-            <a href="#" class="btn-primary">Explore Looks</a>
-            <a href="#" class="btn-secondary">Shop Picks</a>
-        </div>
+.btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 20px;
+    background: black;
+    color: white;
+    border-radius: 999px;
+    text-decoration: none;
+}
+
+/* IMAGE STACK */
+.stack {
+    position: relative;
+}
+
+.main-img {
+    width: 100%;
+    border-radius: 30px;
+}
+
+.mini-img {
+    position: absolute;
+    width: 150px;
+    bottom: -30px;
+    left: -30px;
+    border-radius: 20px;
+}
+
+/* SECTION */
+.section {
+    padding: 60px 40px;
+}
+
+.section h2 {
+    font-family: 'Playfair Display', serif;
+}
+
+/* GRID */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap: 25px;
+}
+
+/* CARD */
+.card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+}
+
+.card img {
+    width: 100%;
+}
+
+.card-content {
+    padding: 15px;
+}
+
+/* PRODUCT */
+.product {
+    text-align: center;
+}
+
+.product img {
+    width: 100%;
+    border-radius: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+    <div>Bloom & Blush</div>
+    <div>
+        <a href="index.html">Home</a>
+        <a href="blog.html">Blog</a>
+        <a href="fashion.html">Fashion</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div>
+        <h1>Luxury Spring Looks</h1>
+        <p>Minimalistisch, elegant & im Trend 2026</p>
+        <a href="#" class="btn">See Outfit</a>
     </div>
 
-    <!-- RIGHT VISUAL -->
-    <div class="fashion-right">
+    <div class="stack">
+        <img class="main-img" src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d">
+        <img class="mini-img" src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b">
+    </div>
+</section>
 
-        <div class="blob"></div>
+<!-- OUTFITS -->
+<section class="section">
+    <h2>Trending Outfits</h2>
 
-        <div class="img-stack">
-
-            <!-- MAIN CARD -->
-            <div class="main-card">
-                <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d">
-                <p>Spring Collection 2026</p>
+    <div class="grid">
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c">
+            <div class="card-content">
+                <h3>Street Style</h3>
+                <p>Urban & modern</p>
             </div>
+        </div>
 
-            <!-- FLOATING MINI CARD -->
-            <div class="mini-card">
-                <a href="https://www.amazon.de/dp/DEIN-LINK?tag=deinaffiliate-21" target="_blank">
-                    <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b">
-                </a>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1520975922284-9e0c3c5cfc6d">
+            <div class="card-content">
+                <h3>Minimal Chic</h3>
+                <p>Clean & elegant</p>
             </div>
-
         </div>
     </div>
+</section>
 
+<!-- BLOG -->
+<section class="section">
+    <h2>Latest Articles</h2>
+
+    <div class="grid">
+        <div class="card">
+            <img src="https://picsum.photos/400/300">
+            <div class="card-content">
+                <h3>Top 10 Spring Outfits</h3>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://picsum.photos/400/301">
+            <div class="card-content">
+                <h3>Capsule Wardrobe Guide</h3>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SHOP -->
+<section class="section">
+    <h2>Shop My Picks</h2>
+
+    <div class="grid">
+
+        <div class="product">
+            <img src="https://picsum.photos/300/300">
+            <a href="https://www.amazon.de/dp/DEIN-LINK?tag=deinaffiliate-21" target="_blank" class="btn">
+                Shop Now
+            </a>
+        </div>
+
+        <div class="product">
+            <img src="https://picsum.photos/301/300">
+            <a href="https://www.amazon.de/dp/DEIN-LINK?tag=deinaffiliate-21" target="_blank" class="btn">
+                Shop Now
+            </a>
+        </div>
+
+    </div>
 </section>
 
 </body>
