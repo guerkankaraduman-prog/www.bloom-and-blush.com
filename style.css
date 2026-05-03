@@ -101,5 +101,37 @@ nav a {
 .blog-card {
   background: #f9f9f9;
   padding: 20px;
+
+.product-container {
+  display: flex;
+  gap: 50px;
+  padding: 80px;
+  align-items: center;
+}
+
+.product-info h1 {
+  font-size: 2rem;
+}
+
+.highlight {
+  color: #ff4d88;
+  font-weight: bold;
+}
+
+.buy-big {
+  display: inline-block;
+  margin-top: 20px;
+  background: #ff4d88;
+  color: white;
+  padding: 15px 35px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.trust {
+  margin-top: 10px;
+  color: #777;
+}
   border-radius: 20px;
 }
