@@ -1,0 +1,9 @@
+[
+  {
+    "title": "Test Post",
+    "category": "Fashion",
+    "image": "https://via.placeholder.com/400",
+    "excerpt": "This is a test post",
+    "link": "post.html"
+  }
+]
