@@ -32,12 +32,17 @@ body {
 
 /* ===== NAV (IDENTISCH) ===== */
 nav {
-  position:fixed;
-  width:100%;
-  display:flex;
-  justify-content:space-between;
-  padding:20px 50px;
-  background:rgba(253,240,244,0.9);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  display: flex;
+  justify-content: center; /* 🔥 DAS ist der Key */
+  align-items: center;
+
+  padding: 20px 50px;
+  background: rgba(253,240,244,0.9);
 }
 
 .nav-links a {
