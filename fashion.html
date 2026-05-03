@@ -5,37 +5,56 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Fashion | Bloom & Blush</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<!-- FONTS (IDENTISCH WIE HOME) -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-body {
-  margin: 0;
-  font-family: 'Jost', sans-serif;
-  background: #fff8f9;
-  color: #3a1a26;
+
+/* ===== ROOT (IDENTISCH) ===== */
+:root {
+  --rose: #f2a7b8;
+  --blush: #fce4ec;
+  --deep-rose: #c2185b;
+  --cream: #fff8f9;
+  --mauve: #d4789a;
+  --text: #3a1a26;
+  --text-light: #8a4a62;
 }
 
-/* NAV */
+/* RESET */
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Jost', sans-serif;
+  background:var(--cream);
+  color:var(--text);
+}
+
+/* ===== NAV (IDENTISCH) ===== */
 nav {
+  position:fixed;
+  width:100%;
   display:flex;
   justify-content:space-between;
   padding:20px 50px;
-  position:fixed;
-  width:100%;
-  background:rgba(255,255,255,0.9);
+  background:rgba(253,240,244,0.9);
 }
 
 .nav-links a {
   margin:0 15px;
   text-decoration:none;
-  color:#c2185b;
-  font-size:14px;
-  letter-spacing:1px;
+  font-size:12px;
+  letter-spacing:2px;
+  color:var(--text-light);
 }
 
-/* HERO */
+.nav-links a:hover {
+  color:var(--deep-rose);
+}
+
+/* ===== HERO (IDENTISCH STYLE) ===== */
 .hero {
-  height:100vh;
+  min-height:100vh;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -43,51 +62,79 @@ nav {
 }
 
 .hero h1 {
-  font-family:'Playfair Display';
+  font-family:'Playfair Display', serif;
   font-size:60px;
 }
 
 .hero h1 em {
-  color:#c2185b;
+  color:var(--deep-rose);
 }
 
-/* GRID */
+.hero-desc {
+  font-family:'Cormorant Garamond', serif;
+  font-size:20px;
+  color:var(--text-light);
+  margin-top:20px;
+}
+
+/* ===== GRID (WIE HOME POSTS) ===== */
+.section {
+  padding:100px 80px;
+}
+
 .grid {
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:30px;
-  padding:80px;
 }
 
 .card {
   background:white;
-  padding:20px;
-  box-shadow:0 10px 40px rgba(0,0,0,0.08);
-  transition:0.3s;
+  overflow:hidden;
+  transition:0.4s;
 }
 
 .card:hover {
   transform:translateY(-10px);
+  box-shadow:0 20px 40px rgba(194,24,91,0.15);
 }
 
 .card img {
   width:100%;
+  height:300px;
+  object-fit:cover;
 }
 
-/* BUTTON */
+.card-body {
+  padding:20px;
+}
+
+.card-title {
+  font-family:'Playfair Display';
+  font-size:20px;
+  margin-bottom:10px;
+}
+
+.card-text {
+  font-family:'Cormorant Garamond';
+  color:var(--text-light);
+}
+
 .btn {
   display:inline-block;
-  margin-top:10px;
-  padding:10px 20px;
-  background:#c2185b;
-  color:white;
+  margin-top:15px;
+  font-size:12px;
+  letter-spacing:2px;
+  color:var(--deep-rose);
   text-decoration:none;
 }
+
 </style>
 </head>
 
 <body>
 
+<!-- NAV -->
 <nav>
   <div><b>Bloom & Blush</b></div>
   <div class="nav-links">
@@ -100,34 +147,48 @@ nav {
   </div>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
   <div>
-    <h1>Luxury <em>Fashion</em> 2026</h1>
-    <p>Trends, Outfits & Must-Haves curated for you</p>
+    <h1>Luxury <em>Fashion</em> Edit</h1>
+    <p class="hero-desc">
+      Trends, Outfits & Must-Haves – inspiriert von High-End Fashion.
+    </p>
   </div>
 </section>
 
-<section class="grid">
+<!-- FASHION CONTENT -->
+<section class="section">
 
-  <div class="card">
-    <img src="hero-card.jpg">
-    <h3>Spring Capsule Wardrobe</h3>
-    <p>Die 10 wichtigsten Pieces</p>
-    <a href="#" class="btn">Read More</a>
-  </div>
+  <div class="grid">
 
-  <div class="card">
-    <img src="mini-card.jpg">
-    <h3>Minimal Chic Look</h3>
-    <p>Clean Girl Aesthetic</p>
-    <a href="#" class="btn">Read More</a>
-  </div>
+    <div class="card">
+      <img src="hero-card.jpg">
+      <div class="card-body">
+        <h3 class="card-title">Spring Capsule Wardrobe</h3>
+        <p class="card-text">Die wichtigsten Pieces für 2026</p>
+        <a href="#" class="btn">Read More →</a>
+      </div>
+    </div>
 
-  <div class="card">
-    <img src="hero-card.jpg">
-    <h3>Luxury Outfit Ideas</h3>
-    <p>High-End inspiriert</p>
-    <a href="#" class="btn">Read More</a>
+    <div class="card">
+      <img src="mini-card.jpg">
+      <div class="card-body">
+        <h3 class="card-title">Minimal Chic</h3>
+        <p class="card-text">Clean Girl Aesthetic Guide</p>
+        <a href="#" class="btn">Read More →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="hero-card.jpg">
+      <div class="card-body">
+        <h3 class="card-title">Luxury Street Style</h3>
+        <p class="card-text">Designer inspiriert Looks</p>
+        <a href="#" class="btn">Read More →</a>
+      </div>
+    </div>
+
   </div>
 
 </section>
