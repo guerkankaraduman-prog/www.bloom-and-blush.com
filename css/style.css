@@ -1,45 +1,41 @@
 body {
   font-family: 'Jost', sans-serif;
-  margin: 0;
   background: #fff8f9;
+  color: #3a1a26;
+  margin: 0;
 }
 
+/* NAV */
 nav {
   display: flex;
   justify-content: space-between;
-  padding: 20px;
-  background: white;
+  padding: 20px 40px;
 }
 
-.nav-links {
-  display: flex;
-  gap: 20px;
-  list-style: none;
-}
-
+/* HERO */
 .hero {
-  display: flex;
-  padding: 80px;
-  gap: 40px;
+  padding: 120px 60px;
 }
 
-.hero img {
-  width: 300px;
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
 }
 
-.btn {
-  background: #c2185b;
-  color: white;
-  padding: 10px 20px;
-  text-decoration: none;
+/* GRID */
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
 }
 
-.featured {
-  padding: 60px;
-}
-
-.post {
+/* CARD */
+.post-card {
   background: white;
   padding: 20px;
-  margin-bottom: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.post-card h3 {
+  margin: 10px 0;
 }
