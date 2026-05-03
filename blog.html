@@ -1,15 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<link rel="stylesheet" href="css/style.css">
-</head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Blog | Bloom & Blush</title>
+
+<!-- WICHTIG: CSS -->
+<link rel="stylesheet" href="css/style.css">
+
+</head>
 <body>
 
-<h1>Blog</h1>
+<!-- NAV -->
+<nav style="padding:20px 40px; display:flex; justify-content:space-between;">
+  <a href="index.html">Bloom & Blush</a>
+  <div>
+    <a href="blog.html">Blog</a>
+    <a href="#">Shop</a>
+  </div>
+</nav>
 
-<div id="posts-container"></div>
+<!-- HERO -->
+<section style="padding:80px 40px;">
+  <h1>Latest Blog Posts</h1>
+</section>
 
+<!-- POSTS -->
+<section style="padding:40px;">
+  <div id="posts-container" class="posts-grid"></div>
+</section>
+
+<!-- JS -->
 <script src="js/main.js"></script>
 
 </body>
