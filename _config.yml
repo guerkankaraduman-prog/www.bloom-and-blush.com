@@ -1,8 +1,0 @@
-title: Bloom & Blush
-description: Fashion & Beauty Blog
-baseurl: ""
-url: "https://guerkankaraduman-prog.github.io"
-
-collections:
-  posts:
-    output: true
