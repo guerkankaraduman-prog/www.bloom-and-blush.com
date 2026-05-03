@@ -1,13 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Post</title>
-  <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
-<h1>Post Page</h1>
+<div id="post"></div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const id = params.get("id");
+
+fetch("data/posts.json")
+  .then(res => res.json())
+  .then(data => {
+    const post = data.find(p => p.id == id);
+
+    document.getElementById("post").innerHTML = `
+      <h1>${post.title}</h1>
+      <p>${post.content}</p>
+
+      <a href="${post.affiliate}" target="_blank">
+        Buy Product
+      </a>
+    `;
+  });
+</script>
 
 </body>
 </html>
