@@ -1,9 +1,16 @@
 [
   {
-    "title": "Test Post",
-    "category": "Fashion",
-    "image": "https://via.placeholder.com/400",
-    "excerpt": "This is a test post",
-    "link": "post.html"
+    "id": 1,
+    "title": "Spring Outfit Ideas 2026",
+    "excerpt": "10 Outfits you NEED this spring",
+    "content": "Full blog article here...",
+    "affiliate": "https://www.amazon.de/dp/DEIN-LINK?tag=deinaffiliate-21"
+  },
+  {
+    "id": 2,
+    "title": "Best Skincare Routine",
+    "excerpt": "Glow skin in 5 steps",
+    "content": "Full skincare routine...",
+    "affiliate": "https://www.amazon.de/dp/DEIN-LINK?tag=deinaffiliate-21"
   }
 ]
