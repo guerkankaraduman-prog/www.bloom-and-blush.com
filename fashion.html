@@ -1,1 +1,138 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Fashion Trends 2026 | Bloom & Blush</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #fff;
+}
+
+.header {
+    text-align: center;
+    padding: 60px 20px 30px;
+}
+
+.header h1 {
+    font-size: 36px;
+}
+
+.header p {
+    color: #666;
+}
+
+/* GRID */
+.fashion-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+    gap: 25px;
+    padding: 40px;
+}
+
+/* CARD */
+.card {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    width: 100%;
+    display: block;
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.card h3 {
+    margin: 0 0 10px;
+}
+
+.card p {
+    color: #555;
+    font-size: 14px;
+}
+
+/* BUTTON */
+.btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 16px;
+    background: black;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 14px;
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header">
+    <h1>Fashion Trends 2026 ✨</h1>
+    <p>Die angesagtesten Styles, Outfits & Must-Haves</p>
+</div>
+
+<!-- GRID -->
+<div class="fashion-grid">
+
+    <!-- CARD 1 -->
+    <div class="card">
+        <img src="https://picsum.photos/400/500?fashion1">
+        <div class="card-content">
+            <h3>Spring Outfit Essentials</h3>
+            <p>Die Must-Haves für deinen perfekten Frühlingslook.</p>
+            <a href="#" class="btn">Jetzt entdecken</a>
+        </div>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="card">
+        <img src="https://picsum.photos/400/500?fashion2">
+        <div class="card-content">
+            <h3>Minimal Chic Look</h3>
+            <p>Eleganz trifft auf Einfachheit – perfekt für jeden Tag.</p>
+            <a href="#" class="btn">Outfit ansehen</a>
+        </div>
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="card">
+        <img src="https://picsum.photos/400/500?fashion3">
+        <div class="card-content">
+            <h3>Street Style Trends</h3>
+            <p>Was gerade auf Instagram & Pinterest viral geht.</p>
+            <a href="#" class="btn">Trend sehen</a>
+        </div>
+    </div>
+
+    <!-- CARD 4 -->
+    <div class="card">
+        <img src="https://picsum.photos/400/500?fashion4">
+        <div class="card-content">
+            <h3>Luxury Inspired Pieces</h3>
+            <p>High-End Look für kleines Budget.</p>
+            <a href="#" class="btn">Shop Look</a>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
