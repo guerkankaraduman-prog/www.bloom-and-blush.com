@@ -1,4 +1,21 @@
 <style>
+  :root {
+    --rose: #f2a7b8;
+    --blush: #fce4ec;
+    --deep-rose: #c2185b;
+    --petal: #fdf0f4;
+    --cream: #fff8f9;
+    --mauve: #d4789a;
+    --text: #3a1a26;
+    --text-light: #8a4a62;
+    --gold: #d4a96a;
+    --white: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
 
 body {
     margin: 0;
