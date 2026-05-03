@@ -1,14 +1,92 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Lifestyle | Bloom & Blush</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #fff;
+    margin: 0;
+}
+
+.header {
+    padding: 40px;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 32px;
+}
+
+.posts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap: 20px;
+    padding: 40px;
+}
+
+.post {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+
+.post img {
+    width: 100%;
+    display: block;
+}
+
+.post-content {
+    padding: 15px;
+}
+
+.post h3 {
+    margin: 0 0 10px;
+}
+</style>
+
 </head>
 
 <body>
 
-<h1>Lifestyle</h1>
-<p>Coming soon...</p>
+<div class="header">
+    <h1>Lifestyle</h1>
+    <p>Inspiration für dein tägliches Leben ✨</p>
+</div>
+
+<div class="posts">
+
+    <div class="post">
+        <img src="https://picsum.photos/400/300?1">
+        <div class="post-content">
+            <h3>Morning Routine für Glow</h3>
+            <p>So startest du perfekt in den Tag.</p>
+        </div>
+    </div>
+
+    <div class="post">
+        <img src="https://picsum.photos/400/300?2">
+        <div class="post-content">
+            <h3>Selfcare Sunday Ideen</h3>
+            <p>Entspannung und Beauty kombinieren.</p>
+        </div>
+    </div>
+
+    <div class="post">
+        <img src="https://picsum.photos/400/300?3">
+        <div class="post-content">
+            <h3>Produktivität steigern</h3>
+            <p>Mehr Fokus im Alltag.</p>
+        </div>
+    </div>
+
+</div>
 
 </body>
 </html>
