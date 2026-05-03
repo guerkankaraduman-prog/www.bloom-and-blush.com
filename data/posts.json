@@ -2,15 +2,19 @@
   {
     "id": 1,
     "title": "Spring Outfit Ideas 2026",
+    "date": "May 2026",
+    "readTime": "5 min read",
     "excerpt": "10 Outfits you NEED this spring",
-    "content": "Full blog article here...",
-    "affiliate": "https://www.amazon.de/dp/DEIN-LINK?tag=deinaffiliate-21"
+    "content": "Hier kommt dein kompletter Blogartikel rein.",
+    "image": "🌸"
   },
   {
     "id": 2,
     "title": "Best Skincare Routine",
+    "date": "April 2026",
+    "readTime": "4 min read",
     "excerpt": "Glow skin in 5 steps",
-    "content": "Full skincare routine...",
-    "affiliate": "https://www.amazon.de/dp/DEIN-LINK?tag=deinaffiliate-21"
+    "content": "Step 1: Cleanser...",
+    "image": "✨"
   }
 ]
