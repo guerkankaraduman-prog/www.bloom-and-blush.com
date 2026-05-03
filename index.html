@@ -1,37 +1,48 @@
-👉 DAS ist dein komplettes Design (deine Home Seite reinpacken!):
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>{{ page.title }}</title>
+<title>Bloom & Blush</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Jost&display=swap" rel="stylesheet">
-
-<style>
-body {
-  font-family: 'Jost', sans-serif;
-  margin: 0;
-  background: #fff;
-}
-
-/* NAV */
-nav {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  padding: 20px;
-}
-
-nav a {
-  text-decoration: none;
-  color: black;
-  font-weight: 500;
-}
-</style>
-
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="fashion.html">Fashion</a>
+  <a href="beauty.html">Beauty</a>
+  <a href="amazon.html">Amazon Picks</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<section class="hero">
+  <h1>Bloom & Blush ✨</h1>
+  <p>Where Beauty meets Style</p>
+</section>
+
+<section class="grid">
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b">
+    <div class="card-content">
+      <h3>Spring Fashion 2026</h3>
+      <a href="fashion.html" class="btn">Explore</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796">
+    <div class="card-content">
+      <h3>Beauty Secrets</h3>
+      <a href="beauty.html" class="btn">Discover</a>
+    </div>
+  </div>
+</section>
+
+</body>
 </html>
