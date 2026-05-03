@@ -1,4 +1,45 @@
 body {
-  font-family: Arial;
+  font-family: 'Jost', sans-serif;
+  margin: 0;
   background: #fff8f9;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background: white;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+.hero {
+  display: flex;
+  padding: 80px;
+  gap: 40px;
+}
+
+.hero img {
+  width: 300px;
+}
+
+.btn {
+  background: #c2185b;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+}
+
+.featured {
+  padding: 60px;
+}
+
+.post {
+  background: white;
+  padding: 20px;
+  margin-bottom: 20px;
 }
