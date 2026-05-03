@@ -1,32 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<title>Post</title>
+
 <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
 
-<div id="post"></div>
+<nav>
+  <a href="index.html">Bloom & Blush</a>
+</nav>
 
-<script>
-const params = new URLSearchParams(window.location.search);
-const id = params.get("id");
+<section class="hero">
+  <div id="post-container"></div>
+</section>
 
-fetch("data/posts.json")
-  .then(res => res.json())
-  .then(data => {
-    const post = data.find(p => p.id == id);
-
-    document.getElementById("post").innerHTML = `
-      <h1>${post.title}</h1>
-      <p>${post.content}</p>
-
-      <a href="${post.affiliate}" target="_blank">
-        Buy Product
-      </a>
-    `;
-  });
-</script>
+<script src="js/main.js"></script>
 
 </body>
 </html>
