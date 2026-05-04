@@ -256,46 +256,48 @@ nav a {
 
 @media (max-width: 768px) {
 
-  /* NAV FIX */
-  nav {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
-
-  nav a {
-    font-size: 16px;
-    padding: 12px 20px;
-    margin: 0;
-    width: 100%;
-    text-align: center;
-  }
-
-  /* HERO FIX */
+  /* HERO CLEAN */
   .hero {
-    padding: 40px 20px;
+    padding: 60px 20px 40px;
     text-align: center;
   }
 
-  .hero h1 {
-    font-size: 26px;
+  .hero-title {
+    font-size: 28px;
     line-height: 1.3;
   }
 
-  /* CONTENT FIX */
-  .grid {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+  .hero-title br {
+    display: none;
   }
 
-  /* CARD FIX */
-  .card {
-    padding: 16px;
+  .hero-desc {
+    font-size: 15px;
+    line-height: 1.5;
+    margin: 15px 0;
   }
 
-  img {
+  .hero-eyebrow {
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+
+  /* BUTTON = CONVERSION BOOST */
+  .btn-primary {
     width: 100%;
-    height: auto;
+    padding: 16px;
+    font-size: 16px;
+    border-radius: 12px;
+  }
+
+  /* SVG REDUZIEREN (WICHTIG) */
+  .hero svg {
+    display: none;
+  }
+
+  /* OPTIONAL: Background vereinfachen */
+  .hero-pattern,
+  .hero-overlay {
+    opacity: 0.3;
   }
 }
