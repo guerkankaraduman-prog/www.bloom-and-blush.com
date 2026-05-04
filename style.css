@@ -36,11 +36,13 @@ nav a {
 }
 
 .btn {
-  background: #ff4d88;
-  padding: 12px 25px;
+  background: black;
   color: white;
-  border-radius: 25px;
-  text-decoration: none;
+  border-radius: 30px;
+  padding: 14px 24px;
+  font-size: 15px;
+  display: inline-block;
+  margin-top: 20px;
 }
 
 /* FEED */
