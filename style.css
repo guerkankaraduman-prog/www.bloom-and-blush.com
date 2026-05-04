@@ -397,4 +397,85 @@ nav a {
   .about-image img {
     height: 260px;
   }
+  /* ===== TRUST SECTION ===== */
+
+.trust-section {
+  padding: 80px 20px;
+  background: #fff;
 }
+
+.trust-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* LEFT */
+.trust-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 40px;
+  margin: 15px 0;
+  color: #2b2b2b;
+}
+
+.trust-list {
+  list-style: none;
+  padding: 0;
+}
+
+.trust-list li {
+  margin-bottom: 12px;
+  font-size: 16px;
+  color: #444;
+}
+
+/* RIGHT */
+.review {
+  background: #fafafa;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.review p {
+  margin: 5px 0;
+  font-size: 15px;
+}
+
+.review span {
+  font-size: 13px;
+  color: #888;
+}
+
+/* CTA */
+.trust-cta {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.btn-primary {
+  background: #ff4d88;
+  color: #fff;
+  padding: 14px 30px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+.btn-primary:hover {
+  background: #e03e73;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .trust-container {
+    grid-template-columns: 1fr;
+  }
+
+  .trust-title {
+    font-size: 28px;
+  }
