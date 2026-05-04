@@ -134,6 +134,71 @@ nav a {
 .trust {
   margin-top: 10px;
   color: #777;
-}
   border-radius: 20px;
+}
+/* =========================
+   MOBILE FIX BLOOM & BLUSH
+========================= */
+
+@media (max-width: 768px) {
+
+  /* NAV */
+  header {
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+  }
+
+  nav a {
+    margin: 10px;
+  }
+
+  /* HERO */
+  .hero {
+    height: auto;
+    padding: 60px 20px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  /* FEED */
+  .feed {
+    padding: 30px 20px;
+  }
+
+  .feed-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* PRODUCTS */
+  .product-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .product-card img {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  /* BLOG */
+  .blog-grid {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  /* PRODUCT DETAIL */
+  .product-container {
+    flex-direction: column;
+    padding: 40px 20px;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .buy-big {
+    width: 100%;
+  }
+
 }
