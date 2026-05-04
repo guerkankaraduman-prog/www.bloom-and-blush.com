@@ -231,13 +231,20 @@ nav a {
 .bb-hamburger span { display:block;height:1.5px;background:#2A1F1A;border-radius:2px;width:100%; }
 .bb-hamburger span:nth-child(2) { width:70%; }
 
-.bb-drawer { 
-  position: fixed !important; 
-  transform: translateX(-100%) !important; 
-  z-index: 9999 !important;
+.bb-drawer {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #FDF9F7;
+  z-index: 9999;
+  flex-direction: column;
+  overflow-y: auto;
 }
-.bb-drawer.open { 
-  transform: translateX(0) !important; 
+.bb-drawer.open {
+  display: flex;
 }
 .bb-drawer-header { display:flex;justify-content:space-between;align-items:center;padding:14px 18px;border-bottom:.5px solid #E8D8D0;flex-shrink:0; }
 .bb-logo { font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:500;color:#2A1F1A; }
