@@ -350,7 +350,7 @@ nav a {
   .hero-overlay {
     opacity: 0.3;
   }
-  /* ABOUT FIX FINAL */
+ /* ===== ABOUT FINAL FIX ===== */
 
 .about-container {
   display: grid !important;
@@ -359,6 +359,13 @@ nav a {
   align-items: center;
 }
 
+/* KRITISCH: verhindert Grid-Break */
+.about-image,
+.about-text {
+  min-width: 0;
+}
+
+/* Bild bleibt sauber in Spalte */
 .about-image {
   grid-column: 1;
 }
@@ -370,7 +377,24 @@ nav a {
   display: block;
 }
 
+/* Text rechts */
 .about-text {
   grid-column: 2;
-  width: 100%;
+  max-width: 500px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .about-container {
+    grid-template-columns: 1fr !important;
+  }
+
+  .about-text,
+  .about-image {
+    grid-column: auto;
+  }
+
+  .about-image img {
+    height: 260px;
+  }
 }
