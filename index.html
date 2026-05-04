@@ -2025,20 +2025,14 @@ if (closeBtn) closeBtn.addEventListener('click', () => {
   drawer.style.display = 'none';
   document.body.style.overflow = '';
 });
-const origShowPage = window.showPage;
-window.showPage = function(page) {
-  if (drawer) {
-    drawer.classList.remove('open');
-    drawer.style.display = 'none';
-    document.body.style.overflow = '';
-  }
-  if (origShowPage) origShowPage(page);
-};
-const origShowPage = window.showPage;
-window.showPage = function(page) {
-  if (drawer) { drawer.classList.remove('open'); document.body.style.overflow = ''; }
-  if (origShowPage) origShowPage(page);
-};
+document.addEventListener('DOMContentLoaded', function() {
+  const origShowPage = window.showPage;
+  window.showPage = function(page) {
+    if (drawer) { drawer.classList.remove('open'); drawer.style.display = 'none'; document.body.style.overflow = ''; }
+    if (origShowPage) origShowPage(page);
+  };
+});
+
 // ─────────────────────
  
 // ── BLOG ARTICLES DATA ──
