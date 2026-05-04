@@ -309,6 +309,12 @@ nav a {
     margin: 15px 0;
   }
 
+  .hero-proof {
+  font-size: 12px;
+  color: #999;
+  margin-top: 12px;
+  letter-spacing: 0.3px;
+}
   .hero-eyebrow {
     font-size: 12px;
     letter-spacing: 1px;
