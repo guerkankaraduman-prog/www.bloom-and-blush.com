@@ -912,10 +912,35 @@
         <li><a onclick="showPage('about')" id="nav-about">About</a></li>
         <li><a onclick="showPage('contact')" id="nav-contact" class="nav-cta">Contact</a></li>
       </ul>
+
+           <button class="bb-icon-btn" id="menu-btn" aria-label="Menü öffnen">
+        <div class="bb-hamburger">
+          <span></span><span></span><span></span>
+        </div>
+      </button>
+
     </nav>
   </div>
 </header>
 
+  <!-- NEU: Mobile Drawer -->
+  <div class="bb-drawer" id="drawer">
+    <div class="bb-drawer-header">
+      <div class="bb-logo">Bloom <span>&</span> Blush</div>
+      <button class="bb-drawer-close" id="close-btn">✕</button>
+    </div>
+    <div class="bb-drawer-nav">
+      <div class="bb-drawer-item" onclick="showPage('fashion')">Fashion <span>→</span></div>
+      <div class="bb-drawer-item" onclick="showPage('beauty')">Beauty <span>→</span></div>
+      <div class="bb-drawer-item" onclick="showPage('amazon')">Amazon Picks <span>→</span></div>
+      <div class="bb-drawer-item" onclick="showPage('blog')">Blog <span>→</span></div>
+      <div class="bb-drawer-item" onclick="showPage('about')">About <span>→</span></div>
+      <div class="bb-drawer-item" onclick="showPage('contact')">Kontakt <span>→</span></div>
+    </div>
+  </div>
+
+  <!-- deine bestehende Zeile 919: <!-- ===================== -->
+  
 <!-- ═══════════════════════════════════════
      HOME PAGE
 ═══════════════════════════════════════ -->
@@ -1986,6 +2011,25 @@
 <div class="toast" id="toast"></div>
 
 <script>
+// ─── MOBILE DRAWER ───
+const menuBtn = document.getElementById('menu-btn');
+const closeBtn = document.getElementById('close-btn');
+const drawer = document.getElementById('drawer');
+if (menuBtn) menuBtn.addEventListener('click', () => {
+  drawer.classList.add('open');
+  document.body.style.overflow = 'hidden';
+});
+if (closeBtn) closeBtn.addEventListener('click', () => {
+  drawer.classList.remove('open');
+  document.body.style.overflow = '';
+});
+const origShowPage = window.showPage;
+window.showPage = function(page) {
+  if (drawer) { drawer.classList.remove('open'); document.body.style.overflow = ''; }
+  if (origShowPage) origShowPage(page);
+};
+// ─────────────────────
+ 
 // ── BLOG ARTICLES DATA ──
 const articles = [
   {
