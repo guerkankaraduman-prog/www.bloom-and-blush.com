@@ -2016,13 +2016,24 @@ const menuBtn = document.getElementById('menu-btn');
 const closeBtn = document.getElementById('close-btn');
 const drawer = document.getElementById('drawer');
 if (menuBtn) menuBtn.addEventListener('click', () => {
+  drawer.style.display = 'flex';
   drawer.classList.add('open');
   document.body.style.overflow = 'hidden';
 });
 if (closeBtn) closeBtn.addEventListener('click', () => {
   drawer.classList.remove('open');
+  drawer.style.display = 'none';
   document.body.style.overflow = '';
 });
+const origShowPage = window.showPage;
+window.showPage = function(page) {
+  if (drawer) {
+    drawer.classList.remove('open');
+    drawer.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+  if (origShowPage) origShowPage(page);
+};
 const origShowPage = window.showPage;
 window.showPage = function(page) {
   if (drawer) { drawer.classList.remove('open'); document.body.style.overflow = ''; }
