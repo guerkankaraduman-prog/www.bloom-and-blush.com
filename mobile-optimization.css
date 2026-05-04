@@ -1,0 +1,65 @@
+/* MOBILE OPTIMIERUNG */
+@media (max-width: 768px) {
+
+  /* NAVIGATION */
+  nav {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+    font-size: 28px;
+    cursor: pointer;
+  }
+
+  /* HEADER */
+  header {
+    padding: 10px 15px;
+  }
+
+  /* GRID → 1 SPALTE */
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr !important;
+    gap: 20px;
+    padding: 0 15px;
+  }
+
+  /* CARDS */
+  .card {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .card img {
+    width: 100%;
+    height: auto;
+  }
+
+  /* TEXT */
+  h1 {
+    font-size: 22px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  /* BUTTONS */
+  .btn {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 30px 15px;
+  }
+}
