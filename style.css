@@ -20,16 +20,19 @@ nav a {
 
 /* HERO */
 .hero {
-  height: 90vh;
-  background: linear-gradient(#ffe4ec, #fff);
+  min-height: 80vh; /* statt fixed height */
+  padding: 80px 20px 40px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
 }
 
-.hero h1 {
-  font-size: 3rem;
+.hero-title {
+  font-size: 32px;
+  font-weight: 400;
+  letter-spacing: -0.3px;
+  margin-bottom: 10px;
 }
 
 .btn {
