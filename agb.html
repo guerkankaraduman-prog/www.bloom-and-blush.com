@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AGB — Bloom & Blush</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,200;0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --rose:#c8607a;--rose-mid:#d4788e;--rose-light:#f5e8ec;
+  --rose-pale:#fdf5f7;--ink:#18080e;--muted:#8a6a76;
+  --border:#e8d5dc;--white:#fff;--grey:#f9f4f6;
+  --gold:#b8880a;--gold-light:#fff8e6;--gold-border:#f0d870;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;background:var(--rose-pale);color:var(--ink);line-height:1.7}
+
+/* ── TOP BAR ── */
+.topbar{
+  background:var(--ink);padding:10px 48px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.topbar-brand{font-family:'Cormorant Garamond',serif;font-size:1.1rem;letter-spacing:.12em;color:rgba(255,255,255,.45)}
+.topbar-r{display:flex;gap:16px;align-items:center}
+.topbar-pill{font-size:.46rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.08);padding:3px 12px;border-radius:20px}
+
+/* ── HERO ── */
+.hero{
+  background:linear-gradient(148deg,#fef0f3 0%,#f7e4ea 45%,#efd8e4 100%);
+  padding:64px 48px 56px;border-bottom:1px solid var(--border);
+  position:relative;overflow:hidden;
+}
+.hero::after{
+  content:'AGB';
+  position:absolute;right:-20px;top:50%;transform:translateY(-50%);
+  font-family:'Cormorant Garamond',serif;font-size:14rem;font-weight:200;
+  color:rgba(200,96,122,.04);letter-spacing:-.04em;
+  pointer-events:none;user-select:none;line-height:1;
+}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:.5rem;letter-spacing:.4em;text-transform:uppercase;
+  color:var(--rose);margin-bottom:16px;
+}
+.hero-tag::before,.hero-tag::after{content:'—';opacity:.35}
+.hero h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:3.8rem;font-weight:200;line-height:.95;
+  color:var(--ink);margin-bottom:14px;
+}
+.hero h1 em{font-style:italic;color:var(--rose);display:block}
+.hero-sub{font-size:.7rem;font-weight:300;color:var(--muted);letter-spacing:.04em;max-width:520px;line-height:1.8;margin-bottom:24px}
+.hero-meta{display:flex;flex-wrap:wrap;gap:7px}
+.hero-pill{font-size:.47rem;letter-spacing:.2em;text-transform:uppercase;padding:4px 14px;border-radius:20px;border:1px solid rgba(200,96,122,.2);color:var(--rose);background:rgba(200,96,122,.04)}
+
+/* ── TOC ── */
+.toc-wrap{max-width:880px;margin:38px auto 0;padding:0 24px}
+.toc{background:var(--white);border:1px solid var(--border);border-radius:3px;padding:26px 32px}
+.toc-label{font-size:.5rem;letter-spacing:.38em;text-transform:uppercase;color:var(--rose);margin-bottom:16px}
+.toc-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px 28px}
+.toc-a{
+  font-size:.67rem;font-weight:300;color:var(--muted);
+  text-decoration:none;padding:4px 0;
+  border-bottom:1px solid transparent;
+  transition:all .2s;display:flex;align-items:center;gap:7px;
+}
+.toc-a::before{content:'→';font-size:.48rem;color:var(--rose);opacity:.45;flex-shrink:0}
+.toc-a:hover{color:var(--rose);border-bottom-color:rgba(200,96,122,.12)}
+
+/* ── WRAP ── */
+.wrap{max-width:880px;margin:0 auto;padding:40px 24px 100px}
+
+/* ── CARD ── */
+.card{background:var(--white);border:1px solid var(--border);border-radius:3px;margin-bottom:20px;overflow:hidden}
+.card-head{
+  display:flex;align-items:center;gap:18px;
+  padding:18px 32px;
+  background:linear-gradient(135deg,#fdf0f3,#f8e6ee);
+  border-bottom:1px solid var(--border);
+}
+.card-n{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:200;color:rgba(200,96,122,.14);line-height:1;flex-shrink:0;width:52px}
+.card-tt{}
+.card-over{font-size:.44rem;letter-spacing:.38em;text-transform:uppercase;color:rgba(200,96,122,.4);margin-bottom:3px}
+.card-title{font-family:'Cormorant Garamond',serif;font-size:1.42rem;font-weight:300;color:var(--ink);line-height:1}
+.card-title em{font-style:italic;color:var(--rose)}
+.card-body{padding:26px 32px}
+
+/* ── TYPOGRAPHY ── */
+.card-body h3{
+  font-family:'Cormorant Garamond',serif;font-size:1.0rem;font-weight:400;color:var(--ink);
+  border-bottom:1px solid var(--border);padding-bottom:5px;margin:22px 0 9px;
+}
+.card-body h3:first-child{margin-top:0}
+.card-body p{font-size:.7rem;font-weight:300;color:#4a3040;line-height:1.88;margin-bottom:9px}
+.card-body p:last-child{margin-bottom:0}
+.card-body p strong{font-weight:500;color:var(--ink)}
+.card-body a{color:var(--rose);text-decoration:none}
+.card-body a:hover{text-decoration:underline}
+.card-body ul,.card-body ol{margin:6px 0 10px}
+.card-body ul{list-style:none}
+.card-body ul li{
+  font-size:.68rem;font-weight:300;color:#4a3040;
+  line-height:1.75;padding:2px 0 2px 16px;position:relative;
+}
+.card-body ul li::before{content:'–';position:absolute;left:0;color:var(--rose);opacity:.5}
+.card-body ol{list-style:none;counter-reset:ol}
+.card-body ol li{
+  counter-increment:ol;
+  font-size:.68rem;font-weight:300;color:#4a3040;
+  line-height:1.75;padding:3px 0 3px 26px;position:relative;
+}
+.card-body ol li::before{
+  content:counter(ol)".";
+  position:absolute;left:0;color:var(--rose);font-weight:500;
+  font-size:.6rem;top:5px;
+}
+
+/* ── BOXES ── */
+.box{padding:13px 18px;margin:12px 0;border-radius:2px;border-left:2px solid var(--rose);background:var(--rose-light)}
+.box p{font-size:.67rem;color:#5a253a;line-height:1.75;margin:0}
+.box p strong{color:var(--rose);font-weight:500}
+.box-gold{padding:13px 18px;margin:12px 0;border-radius:2px;border-left:2px solid var(--gold);background:var(--gold-light)}
+.box-gold p{font-size:.67rem;color:#5a4010;line-height:1.75;margin:0}
+.box-gold p strong{color:var(--gold);font-weight:500}
+.box-dark{padding:14px 20px;margin:12px 0;border-radius:2px;background:var(--ink)}
+.box-dark p{font-size:.67rem;color:rgba(255,255,255,.55);line-height:1.75;margin:0}
+.box-dark p strong{color:#e8c0d0;font-weight:400}
+
+/* ── KV TABLE ── */
+.kv{width:100%;border-collapse:collapse;margin:10px 0}
+.kv tr{border-bottom:1px solid var(--border)}
+.kv tr:last-child{border-bottom:none}
+.kv td{padding:9px 4px;font-size:.69rem;font-weight:300;color:#4a3040;vertical-align:top}
+.kv td:first-child{font-weight:500;color:var(--ink);width:190px;padding-right:16px;font-size:.65rem;letter-spacing:.03em}
+.kv td .ph{background:rgba(200,96,122,.06);border:1px dashed rgba(200,96,122,.2);border-radius:2px;padding:1px 8px;font-style:italic;color:var(--rose);font-size:.63rem}
+
+/* ── CHIP ROW ── */
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.chip{font-size:.46rem;letter-spacing:.16em;text-transform:uppercase;padding:4px 11px;border-radius:20px;border:1px solid var(--border);color:var(--muted);background:var(--grey)}
+.chip.r{border-color:rgba(200,96,122,.25);color:var(--rose);background:rgba(200,96,122,.04)}
+.chip.g{border-color:rgba(10,120,60,.2);color:#0a6030;background:rgba(10,120,60,.04)}
+
+/* ── PARA LABEL ── */
+.para{
+  display:flex;gap:14px;align-items:flex-start;
+  padding:10px 0;border-bottom:1px solid rgba(232,213,220,.5);
+}
+.para:last-child{border-bottom:none}
+.para-num{
+  font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:300;
+  color:rgba(200,96,122,.3);flex-shrink:0;width:36px;text-align:right;margin-top:1px;
+}
+.para-body{flex:1}
+.para-title{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);font-weight:500;margin-bottom:4px}
+.para-text{font-size:.68rem;font-weight:300;color:#4a3040;line-height:1.82}
+
+/* ── PLATFORM GRID ── */
+.plat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+.plat{background:var(--grey);border:1px solid var(--border);border-radius:2px;padding:12px 16px}
+.plat-name{font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:var(--rose);font-weight:500;margin-bottom:4px}
+.plat-info{font-size:.62rem;color:#5a3a48;font-weight:300;line-height:1.55}
+
+/* ── SECTION RULE ── */
+.section-rule{
+  text-align:center;margin:28px 0 22px;
+  font-size:.46rem;letter-spacing:.4em;text-transform:uppercase;color:rgba(200,96,122,.25);
+  position:relative;
+}
+.section-rule::before,.section-rule::after{
+  content:'';position:absolute;top:50%;
+  width:calc(50% - 70px);height:.5px;
+  background:var(--border);
+}
+.section-rule::before{left:0}.section-rule::after{right:0}
+
+/* ── ACTION BAR ── */
+.action-bar{
+  position:sticky;bottom:0;z-index:50;
+  background:rgba(253,245,247,.96);backdrop-filter:blur(12px);
+  border-top:1px solid var(--border);
+  padding:11px 32px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.action-note{font-size:.52rem;letter-spacing:.18em;color:var(--muted);text-transform:uppercase}
+.btns{display:flex;gap:8px}
+.btn{font-size:.52rem;letter-spacing:.2em;text-transform:uppercase;padding:9px 20px;border-radius:2px;cursor:pointer;border:none;transition:all .2s}
+.btn-outline{background:transparent;color:var(--rose);border:1px solid rgba(200,96,122,.3)}
+.btn-outline:hover{background:var(--rose-light)}
+.btn-solid{background:var(--rose);color:#fff}
+.btn-solid:hover{background:var(--rose-mid)}
+
+/* ── FOOTER ── */
+footer{text-align:center;padding:30px 24px;border-top:1px solid var(--border);background:var(--white);font-size:.55rem;letter-spacing:.15em;color:var(--muted);text-transform:uppercase;line-height:2}
+footer a{color:var(--rose);text-decoration:none}
+
+@media print{
+  .topbar,.action-bar{display:none}
+  body{background:#fff}
+  .wrap{max-width:100%;padding:20px}
+  .hero{padding:28px 24px}
+  .card{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-brand">Bloom &amp; Blush — Fashion &amp; Beauty</div>
+  <div class="topbar-r">
+    <div class="topbar-pill">AGB · § 305 BGB</div>
+    <div class="topbar-pill">Stand: Mai 2026</div>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">Allgemeine Geschäftsbedingungen</div>
+  <h1>AGB<em>bloom-and-blush.com</em></h1>
+  <p class="hero-sub">Diese Allgemeinen Geschäftsbedingungen regeln die Nutzung von bloom-and-blush.com sowie alle Leistungen im Bereich Affiliate-Marketing, Social-Media-Marketing und Online-Werbung. Bitte lies sie sorgfältig durch.</p>
+  <div class="hero-meta">
+    <div class="hero-pill">§ 305 BGB</div>
+    <div class="hero-pill">§ 5 TMG</div>
+    <div class="hero-pill">§§ 5a, 6 UWG</div>
+    <div class="hero-pill">DSGVO-konform</div>
+    <div class="hero-pill">Amazon PartnerNet</div>
+    <div class="hero-pill">MStV § 18</div>
+    <div class="hero-pill">Stand: 09.05.2026</div>
+  </div>
+</div>
+
+<!-- TOC -->
+<div class="toc-wrap">
+  <div class="toc">
+    <div class="toc-label">Inhaltsverzeichnis — 14 Abschnitte</div>
+    <div class="toc-grid">
+      <a class="toc-a" href="#s1">§ 1 · Geltungsbereich &amp; Betreiberin</a>
+      <a class="toc-a" href="#s8">§ 8 · Social-Media-Marketing</a>
+      <a class="toc-a" href="#s2">§ 2 · Leistungsangebot</a>
+      <a class="toc-a" href="#s9">§ 9 · Online-Werbung &amp; Tracking</a>
+      <a class="toc-a" href="#s3">§ 3 · Nutzungsbedingungen</a>
+      <a class="toc-a" href="#s10">§ 10 · Newsletter &amp; E-Mail-Marketing</a>
+      <a class="toc-a" href="#s4">§ 4 · Affiliate-Marketing</a>
+      <a class="toc-a" href="#s11">§ 11 · Urheberrecht &amp; Lizenzen</a>
+      <a class="toc-a" href="#s5">§ 5 · Amazon PartnerNet</a>
+      <a class="toc-a" href="#s12">§ 12 · Haftungsbeschränkung</a>
+      <a class="toc-a" href="#s6">§ 6 · Werbekennzeichnung</a>
+      <a class="toc-a" href="#s13">§ 13 · Datenschutz</a>
+      <a class="toc-a" href="#s7">§ 7 · Redaktionelle Unabhängigkeit</a>
+      <a class="toc-a" href="#s14">§ 14 · Schlussbestimmungen</a>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="wrap">
+
+  <!-- ══ § 1 GELTUNGSBEREICH ══ -->
+  <div class="card" id="s1">
+    <div class="card-head">
+      <div class="card-n">§1</div>
+      <div class="card-tt">
+        <div class="card-over">Geltungsbereich · Vertragsparteien</div>
+        <div class="card-title">Geltungsbereich &amp; <em>Betreiberin</em></div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="para">
+        <div class="para-num">1.1</div>
+        <div class="para-body">
+          <div class="para-title">Betreiberin</div>
+          <div class="para-text">Diese Allgemeinen Geschäftsbedingungen (nachfolgend „AGB") gelten für die gesamte Website <strong>bloom-and-blush.com</strong> sowie alle zugehörigen digitalen Angebote, die von der Betreiberin (nachfolgend „Bloom &amp; Blush", „wir" oder „uns") betrieben werden. Die Betreiberin ist erreichbar unter <strong>contact@bloom-and-blush.com</strong>. Die vollständigen Pflichtangaben gemäß § 5 TMG sind im Impressum auf bloom-and-blush.com/impressum einsehbar.</div>
+        </div>
+      </div>
+      <div class="para">
+        <div class="para-num">1.2</div>
+        <div class="para-body">
+          <div class="para-title">Geltungsbereich</div>
+          <div class="para-text">Diese AGB gelten für alle Nutzerinnen und Nutzer, die bloom-and-blush.com besuchen, den Newsletter abonnieren, auf Affiliate-Links klicken, Werbeanzeigen wahrnehmen oder anderweitig mit dem digitalen Angebot von Bloom &amp; Blush interagieren. Mit der Nutzung der Website erkennst du diese AGB an.</div>
+        </div>
+      </div>
+      <div class="para">
+        <div class="para-num">1.3</div>
+        <div class="para-body">
+          <div class="para-title">Änderungen der AGB</div>
+          <div class="para-text">Bloom &amp; Blush behält sich das Recht vor, diese AGB jederzeit zu aktualisieren. Wesentliche Änderungen werden auf der Website angekündigt. Das Datum der letzten Aktualisierung ist stets am Ende dieses Dokuments angegeben. Die weitere Nutzung der Website nach einer Änderung gilt als Zustimmung zu den geänderten Bedingungen.</div>
+        </div>
+      </div>
+      <div class="para">
+        <div class="para-num">1.4</div>
+        <div class="para-body">
+          <div class="para-title">Anwendbares Recht</div>
+          <div class="para-text">Es gilt ausschließlich <strong>deutsches Recht</strong> unter Ausschluss des UN-Kaufrechts (CISG). Verbraucherinnen und Verbraucher mit Wohnsitz in der EU können sich auf zwingende Verbraucherschutzvorschriften ihres Heimatstaates berufen.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ § 2 LEISTUNGSANGEBOT ══ -->
+  <div class="card" id="s2">
+    <div class="card-head">
+      <div class="card-n">§2</div>
+      <div class="card-tt">
+        <div class="card-over">Angebot · Inhalt · Redaktion</div>
+        <div class="card-title">Leistungs<em>angebot</em></div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="para">
+        <div class="para-num">2.1</div>
+        <div class="para-body">
+          <div class="para-title">Art des Angebots</div>
+          <div class="para-text">Bloom &amp; Blush ist ein redaktionell betriebenes <strong>Fashion- und Beauty-Onlinemagazin</strong> mit kuratierten Produktempfehlungen, Trend-Guides, Beauty-Tutorials und Lifestyle-Inhalten. Das Angebot umfasst die Website bloom-and-blush.com, einen wöchentlichen Newsletter sowie Social-Media-Kanäle auf Instagram, Pinterest, TikTok, Facebook und YouTube.</div>
+        </div>
+      </div>
+      <div class="para">
+        <div class="para-num">2.2</div>
+        <div class="para-body">
+          <div class="para-title">Kostenfreiheit</div>
+          <div class="para-text">Die Nutzung von bloom-and-blush.com ist für Besucherinnen und Besucher grundsätzlich <strong>kostenlos</strong>. Bloom &amp; Blush finanziert sich durch Affiliate-Provisionen, Werbeanzeigen und bezahlte Kooperationen mit Marken, die gemäß § 6 dieser AGB transparent gekennzeichnet werden.</div>
+        </div>
+      </div>
+      <div class="para">
+        <div class="para-num">2.3</div>
+        <div class="para-body">
+          <div class="para-title">Verfügbarkeit</div>
+          <div class="para-text">Bloom &amp; Blush strebt eine möglichst hohe Verfügbarkeit der Website an, übernimmt jedoch keine Garantie für eine ununterbrochene Erreichbarkeit. Wartungsarbeiten, technische Störungen oder höhere Gewalt können die Verfügbarkeit temporär einschränken. Ansprüche aus einer vorübergehenden Nichtverfügbarkeit sind ausgeschlossen.</div>
+        </div>
+      </div>
+      <div class="para">
+        <div class="para-num">2.4</div>
+        <div class="para-body">
+          <div class="para-title">Änderung des Angebots</div>
+          <div class="para-text">Bloom &amp; Blush behält sich vor, das Angebot jederzeit zu erweitern, einzuschränken oder vollständig einzustellen. Ein Rechtsanspruch auf Fortführung bestimmter Inhalte oder Dienste besteht nicht.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ § 3 NUTZUNGSBEDINGUNGEN ══ -->
+  <div class="card" id="s3">
+    <div class="card-head">
+      <div class="card-n">§3</div>
+      <div class="card-tt">
+        <div class="card-over">Pflichten · Verbote · Verhalten</div>
+        <div class="card-title">Nutzungs<em>bedingungen</em></div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="para">
+        <div class="para-num">3.1</div>
+        <div class="para-body">
+          <div class="para-title">Erlaubte Nutzung</div>
+          <div class="para-text">Die Inhalte von bloom-and-blush.com dürfen ausschließlich für <strong>private, nicht-kommerzielle Zwecke</strong> genutzt werden. Das Lesen, Teilen und Verlinken von Artikeln ist erlaubt, sofern die Quelle korrekt angegeben wird. Jede weitergehende Nutzung bedarf der ausdrücklichen schriftlichen Zustimmung von Bloom &amp; Blush.</div>
+        </div>
+      </div>
+      <div class="para">
+        <div class="para-num">3.2</div>
+        <div class="para-body">
+          <div class="para-title">Verbotene Handlungen</div>
+          <div class="para-text">Folgende Handlungen sind untersagt:</div>
+        </div>
+      </div>
+      <ul>
+        <li>Systematisches Scraping, Crawling oder automatisiertes Auslesen von Inhalten ohne Genehmigung</li>
+        <li>Verbreitung von Inhalten, die gegen deutsches Recht, die guten Sitten oder Rechte Dritter verstoßen</li>
+        <li>Kommerzielles Nachahmen, Kopieren oder Weiterverkaufen von Inhalten ohne Lizenz</li>
+        <li>Manipulation von Tracking-Parametern in Affiliate-Links (Cookie-Stuffing, Link-Hijacking)</li>
+        <li>Einbinden der Website in Frames ohne Genehmigung (Framing)</li>
+        <li>Angriffe auf die technische Infrastruktur (DDoS, SQL-Injection etc.)</li>
+        <li>Missbrauch von Kontaktformularen oder Newsletter-Anmeldungen für Spam</li>
+      </ul>
+      <div class="para">
+        <div class="para-num">3.3</div>
+        <div class="para-body">
+          <div class="para-title">Folgen bei Verstößen</div>
+          <div class="para-text">Bei Verstößen gegen diese Nutzungsbedingungen behält sich Bloom &amp; Blush vor, den Zugriff auf die Website zu sperren, rechtliche Schritte einzuleiten und Schadensersatz geltend zu machen.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-rule">Affiliate &amp; Werbung</div>
+
+  <!-- ══ § 4 AFFILIATE-MARKETING ══ -->
+  <div class="card" id="s4">
+    <div class="card-head">
+      <div class="card-n">§4</div>
+      <div class="card-tt">
+        <div class="card-over">Partnerprogramme · Provisionen · Kennzeichnung</div>
+        <div class="card-title">Affiliate-<em>Marketing</em></div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="para">
+        <div class="para-num">4.1</div>
+        <div class="para-body">
+          <div class="para-title">Definition Affiliate-Marketing</div>
+          <div class="para-text">Bloom &amp; Blush nimmt an <strong>Affiliate-Partnerprogrammen</strong> teil. Dabei werden auf der Website Links zu externen Online-Shops und Produktanbietern platziert. Kauft eine Nutzerin oder ein Nutzer über einen solchen Link ein Produkt, erhält Bloom &amp; Blush vom Anbieter eine <strong>Provision (Werbekostenerstattung)</strong>. Für die Nutzerin bzw. den Nutzer entstehen dabei <strong>keinerlei Mehrkosten</strong> — der Kaufpreis ist identisch mit dem regulären Preis.</div>
+        </div>
+      </div>
+      <div class="para">
+        <div class="para-num">4.2</div>
+        <div class="para-body">
+          <div class="para-title">Teilnehmende Netzwerke</div>
+          <div class="para-text">Bloom &amp; Blush kann an folgenden Affiliate-Netzwerken und Direktprogrammen teilnehmen:</div>
+        </div>
+      </div>
+      <ul>
+        <li><strong>Amazon PartnerNet (EU)</strong> — Hauptprogramm für Produktempfehlungen (Details in § 5)</li>
+        <li><strong>AWIN / Zanox</strong> — Mode, Beauty, Lifestyle</li>
+        <li><strong>ShareASale</strong> — internationale Beauty- und Fashion-Brands</li>
+        <li><strong>LTK / LikeToKnow.it</strong> — kuratierte Shopping-Empfehlungen</li>
+        <li><strong>Rakuten Advertising</strong> — Premium-Marken-Partnerschaften</li>
+        <li><strong>Direkte Affiliate-Vereinbarungen</strong> mit einzelnen Marken</li>
+      </ul>
+      <div class="para">
+        <div class="para-num">4.3</div>
+        <div class="para-body">
+          <div class="para-title">Tracking-Technologie</div>
+          <div class="para-text">Affiliate-Links enthalten technische Parameter (UTM-Tags, Tracking-Codes), die es dem jeweiligen Netzwerk ermöglichen, einen Kauf dem entsprechenden Link zuzuordnen. Hierfür werden in der Regel <strong>Cookies</strong> auf dem Endgerät der Nutzerin bzw. des Nutzers gesetzt. Die Cookie-Laufzeit variiert je nach Netzwerk (Amazon: 24 Stunden; andere: 30–90 Tage). Die Nutzung von Affiliate-Links ist freiwillig. Das Setzen von Affiliate-Cookies erfolgt nur, wenn die Nutzerin bzw. der Nutzer aktiv auf den Link klickt.</div>
+        </div>
+      </div>
+      <div class="para">
+        <div class="para-num">4.4</div>
+        <div class="para-body">
+          <div class="para-title">Keine Beeinflussung der Empfehlungen</div>
+          <div class="para-text">Die Entscheidung, welche Produkte empfohlen werden, liegt ausschließlich bei der Redaktion von Bloom &amp; Blush. Die Höhe einer möglichen Provision hat <strong>keinen Einfluss</strong> auf die Auswahl oder Bewertung von Produkten. Produkte, die wir nicht für empfehlenswert halten, werden auch dann nicht empfohlen, wenn eine Affiliate-Vergütung möglich wäre.</div>
+        </div>
+      </div>
+      <div class="box">
+        <p><strong>Dein Vorteil:</strong> Du profitierst von unserer redaktionellen Recherche und Kuratierung — ohne Mehrkosten. Durch den Kauf über unsere Affiliate-Links unterstützt du gleichzeitig die kostenlose Verfügbarkeit unserer Inhalte. Danke dafür.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ § 5 AMAZON PARTNERNET ══ -->
+  <div class="card" id="s5">
+    <div class="card-head">
+      <div class="card-n">§5</div>
+      <div class="card-tt">
+        <div class="card-over">Pflichthinweis · Amazon EU</div>
+        <div class="card-title">Amazon <em>PartnerNet</em></div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="box-gold">
+        <p><strong>Gesetzlicher Pflichthinweis:</strong> Bloom &amp; Blush ist Teilnehmerin des Partnerprogramms von Amazon Europe S.à r.l. und verdient an qualifizierten Verkäufen Werbekostenerstattungen. <strong>Amazon, das Amazon-Logo, AmazonSmile und das AmazonSmile-Logo sind eingetragene Warenzeichen von Amazon.com, Inc. oder einer seiner verbundenen Gesellschaften.</strong></p>
+      </div>
+      <div class="para">
+        <div class="para-num">5.1</div>
+        <div class="para-body">
+          <div class="para-title">Programmbeschreibung</div>
+          <div class="para-text">Das Amazon PartnerNet ist ein Affiliate-Werbeprogramm von <strong>Amazon Europe Core S.à r.l., 38 avenue John F. Kennedy, L-1855 Luxemburg</strong>. Es ermöglicht Websitebetreiberinnen und -betreibern, durch das Einbinden von Amazon-Produktlinks eine Provision auf qualifizierte Käufe zu erhalten.</div>
+        </div>
+      </div>
+      <div class="para">
+        <div class="para-num">5.2</div>
+        <div class="para-body">
+          <div class="para-title">Kennzeichnung von Amazon-Links</div>
+          <div class="para-text">Alle Amazon-Affiliate-Links auf bloom-and-blush.com sind wie folgt gekennzeichnet:</div>
+        </div>
+      </div>
+      <div class="chips">
+        <div class="chip r">Sternchen * nach dem Produktnamen</div>
+        <div class="chip r">Zusatz „[Werbung]" oder „[Affiliate-Link]"</div>
+        <div class="chip r">Hinweis „Jetzt bei Amazon kaufen *"</div>
+        <div class="chip r">Texthinweis am Artikelende / -anfang</div>
+      </div>
+      <div class="para">
+        <div class="para-num">5.3</div>
+        <div class="para-body">
+          <div class="para-title">Amazon Datenschutz &amp; Cookies</div>
+          <div class="para-text">Beim Klick auf einen Amazon-Affiliate-Link wird ein Cookie mit einer Laufzeit von <strong>24 Stunden</strong> gesetzt, das Amazon ermöglicht, einen Kauf dem jeweiligen Affiliate-Link zuzuordnen. Die Datenverarbeitung durch Amazon erfolgt gemäß der Datenschutzerklärung von Amazon: <a href="https://www.amazon.de/gp/help/customer/display.html?nodeId=201909010" target="_blank">amazon.de/datenschutz</a>.</div>
+        </div>
+      </div>
+      <div class="para">
+        <div class="para-num">5.4</div>
+        <div class="para-body">
+          <div class="para-title">Preisangaben</div>
+          <div class="para-text">Preisangaben auf bloom-and-blush.com für Amazon-Produkte sind zum Zeitpunkt der Erstellung des jeweiligen Artikels korrekt. Amazon-Preise können sich jederzeit ändern. Der tatsächliche Preis wird stets auf der Amazon-Produktseite angezeigt. Bloom &amp; Blush übernimmt keine Haftung für Preisänderungen nach Veröffentlichung eines Beitrags.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ § 6 WERBEKENNZEICHNUNG ══ -->
+  <div class="card" id="s6">
+    <div class="card-head">
+      <div class="card-n">§6</div>
+      <div class="card-tt">
+        <div class="card-over">§§ 5a, 6 UWG · MStV · Richtlinien der Landesmedienanstalten</div>
+        <div class="card-title">Werbe<em>kennzeichnung</em></div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="para">
+        <div class="para-num">6.1</div>
+        <div class="para-body">
+          <div class="para-title">Kennzeichnungspflicht</div>
+          <div class="para-text">Bloom &amp; Blush kennzeichnet alle kommerziell beeinflussten Inhalte transparent und unmissverständlich gemäß den Anforderungen des <strong>§ 5a UWG</strong> (Irreführung durch Unterlassen), <strong>§ 6 UWG</strong> (verbotene Handlungen gegenüber Verbrauchern), der <strong>Richtlinien der deutschen Landesmedienanstalten zur Werbekennzeichnung</strong> (Stand 2025) und des <strong>Medienstaatsvertrags (MStV)</strong>.</div>
+        </div>
+      </div>
+      <div class="para">
+        <div class="para-num">6.2</div>
+        <div class="para-body">
+          <div class="para-title">Kennzeichnungspflichtige Inhalte</div>
+          <div class="para-text">Folgende Inhalte werden stets als Werbung gekennzeichnet:</div>
+        </div>
+      </div>
+      <ul>
+        <li>Alle Beiträge, für die eine <strong>Geldleistung</strong> empfangen wurde</li>
+        <li>Beiträge über Produkte, die <strong>kostenlos zur Verfügung gestellt</strong> wurden</li>
+        <li>Inhalte, für die <strong>Rabatte, Freikarten, Reisen oder andere Vorteile</strong> gewährt wurden</li>
+        <li>Alle <strong>Affiliate-Links</strong> (gekennzeichnet mit * oder „Werbung")</li>
+        <li><strong>Eigenwerbung</strong> für eigene Produkte oder Dienstleistungen</li>
+        <li><strong>Sponsored Posts</strong> auf Social-Media-Kanälen von Bloom &amp; Blush</li>
+      </ul>
+      <div class="para">
+        <div class="para-num">6.3</div>
+        <div class="para-body">
+          <div class="para-title">Kennzeichnungsform</div>
+          <div class="para-text">Die Kennzeichnung erfolgt stets am <strong>Anfang des Beitrags</strong>, vor dem ersten kommerziell beeinflussten Inhalt, in einer Schriftgröße und Farbe, die ohne weiteres Scrollen sichtbar ist. Auf Social Media erfolgt die Kennzeichnung im <strong>ersten sichtbaren Teil des Beitrags</strong> — nicht am Ende.</div>
+        </div>
+      </div>
+      <div class="para">
+        <div class="para-num">6.4</div>
+        <div class="para-body">
+          <div class="para-title">Verwendete Kennzeichnungen</div>
+          <div class="para-text">Bloom &amp; Blush verwendet folgende standardisierte Kennzeichnungen:</div>
+        </div>
+      </div>
+      <div class="chips">
+        <div class="chip r">WERBUNG</div>
+        <div class="chip r">ANZEIGE</div>
+        <div class="chip r">* Affiliate-Link</div>
+        <div class="chip r">In Kooperation mit [Marke]</div>
+        <div class="chip r">Paid Partnership</div>
+        <div class="chip r">Produkt erhalten / PR-Sample</div>
+        <div class="chip r">#ad</div>
+        <div class="chip r">#werbung</div>
+        <div class="chip r">#sponsored</div>
+        <div class="chip g">Keine Kennzeichnung = selbst gekauft &amp; keine Vergütung</div>
+      </div>
+      <div class="para">
+        <div class="para-num">6.5</div>
+        <div class="para-body">
+          <div class="para-title">Nicht kennzeichnungspflichtige Inhalte</div>
+          <div class="para-text">Produkte und Marken, die Bloom &amp; Blush <strong>auf eigene Kosten gekauft</strong> und ohne jegliche Gegenleistung vorstellt, sind nicht kennzeichnungspflichtig, sofern die Darstellung rein redaktionell und nicht übertrieben werblich ist. Dies entspricht der aktuellen Rechtsprechung des BGH und den Richtlinien der Landesmedienanstalten.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ § 7 REDAKTIONELLE UNABHÄNGIGKEIT ══ -->
+  <div class="card" id="s7">
+    <div class="card-head">
+      <div class="card-n">§7</div>
+      <div class="card-tt">
+        <div class="card-over">Redaktion · Meinungsfreiheit · Trennung</div>
+        <div class="card-title">Redaktionelle <em>Unabhängigkeit</em></div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="para">
+        <div class="para-num">7.1</div>
+        <div class="para-body">
+          <div class="para-title">Grundsatz der Trennung</div>
+          <div class="para-text">Bloom &amp; Blush hält strikt den Grundsatz der <strong>Trennung von redaktionellen Inhalten und Werbung</strong> ein. Kein Unternehmen kann durch Zahlungen oder andere Zuwendungen redaktionelle Inhalte kaufen, steuern oder beeinflussen. Die redaktionelle Entscheidungshoheit liegt ausschließlich bei der Redaktion von Bloom &amp; Blush.</div>
+        </div>
+      </div>
+      <div class="para">
+        <div class="para-num">7.2</div>
+        <div class="para-body">
+          <div class="para-title">Negative Bewertungen &amp; Kritik</div>
+          <div class="para-text">Bloom &amp; Blush behält sich ausdrücklich das Recht vor, Produkte und Marken auch <strong>negativ zu bewerten</strong> oder nicht zu empfehlen, unabhängig davon, ob ein Affiliate-Verhältnis besteht oder eine Kooperation angeboten wird. Negative Erfahrungen werden ehrlich kommuniziert.</div>
+        </div>
+      </div>
+      <div class="para">
+        <div class="para-num">7.3</div>
+        <div class="para-body">
+          <div class="para-title">Sponsored Content</div>
+          <div class="para-text">Bei bezahlten Kooperationen (Sponsored Content) behält sich Bloom &amp; Blush das Recht vor, die endgültige Gestaltung und den Inhalt des Beitrags zu bestimmen. Kooperationspartner erhalten <strong>kein Recht auf Zensur, Vorabgenehmigung oder inhaltliche Änderung</strong> nach Veröffentlichung, es sei denn, sachliche Fehler sind zu korrigieren.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-rule">Social Media &amp; Online-Werbung</div>
+
+  <!-- ══ § 8 SOCIAL-MEDIA-MARKETING ══ -->
+  <div class="card" id="s8">
+    <div class="card-head">
+      <div class="card-n">§8</div>
+      <div class="card-tt">
+        <div class="card-over">Plattformen · Influencer · Kennzeichnung</div>
+        <div class="card-title">Social-Media-<em>Marketing</em></div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="para">
+        <div class="para-num">8.1</div>
+        <div class="para-body">
+          <div class="para-title">Betriebene Kanäle</div>
+          <div class="para-text">Bloom &amp; Blush betreibt Unternehmens- und Creator-Profile auf den folgenden Social-Media-Plattformen. Für diese Profile gelten ergänzend die jeweiligen Nutzungsbedingungen und Datenschutzrichtlinien der Plattformbetreiber:</div>
+        </div>
+      </div>
+      <div class="plat-grid">
+        <div class="plat">
+          <div class="plat-name">Instagram</div>
+          <div class="plat-info">Meta Platforms Ireland Ltd., Dublin 2, Irland. Bezahlte Kooperationen: Pflichtlabel „Bezahlte Partnerschaft" + #Werbung #Anzeige.</div>
+        </div>
+        <div class="plat">
+          <div class="plat-name">Pinterest</div>
+          <div class="plat-info">Pinterest Europe Ltd., Dublin 2, Irland. Affiliate-Pins gemäß Pinterest-Richtlinien gekennzeichnet. Promoted Pins als Werbung markiert.</div>
+        </div>
+        <div class="plat">
+          <div class="plat-name">TikTok</div>
+          <div class="plat-info">TikTok Technology Ltd., Dublin 2, Irland. Bezahlte Inhalte: TikTok-eigene „Bezahlte Partnerschaft"-Funktion + #Werbung #Ad.</div>
+        </div>
+        <div class="plat">
+          <div class="plat-name">Facebook</div>
+          <div class="plat-info">Meta Platforms Ireland Ltd., Dublin 2. Werbeanzeigen über Meta Ads Manager; automatische Kennzeichnung als „Gesponsert".</div>
+        </div>
+        <div class="plat">
+          <div class="plat-name">YouTube</div>
+          <div class="plat-info">Google Ireland Ltd., Dublin 4. Gesponserter Content: Pflichthinweis im Intro, in der Videobeschreibung und via YouTube-Creator-Studio-Funktion.</div>
+        </div>
+        <div class="plat">
+          <div class="plat-name">Newsletter</div>
+          <div class="plat-info">Bloom &amp; Blush, bloom-and-blush.com. Double-Opt-In; Abmeldung jederzeit. Affiliate-Links im Newsletter: Kennzeichnung mit *.</div>
+        </div>
+      </div>
+      <div class="para">
+        <div class="para-num">8.2</div>
+        <div class="para-body">
+          <div class="para-title">Influencer-Kennzeichnung</div>
+          <div class="para-text">Bloom &amp; Blush hält sich an die <strong>Leitlinien der Landesmedienanstalten zur Werbekennzeichnung im Influencer-Marketing</strong> sowie den Leitfaden der Bundeszentrale für Medien und Kommunikation. Die Kennzeichnungspflicht gilt für alle Gegenleistungen: Geld, Produkte, Einladungen, Rabatte oder andere geldwerte Vorteile — unabhängig von der Plattform und der Art des Inhalts (Feed, Story, Reel, Short, Video).</div>
+        </div>
+      </div>
+      <div class="para">
+        <div class="para-num">8.3</div>
+        <div class="para-body">
+          <div class="para-title">Nutzergenerierte Inhalte &amp; Kommentare</div>
+          <div class="para-text">Bloom &amp; Blush ist nicht verantwortlich für Kommentare, Nachrichten oder Beiträge, die Dritte auf unseren Social-Media-Kanälen veröffentlichen. Rechtswidrige, beleidigende oder diskriminierende Inhalte werden unverzüglich entfernt. Meldungen bitte an <a href="mailto:contact@bloom-and-blush.com">contact@bloom-and-blush.com</a>.</div>
+        </div>
+      </div>
+      <div class="para">
+        <div class="para-num">8.4</div>
+        <div class="para-body">
+          <div class="para-title">Haftung für externe Plattformen</div>
+          <div class="para-text">Bloom &amp; Blush hat keinen Einfluss auf die Datenverarbeitungspraktiken der betriebenen Social-Media-Plattformen. Für die Verarbeitung personenbezogener Daten durch Meta, TikTok, Pinterest, Google und andere Plattformbetreiber sind diese selbst verantwortlich. Wir empfehlen, die jeweiligen Datenschutzeinstellungen der Plattformen zu nutzen.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ § 9 ONLINE-WERBUNG ══ -->
+  <div class="card" id="s9">
+    <div class="card-head">
+      <div class="card-n">§9</div>
+      <div class="card-tt">
+        <div class="card-over">Tracking · Retargeting · Opt-out</div>
+        <div class="card-title">Online-<em>Werbung</em></div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="para">
+        <div class="para-num">9.1</div>
+        <div class="para-body">
+          <div class="para-title">Werbeanzeigen auf der Website</div>
+          <div class="para-text">Auf bloom-and-blush.com können <strong>Werbeanzeigen Dritter</strong> erscheinen. Diese sind stets durch die Beschriftung „<strong>Anzeige</strong>" klar von redaktionellen Inhalten getrennt und optisch unterscheidbar. Bloom &amp; Blush übernimmt keine Haftung für Inhalte oder Angebote externer Werbetreibender.</div>
+        </div>
+      </div>
+      <div class="para">
+        <div class="para-num">9.2</div>
+        <div class="para-body">
+          <div class="para-title">Eingesetzte Werbetechnologien</div>
+          <div class="para-text">Bloom &amp; Blush kann folgende Technologien einsetzen — jeweils nur nach Einholung deiner Einwilligung über das Cookie-Banner:</div>
+        </div>
+      </div>
+      <table class="kv">
+        <tr><td>Google Analytics 4</td><td>Anonymisierte Websiteanalyse; IP-Anonymisierung aktiv; Betreiber: Google Ireland Ltd.</td></tr>
+        <tr><td>Google Ads</td><td>Bezahlte Suchanzeigen &amp; Display-Kampagnen zur Reichweitengewinnung</td></tr>
+        <tr><td>Meta Pixel</td><td>Conversion-Tracking für Facebook/Instagram-Kampagnen; nur nach Einwilligung</td></tr>
+        <tr><td>Pinterest Tag</td><td>Conversion-Tracking für Pinterest Ads; nur nach Einwilligung</td></tr>
+        <tr><td>Retargeting</td><td>Personalisierte Werbung für frühere Seitenbesucher; nur nach Einwilligung</td></tr>
+        <tr><td>Amazon Native Ads</td><td>Produktanzeigen im Rahmen des Amazon PartnerNet; Kennzeichnung mit *</td></tr>
+      </table>
+      <div class="para">
+        <div class="para-num">9.3</div>
+        <div class="para-body">
+          <div class="para-title">Opt-out-Rechte</div>
+          <div class="para-text">Du hast das Recht, personalisierter Werbung jederzeit zu widersprechen. Nutze dafür folgende Möglichkeiten:</div>
+        </div>
+      </div>
+      <ul>
+        <li><strong>Cookie-Einstellungen</strong> auf bloom-and-blush.com — jederzeit anpassbar</li>
+        <li><strong>youronlinechoices.eu</strong> — zentrales Opt-out für alle teilnehmenden Netzwerke</li>
+        <li><strong>adssettings.google.com</strong> — Google-spezifische Werbeeinstellungen</li>
+        <li><strong>facebook.com/ads/preferences</strong> — Meta-Werbeeinstellungen</li>
+        <li><strong>pinterest.de/settings/privacy</strong> — Pinterest-Datenschutzeinstellungen</li>
+      </ul>
+      <div class="box">
+        <p><strong>Transparenzgrundsatz:</strong> Bloom &amp; Blush verkauft <strong>keine redaktionellen Inhalte</strong>. Werbliche Inhalte sind ausnahmslos gekennzeichnet. Tracking-Technologien werden ausschließlich mit deiner Einwilligung aktiviert. Du kannst deine Einwilligung jederzeit über das Cookie-Banner widerrufen.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ § 10 NEWSLETTER ══ -->
+  <div class="card" id="s10">
+    <div class="card-head">
+      <div class="card-n">§10</div>
+      <div class="card-tt">
+        <div class="card-over">Double Opt-In · Abmeldung · Widerspruch</div>
+        <div class="card-title">Newsletter &amp; <em>E-Mail</em></div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="para">
+        <div class="para-num">10.1</div>
+        <div class="para-body">
+          <div class="para-title">Newsletter-Anmeldung (Double Opt-In)</div>
+          <div class="para-text">Der Newsletter von Bloom &amp; Blush erscheint wöchentlich (freitags) und enthält Fashion-Trends, Beauty-Tipps, kuratierte Produktempfehlungen und exklusive Insider-Informationen. Die Anmeldung erfolgt ausschließlich im <strong>Double-Opt-In-Verfahren</strong> gemäß § 7 Abs. 2 Nr. 3 UWG: Nach der Anmeldung erhältst du eine Bestätigungs-E-Mail mit Aktivierungslink. Erst nach Bestätigung wirst du in die Empfängerliste aufgenommen.</div>
+        </div>
+      </div>
+      <div class="para">
+        <div class="para-num">10.2</div>
+        <div class="para-body">
+          <div class="para-title">Werblicher Inhalt</div>
+          <div class="para-text">Der Newsletter kann <strong>Affiliate-Links</strong> (gekennzeichnet mit *) sowie Hinweise auf bezahlte Kooperationen enthalten. Diese sind stets klar als solche erkennbar. Die redaktionellen Empfehlungen im Newsletter sind unabhängig von möglichen Affiliate-Vergütungen.</div>
+        </div>
+      </div>
+      <div class="para">
+        <div class="para-num">10.3</div>
+        <div class="para-body">
+          <div class="para-title">Abmeldung &amp; Widerruf</div>
+          <div class="para-text">Du kannst den Newsletter <strong>jederzeit und ohne Angabe von Gründen</strong> abbestellen — durch Klick auf den Abmeldelink am Ende jeder E-Mail oder per E-Mail an contact@bloom-and-blush.com. Deine Daten werden nach der Abmeldung unverzüglich und vollständig aus der Empfängerliste gelöscht. Eine Abmeldung hat keinerlei nachteilige Folgen.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-rule">Rechte &amp; Haftung</div>
+
+  <!-- ══ § 11 URHEBERRECHT ══ -->
+  <div class="card" id="s11">
+    <div class="card-head">
+      <div class="card-n">§11</div>
+      <div class="card-tt">
+        <div class="card-over">Schutzrechte · Lizenzen · Nutzungsrechte</div>
+        <div class="card-title">Urheberrecht &amp; <em>Lizenzen</em></div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="para">
+        <div class="para-num">11.1</div>
+        <div class="para-body">
+          <div class="para-title">Schutz der Inhalte</div>
+          <div class="para-text">Alle Inhalte auf bloom-and-blush.com — insbesondere Texte, Fotos, Grafiken, Illustrationen, Videos, Logos und das Gesamtdesign — sind urheberrechtlich geschützt. Das Urheberrecht liegt bei Bloom &amp; Blush oder den jeweiligen Inhabern, die Bloom &amp; Blush die entsprechenden Nutzungsrechte eingeräumt haben.</div>
+        </div>
+      </div>
+      <div class="para">
+        <div class="para-num">11.2</div>
+        <div class="para-body">
+          <div class="para-title">Erlaubte Nutzung</div>
+          <div class="para-text">Das Teilen von Artikeln über Social-Media-Buttons oder das Verlinken auf bloom-and-blush.com ist ausdrücklich gestattet, sofern die Quelle korrekt angegeben wird. Die Nutzung für private, nicht-kommerzielle Zwecke ist erlaubt.</div>
+        </div>
+      </div>
+      <div class="para">
+        <div class="para-num">11.3</div>
+        <div class="para-body">
+          <div class="para-title">Verbotene Nutzung</div>
+          <div class="para-text">Ohne ausdrückliche schriftliche Genehmigung von Bloom &amp; Blush ist es untersagt, Inhalte zu vervielfältigen, zu bearbeiten, zu verbreiten, zu verkaufen, öffentlich zugänglich zu machen oder in anderer Weise kommerziell zu verwerten. Bei Verstößen behält sich Bloom &amp; Blush die Geltendmachung von Unterlassung, Schadensersatz und Abmahnkosten vor.</div>
+        </div>
+      </div>
+      <div class="para">
+        <div class="para-num">11.4</div>
+        <div class="para-body">
+          <div class="para-title">Bildrechte</div>
+          <div class="para-text">Auf bloom-and-blush.com werden Bilder aus folgenden Quellen verwendet: <strong>Unsplash</strong> (Unsplash License), <strong>eigene Aufnahmen</strong> (© Bloom &amp; Blush), <strong>Pressebilder von Herstellern</strong> (mit Genehmigung), sowie ggf. lizenzierte Stockfotos. Für die korrekte Lizenzierung aller verwendeten Bilder ist Bloom &amp; Blush verantwortlich.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ § 12 HAFTUNG ══ -->
+  <div class="card" id="s12">
+    <div class="card-head">
+      <div class="card-n">§12</div>
+      <div class="card-tt">
+        <div class="card-over">Haftungsbeschränkung · Links · Genauigkeit</div>
+        <div class="card-title">Haftungs<em>beschränkung</em></div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="para">
+        <div class="para-num">12.1</div>
+        <div class="para-body">
+          <div class="para-title">Inhaltliche Haftung</div>
+          <div class="para-text">Die Inhalte auf bloom-and-blush.com werden mit größtmöglicher Sorgfalt erstellt. Bloom &amp; Blush übernimmt jedoch keine Gewähr für die <strong>Richtigkeit, Vollständigkeit, Aktualität oder Qualität</strong> der bereitgestellten Informationen. Haftungsansprüche, die sich auf Schäden materieller oder ideeller Art beziehen, die durch die Nutzung oder Nichtnutzung der Inhalte verursacht wurden, sind grundsätzlich ausgeschlossen, sofern kein vorsätzliches oder grob fahrlässiges Verhalten vorliegt.</div>
+        </div>
+      </div>
+      <div class="para">
+        <div class="para-num">12.2</div>
+        <div class="para-body">
+          <div class="para-title">Haftung für externe Links</div>
+          <div class="para-text">bloom-and-blush.com enthält Links zu externen Websites (insbesondere Affiliate-Links). Bloom &amp; Blush hat keinen Einfluss auf die Inhalte dieser Seiten und übernimmt keine Haftung dafür. Für die Inhalte verlinkter Seiten ist stets der jeweilige Anbieter verantwortlich. Eine permanente inhaltliche Kontrolle verlinkter Seiten ist ohne konkreten Anlass nicht zumutbar.</div>
+        </div>
+      </div>
+      <div class="para">
+        <div class="para-num">12.3</div>
+        <div class="para-body">
+          <div class="para-title">Produktempfehlungen</div>
+          <div class="para-text">Produktempfehlungen auf bloom-and-blush.com basieren auf persönlicher Erfahrung oder redaktioneller Recherche. Sie stellen <strong>keine medizinische, dermatologische oder fachliche Beratung</strong> dar. Für Entscheidungen auf Basis unserer Empfehlungen übernimmt Bloom &amp; Blush keine Haftung. Bei Unverträglichkeiten, Allergien oder medizinischen Fragen wende dich an Fachpersonal.</div>
+        </div>
+      </div>
+      <div class="para">
+        <div class="para-num">12.4</div>
+        <div class="para-body">
+          <div class="para-title">Preisangaben</div>
+          <div class="para-text">Alle Preisangaben auf bloom-and-blush.com sind zum Zeitpunkt der Veröffentlichung korrekt, können sich jedoch jederzeit ändern. Bloom &amp; Blush übernimmt keine Haftung für veränderte Preise nach Veröffentlichung. Der verbindliche Preis ist stets derjenige, der auf der Website des jeweiligen Anbieters zum Zeitpunkt des Kaufs angegeben ist.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ § 13 DATENSCHUTZ ══ -->
+  <div class="card" id="s13">
+    <div class="card-head">
+      <div class="card-n">§13</div>
+      <div class="card-tt">
+        <div class="card-over">DSGVO · Betroffenenrechte · Verweise</div>
+        <div class="card-title">Daten<em>schutz</em></div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="para">
+        <div class="para-num">13.1</div>
+        <div class="para-body">
+          <div class="para-title">Verweis auf Datenschutzerklärung</div>
+          <div class="para-text">Die Erhebung, Verarbeitung und Nutzung personenbezogener Daten durch Bloom &amp; Blush erfolgt ausschließlich gemäß der geltenden <strong>DSGVO</strong> und dem deutschen Bundesdatenschutzgesetz (BDSG). Alle Informationen hierzu findest du in unserer vollständigen <strong>Datenschutzerklärung</strong> unter bloom-and-blush.com/datenschutz.</div>
+        </div>
+      </div>
+      <div class="para">
+        <div class="para-num">13.2</div>
+        <div class="para-body">
+          <div class="para-title">Deine Rechte</div>
+          <div class="para-text">Du hast gemäß DSGVO das Recht auf <strong>Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch</strong> (Art. 15–21 DSGVO) sowie das Recht auf Beschwerde bei der zuständigen Datenschutzaufsichtsbehörde (Art. 77 DSGVO). Anfragen an: <a href="mailto:contact@bloom-and-blush.com">contact@bloom-and-blush.com</a>.</div>
+        </div>
+      </div>
+      <div class="para">
+        <div class="para-num">13.3</div>
+        <div class="para-body">
+          <div class="para-title">EU-Streitschlichtung</div>
+          <div class="para-text">Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung bereit: <a href="https://ec.europa.eu/consumers/odr" target="_blank">ec.europa.eu/consumers/odr</a>. Bloom &amp; Blush ist weder bereit noch verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen (§ 36 VSBG).</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ § 14 SCHLUSSBESTIMMUNGEN ══ -->
+  <div class="card" id="s14">
+    <div class="card-head">
+      <div class="card-n">§14</div>
+      <div class="card-tt">
+        <div class="card-over">Rechtsgrundlage · Salvatorische Klausel · Kontakt</div>
+        <div class="card-title">Schluss<em>bestimmungen</em></div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="para">
+        <div class="para-num">14.1</div>
+        <div class="para-body">
+          <div class="para-title">Anwendbares Recht &amp; Gerichtsstand</div>
+          <div class="para-text">Es gilt ausschließlich das Recht der Bundesrepublik Deutschland. Gerichtsstand für alle Streitigkeiten aus oder im Zusammenhang mit diesen AGB ist, soweit gesetzlich zulässig, der Sitz von Bloom &amp; Blush. Verbraucherinnen und Verbraucher mit Wohnsitz in der EU können Ansprüche auch vor Gerichten ihres Wohnsitzstaates geltend machen.</div>
+        </div>
+      </div>
+      <div class="para">
+        <div class="para-num">14.2</div>
+        <div class="para-body">
+          <div class="para-title">Salvatorische Klausel</div>
+          <div class="para-text">Sollten einzelne Bestimmungen dieser AGB ganz oder teilweise unwirksam oder undurchführbar sein oder werden, so berührt dies die Wirksamkeit der übrigen Bestimmungen nicht. Die unwirksame oder undurchführbare Bestimmung ist durch eine wirksame Regelung zu ersetzen, die dem wirtschaftlichen Zweck der unwirksamen Bestimmung am nächsten kommt.</div>
+        </div>
+      </div>
+      <div class="para">
+        <div class="para-num">14.3</div>
+        <div class="para-body">
+          <div class="para-title">Schriftform &amp; Kontakt</div>
+          <div class="para-text">Änderungen oder Ergänzungen dieser AGB bedürfen der Schriftform. Für alle rechtlichen Anfragen, Kooperationsanfragen oder Beschwerden wende dich bitte schriftlich an: <strong>contact@bloom-and-blush.com</strong>.</div>
+        </div>
+      </div>
+      <div class="para">
+        <div class="para-num">14.4</div>
+        <div class="para-body">
+          <div class="para-title">Gültigkeitsdatum</div>
+          <div class="para-text">Diese AGB treten am <strong>09. Mai 2026</strong> in Kraft und ersetzen alle vorherigen Versionen. Die jeweils aktuelle Fassung ist unter bloom-and-blush.com/agb abrufbar.</div>
+        </div>
+      </div>
+      <div class="box-dark">
+        <p><strong>Hinweis:</strong> Diese AGB wurden nach bestem Wissen und auf Basis des deutschen Rechts erstellt (Stand: Mai 2026). Sie ersetzen keine anwaltliche Beratung. Für rechtsverbindliche Dokumente empfehlen wir eine Prüfung durch eine auf Medien- und Internetrecht spezialisierte Rechtsanwältin oder einen entsprechenden Rechtsanwalt. Insbesondere die Pflichtangaben in §§ 1 und 5 (Impressum) sollten vor Veröffentlichung befüllt werden.</p>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /wrap -->
+
+<!-- ACTION BAR -->
+<div class="action-bar">
+  <div class="action-note">✦ AGB · bloom-and-blush.com · 14 Paragraphen · Stand 09.05.2026</div>
+  <div class="btns">
+    <button class="btn btn-outline" onclick="window.print()">Als PDF drucken</button>
+    <button class="btn btn-solid" onclick="selectAll()">Gesamten Text markieren</button>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 Bloom &amp; Blush — Fashion &amp; Beauty · <a href="mailto:contact@bloom-and-blush.com">contact@bloom-and-blush.com</a> · <a href="https://www.bloom-and-blush.com">bloom-and-blush.com</a></p>
+  <p style="margin-top:6px;opacity:.5">Gemäß §§ 305 ff. BGB · § 5 TMG · §§ 5a, 6 UWG · § 18 MStV · DSGVO · Stand Mai 2026</p>
+</footer>
+
+<script>
+function selectAll(){
+  const r=document.createRange();
+  r.selectNode(document.querySelector('.wrap'));
+  window.getSelection().removeAllRanges();
+  window.getSelection().addRange(r);
+  try{document.execCommand('copy');
+    document.querySelector('.btn-solid').textContent='✓ Kopiert!';
+    setTimeout(()=>document.querySelector('.btn-solid').textContent='Gesamten Text markieren',2000);
+  }catch(e){}
+}
+</script>
+</body>
+</html>
