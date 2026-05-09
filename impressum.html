@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Impressum — Bloom & Blush</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --rose:#c8607a;
+  --rose-mid:#d4788e;
+  --rose-light:#f5e8ec;
+  --rose-pale:#fdf5f7;
+  --ink:#18080e;
+  --muted:#8a6a76;
+  --border:#e8d5dc;
+  --white:#ffffff;
+  --grey:#f9f4f6;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;background:var(--rose-pale);color:var(--ink);line-height:1.7;font-size:15px}
+
+/* ── TOP BAR ── */
+.topbar{
+  background:var(--ink);padding:10px 48px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.topbar-brand{
+  font-family:'Cormorant Garamond',serif;font-size:1.1rem;
+  letter-spacing:.12em;color:rgba(255,255,255,.5);
+}
+.topbar-note{font-size:.52rem;letter-spacing:.3em;color:rgba(255,255,255,.2);text-transform:uppercase}
+
+/* ── HERO ── */
+.hero{
+  background:linear-gradient(148deg,#fef0f3 0%,#f7e4ea 45%,#efd8e4 100%);
+  padding:64px 48px 52px;border-bottom:1px solid var(--border);
+  position:relative;overflow:hidden;
+}
+.hero::after{
+  content:'IMPRESSUM';
+  position:absolute;right:-10px;top:50%;transform:translateY(-50%);
+  font-family:'Cormorant Garamond',serif;font-size:9rem;font-weight:300;
+  color:rgba(200,96,122,.05);letter-spacing:-.02em;white-space:nowrap;
+  pointer-events:none;user-select:none;
+}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:.5rem;letter-spacing:.4em;text-transform:uppercase;
+  color:var(--rose);margin-bottom:16px;
+}
+.hero-eyebrow::before,.hero-eyebrow::after{content:'—';opacity:.4}
+.hero h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:3.6rem;font-weight:300;line-height:1.0;
+  color:var(--ink);margin-bottom:12px;
+}
+.hero h1 em{font-style:italic;color:var(--rose)}
+.hero-sub{
+  font-size:.7rem;font-weight:300;color:var(--muted);
+  letter-spacing:.04em;max-width:480px;line-height:1.75;margin-bottom:24px;
+}
+.hero-pills{display:flex;flex-wrap:wrap;gap:7px}
+.hero-pill{
+  font-size:.48rem;letter-spacing:.22em;text-transform:uppercase;
+  padding:4px 13px;border-radius:20px;
+  border:1px solid rgba(200,96,122,.2);
+  color:var(--rose);background:rgba(200,96,122,.05);
+}
+
+/* ── LAYOUT ── */
+.wrap{max-width:820px;margin:0 auto;padding:44px 24px 80px}
+
+/* ── CARD ── */
+.card{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:3px;margin-bottom:22px;overflow:hidden;
+}
+.card-head{
+  display:flex;align-items:center;gap:18px;
+  padding:20px 32px;
+  background:linear-gradient(135deg,#fdf0f3,#f8e6ee);
+  border-bottom:1px solid var(--border);
+}
+.card-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:2.2rem;font-weight:200;color:rgba(200,96,122,.18);
+  line-height:1;flex-shrink:0;
+}
+.card-titles{}
+.card-over{font-size:.46rem;letter-spacing:.38em;text-transform:uppercase;color:rgba(200,96,122,.45);margin-bottom:3px}
+.card-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.45rem;font-weight:300;color:var(--ink);line-height:1;
+}
+.card-title em{font-style:italic;color:var(--rose)}
+.card-body{padding:26px 32px}
+
+/* ── TYPOGRAPHY ── */
+.card-body h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.0rem;font-weight:400;color:var(--ink);
+  border-bottom:1px solid var(--border);
+  padding-bottom:5px;margin:20px 0 8px;
+}
+.card-body h3:first-child{margin-top:0}
+.card-body p{
+  font-size:.7rem;font-weight:300;color:#4a3040;
+  line-height:1.85;margin-bottom:9px;
+}
+.card-body p:last-child{margin-bottom:0}
+.card-body p strong{font-weight:500;color:var(--ink)}
+.card-body a{color:var(--rose);text-decoration:none}
+.card-body a:hover{text-decoration:underline}
+.card-body ul{list-style:none;margin:6px 0 10px}
+.card-body ul li{
+  font-size:.68rem;font-weight:300;color:#4a3040;
+  line-height:1.75;padding:2px 0 2px 16px;position:relative;
+}
+.card-body ul li::before{content:'–';position:absolute;left:0;color:var(--rose);opacity:.5}
+
+/* ── KV TABLE (Kontaktdaten) ── */
+.kv{width:100%;border-collapse:collapse}
+.kv tr{border-bottom:1px solid var(--border)}
+.kv tr:last-child{border-bottom:none}
+.kv td{padding:9px 0;font-size:.7rem;font-weight:300;color:#4a3040;vertical-align:top}
+.kv td:first-child{
+  font-weight:500;color:var(--ink);
+  width:170px;font-size:.65rem;letter-spacing:.04em;
+  padding-right:16px;
+}
+/* placeholder styling */
+.kv td .ph{
+  background:rgba(200,96,122,.06);border:1px dashed rgba(200,96,122,.2);
+  border-radius:2px;padding:1px 8px;font-style:italic;
+  color:var(--rose);font-size:.64rem;
+}
+
+/* ── INFO BOX ── */
+.box{
+  padding:13px 18px;margin:12px 0;border-radius:2px;
+  border-left:2px solid var(--rose);
+  background:var(--rose-light);
+}
+.box p{font-size:.67rem;color:#5a253a;line-height:1.75;margin:0}
+.box p strong{color:var(--rose);font-weight:500}
+
+/* ── WARN BOX ── */
+.warn{
+  padding:13px 18px;margin:12px 0;border-radius:2px;
+  border-left:2px solid #d0a020;
+  background:#fffbec;
+}
+.warn p{font-size:.67rem;color:#5a4010;line-height:1.75;margin:0}
+
+/* ── AFFILIATE BANNER ── */
+.aff-banner{
+  display:flex;align-items:center;gap:14px;
+  background:linear-gradient(135deg,#fff8e6,#fff3d4);
+  border:1px solid rgba(210,160,30,.2);
+  border-radius:2px;padding:14px 20px;margin:12px 0;
+}
+.aff-icon{font-size:1.4rem;flex-shrink:0}
+.aff-text{font-size:.67rem;color:#6a4a10;line-height:1.7;font-weight:300}
+.aff-text strong{color:#a07010;font-weight:500}
+
+/* ── LABEL CHIPS ── */
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.chip{
+  font-size:.48rem;letter-spacing:.18em;text-transform:uppercase;
+  padding:4px 12px;border-radius:20px;
+  border:1px solid var(--border);color:var(--muted);background:var(--grey);
+}
+.chip.accent{border-color:rgba(200,96,122,.25);color:var(--rose);background:rgba(200,96,122,.04)}
+
+/* ── PLATFORM LIST ── */
+.platform-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+.platform-item{
+  background:var(--grey);border:1px solid var(--border);
+  border-radius:2px;padding:12px 16px;
+}
+.platform-name{
+  font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--rose);font-weight:500;margin-bottom:4px;
+}
+.platform-info{font-size:.62rem;color:#5a3a48;font-weight:300;line-height:1.55}
+
+/* ── SECTION DIVIDER ── */
+.divider{
+  text-align:center;margin:32px 0 24px;
+  font-size:.48rem;letter-spacing:.4em;text-transform:uppercase;
+  color:rgba(200,96,122,.3);
+  position:relative;
+}
+.divider::before,.divider::after{
+  content:'';position:absolute;top:50%;
+  width:calc(50% - 80px);height:.5px;
+  background:linear-gradient(90deg,transparent,var(--border));
+}
+.divider::before{left:0}
+.divider::after{right:0;background:linear-gradient(90deg,var(--border),transparent)}
+
+/* ── COPY BUTTON BAR ── */
+.action-bar{
+  position:sticky;bottom:0;z-index:50;
+  background:rgba(253,245,247,.96);
+  backdrop-filter:blur(12px);
+  border-top:1px solid var(--border);
+  padding:12px 32px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.action-note{font-size:.55rem;letter-spacing:.18em;color:var(--muted);text-transform:uppercase}
+.action-btn{
+  font-size:.55rem;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--white);background:var(--rose);
+  border:none;padding:9px 24px;border-radius:2px;cursor:pointer;
+  transition:background .2s;
+}
+.action-btn:hover{background:var(--rose-mid)}
+.action-btn.outline{
+  background:transparent;color:var(--rose);
+  border:1px solid rgba(200,96,122,.35);margin-right:8px;
+}
+.action-btn.outline:hover{background:var(--rose-light)}
+
+/* ── FOOTER ── */
+footer{
+  text-align:center;padding:32px 24px;
+  border-top:1px solid var(--border);background:var(--white);
+  font-size:.56rem;letter-spacing:.15em;color:var(--muted);
+  text-transform:uppercase;line-height:2;
+}
+footer a{color:var(--rose);text-decoration:none}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-brand">Bloom &amp; Blush</div>
+  <div class="topbar-note">Impressum · § 5 TMG · Stand Mai 2026</div>
+</div>
+
+<div class="hero">
+  <div class="hero-eyebrow">Rechtliche Angaben</div>
+  <h1>Impressum<br><em>bloom-and-blush.com</em></h1>
+  <p class="hero-sub">Pflichtangaben gemäß § 5 Telemediengesetz (TMG) sowie Kennzeichnungspflichten für Affiliate-Marketing, Social-Media-Marketing und Online-Werbung.</p>
+  <div class="hero-pills">
+    <div class="hero-pill">§ 5 TMG</div>
+    <div class="hero-pill">Amazon PartnerNet</div>
+    <div class="hero-pill">§ 6 MStV</div>
+    <div class="hero-pill">UWG Werbekennzeichnung</div>
+    <div class="hero-pill">DSGVO-konform</div>
+    <div class="hero-pill">Stand: 09.05.2026</div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- ══ 1. ANGABEN GEMÄß § 5 TMG ══ -->
+  <div class="card">
+    <div class="card-head">
+      <div class="card-num">01</div>
+      <div class="card-titles">
+        <div class="card-over">Pflichtangaben · § 5 TMG</div>
+        <div class="card-title">Angaben gemäß <em>§ 5 TMG</em></div>
+      </div>
+    </div>
+    <div class="card-body">
+
+      <h3>Betreiberin &amp; Verantwortliche</h3>
+      <table class="kv">
+        <tr><td>Name / Firma</td><td><span class="ph">[Vollständiger Name oder Firmenname eintragen]</span></td></tr>
+        <tr><td>Straße &amp; Hausnr.</td><td><span class="ph">[Straße Hausnummer]</span></td></tr>
+        <tr><td>PLZ &amp; Ort</td><td><span class="ph">[PLZ Ort, Deutschland]</span></td></tr>
+        <tr><td>Land</td><td>Deutschland</td></tr>
+        <tr><td>E-Mail</td><td><a href="mailto:contact@bloom-and-blush.com">contact@bloom-and-blush.com</a></td></tr>
+        <tr><td>Website</td><td><a href="https://www.bloom-and-blush.com">www.bloom-and-blush.com</a></td></tr>
+        <tr><td>Telefon</td><td><span class="ph">[Telefonnummer – Pflichtfeld § 5 Abs. 1 Nr. 2 TMG]</span></td></tr>
+        <tr><td>USt-ID</td><td><span class="ph">[DE123456789 – sofern vorhanden, § 27a UStG]</span></td></tr>
+        <tr><td>Rechtsform</td><td><span class="ph">[z. B. Einzelunternehmen / GbR / UG / GmbH]</span></td></tr>
+        <tr><td>Registergericht</td><td><span class="ph">[nur bei juristischen Personen: Amtsgericht + HRB-Nummer]</span></td></tr>
+      </table>
+
+      <div class="box">
+        <p><strong>Hinweis zu Pflichtfeldern:</strong> Alle mit <em>[…]</em> markierten Felder müssen vor Veröffentlichung mit deinen echten Daten befüllt werden. Ein unvollständiges Impressum ist abmahnfähig. Telefonnummer und Adresse sind gemäß § 5 Abs. 1 Nr. 2 TMG Pflicht.</p>
+      </div>
+
+      <h3>Redaktionell verantwortlich gemäß § 18 Abs. 2 MStV</h3>
+      <table class="kv">
+        <tr><td>Name</td><td><span class="ph">[Vollständiger Name der redaktionell verantwortlichen Person]</span></td></tr>
+        <tr><td>Anschrift</td><td><span class="ph">[Adresse – kann identisch mit oben sein]</span></td></tr>
+      </table>
+      <p>Inhaltlich verantwortlich im Sinne des Medienstaatsvertrags für alle journalistisch-redaktionellen Beiträge auf bloom-and-blush.com.</p>
+
+    </div>
+  </div>
+
+  <!-- ══ 2. AFFILIATE-MARKETING ══ -->
+  <div class="card" id="affiliate">
+    <div class="card-head">
+      <div class="card-num">02</div>
+      <div class="card-titles">
+        <div class="card-over">Werbekennzeichnung · §§ 5a, 6 UWG</div>
+        <div class="card-title">Affiliate-<em>Marketing</em></div>
+      </div>
+    </div>
+    <div class="card-body">
+
+      <div class="aff-banner">
+        <div class="aff-icon">⭐</div>
+        <div class="aff-text">
+          <strong>Pflichthinweis Affiliate-Links:</strong> Diese Website enthält Affiliate-Links, erkennbar am Sternchen <strong>*</strong> oder dem Zusatz <strong>„[Werbung]"</strong>. Beim Kauf über diese Links erhalten wir eine Provision — für dich entstehen keine Mehrkosten.
+        </div>
+      </div>
+
+      <h3>Amazon PartnerNet</h3>
+      <p>Bloom &amp; Blush ist Teilnehmerin des <strong>Partnerprogramms von Amazon Europe S.à r.l.</strong> und verdient an qualifizierten Verkäufen Werbekostenerstattungen. Amazon, das Amazon-Logo, AmazonSmile und das AmazonSmile-Logo sind eingetragene Warenzeichen von Amazon.com, Inc. oder einer seiner verbundenen Gesellschaften.</p>
+      <table class="kv">
+        <tr><td>Programm</td><td>Amazon PartnerNet (EU)</td></tr>
+        <tr><td>Betreiber</td><td>Amazon Europe Core S.à r.l., 38 avenue John F. Kennedy, L-1855 Luxemburg</td></tr>
+        <tr><td>Rechtsgrundlage</td><td>§ 5a UWG, § 6 UWG, § 6 TMG, Richtlinien der Landesmedienanstalten</td></tr>
+        <tr><td>Kennzeichnung</td><td>Sternchen * hinter Produktname / Link; Zusatz „Werbung" oder „Anzeige"</td></tr>
+        <tr><td>Datenschutz</td><td><a href="https://www.amazon.de/gp/help/customer/display.html?nodeId=201909010" target="_blank">amazon.de → Datenschutzerklärung</a></td></tr>
+      </table>
+
+      <h3>Weitere Partnerprogramme</h3>
+      <p>Neben Amazon kann bloom-and-blush.com an weiteren Affiliate-Netzwerken und Direktpartnerschaften teilnehmen:</p>
+      <ul>
+        <li><strong>AWIN / Zanox</strong> — Mode- und Beauty-Shops</li>
+        <li><strong>ShareASale</strong> — internationale Beauty-Brands</li>
+        <li><strong>LTK (LikeToKnow.it)</strong> — kuratierte Shopping-Links</li>
+        <li><strong>Direkte Brand-Kooperationen</strong> — gekennzeichnet mit „In Kooperation mit [Markenname]"</li>
+      </ul>
+
+      <h3>Kennzeichnungssystem</h3>
+      <p>Alle werblichen Inhalte auf bloom-and-blush.com werden gemäß den gesetzlichen Anforderungen eindeutig gekennzeichnet:</p>
+      <div class="chips">
+        <div class="chip accent">* = Affiliate-Link</div>
+        <div class="chip accent">Werbung</div>
+        <div class="chip accent">Anzeige</div>
+        <div class="chip accent">In Kooperation mit [Marke]</div>
+        <div class="chip accent">Produkt wurde zur Verfügung gestellt</div>
+        <div class="chip accent">Paid Partnership</div>
+        <div class="chip">#ad</div>
+        <div class="chip">#werbung</div>
+      </div>
+
+      <h3>Redaktionelle Unabhängigkeit</h3>
+      <p>Bloom &amp; Blush empfiehlt ausschließlich Produkte, von deren Qualität wir überzeugt sind. <strong>Die Vergütung durch Affiliate-Programme hat keinen Einfluss auf unsere Meinungen, Testergebnisse oder Empfehlungen.</strong> Nicht empfehlenswerte Produkte werden auch dann nicht empfohlen, wenn eine Provision möglich wäre. Alle gekauften oder selbst getesteten Produkte werden entsprechend ausgewiesen.</p>
+
+      <div class="warn">
+        <p><strong>Wichtiger Hinweis:</strong> Nicht jeder Beitrag, in dem ein Produkt erwähnt wird, ist bezahlt oder werblich. Nur als Werbung, Anzeige oder Affiliate-Link gekennzeichnete Inhalte unterliegen einem Vergütungsverhältnis. Selbst gekaufte Produkte können ohne Kennzeichnung empfohlen werden.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══ 3. SOCIAL-MEDIA-MARKETING ══ -->
+  <div class="card" id="social">
+    <div class="card-head">
+      <div class="card-num">03</div>
+      <div class="card-titles">
+        <div class="card-over">Plattformen · § 6 UWG · MStV</div>
+        <div class="card-title">Social-Media-<em>Marketing</em></div>
+      </div>
+    </div>
+    <div class="card-body">
+
+      <h3>Präsenz auf Social-Media-Plattformen</h3>
+      <p>Bloom &amp; Blush ist auf folgenden Plattformen aktiv und betreibt dort Unternehmens- bzw. Creatorprofile. Für diese Profile gelten zusätzlich die jeweiligen Nutzungsbedingungen und Datenschutzrichtlinien der Plattformbetreiber:</p>
+
+      <div class="platform-grid">
+        <div class="platform-item">
+          <div class="platform-name">Instagram</div>
+          <div class="platform-info">Meta Platforms Ireland Ltd., 4 Grand Canal Square, Dublin 2, Irland<br>Bezahlte Inhalte: Label „Paid Partnership" + #Werbung</div>
+        </div>
+        <div class="platform-item">
+          <div class="platform-name">Pinterest</div>
+          <div class="platform-info">Pinterest Europe Ltd., Palmerston House, Fenian Street, Dublin 2, Irland<br>Affiliate-Pins: Kennzeichnung gemäß Pinterest-Richtlinien</div>
+        </div>
+        <div class="platform-item">
+          <div class="platform-name">TikTok</div>
+          <div class="platform-info">TikTok Technology Ltd., 10 Earlsfort Terrace, Dublin 2, Irland<br>Bezahlte Inhalte: „Bezahlte Partnerschaft" + #Werbung #Ad</div>
+        </div>
+        <div class="platform-item">
+          <div class="platform-name">Facebook</div>
+          <div class="platform-info">Meta Platforms Ireland Ltd., Dublin 2, Irland<br>Werbeanzeigen über Meta Ads Manager; Kennzeichnung als „Gesponsert"</div>
+        </div>
+        <div class="platform-item">
+          <div class="platform-name">YouTube</div>
+          <div class="platform-info">Google Ireland Ltd., Gordon House, Barrow Street, Dublin 4, Irland<br>Gesponserte Videos: Offenlegung im Titel + YouTube-Werbekennzeichnung</div>
+        </div>
+        <div class="platform-item">
+          <div class="platform-name">Newsletter / E-Mail</div>
+          <div class="platform-info">Bloom &amp; Blush — bloom-and-blush.com<br>Double-Opt-In; Abmeldung jederzeit möglich; kein Spam</div>
+        </div>
+      </div>
+
+      <h3>Influencer- und Creator-Kennzeichnung</h3>
+      <p>Bloom &amp; Blush hält sich an die <strong>Leitlinien der Landesmedienanstalten zur Werbekennzeichnung im Influencer-Marketing</strong> (Stand 2025) sowie an den <strong>Leitfaden der Bundeszentrale für Medien und Kommunikation</strong>. Die Kennzeichnungspflicht gilt für:</p>
+      <ul>
+        <li>Bezahlte Kooperationen (Geldleistung)</li>
+        <li>Erhaltene Produktmuster, kostenlose Produkte oder Rabatte</li>
+        <li>Einladungen zu Events, Reisen oder Erlebnissen</li>
+        <li>Eigenbewerbung eigener Produkte oder Dienstleistungen</li>
+      </ul>
+
+      <div class="box">
+        <p><strong>Kennzeichnungsregel:</strong> Sobald eine Gegenleistung jeglicher Art vorliegt — ob Geld, Produkt, Rabatt oder Einladung — wird der Inhalt als <strong>„Werbung" / „Anzeige"</strong> gekennzeichnet, sichtbar am Anfang des Beitrags, im Bild, im Video oder in der Story. Die Kennzeichnung erfolgt stets so, dass sie ohne weiteres Scrollen erkennbar ist.</p>
+      </div>
+
+      <h3>Haftung für Kommentare &amp; Fremdcontent</h3>
+      <p>Bloom &amp; Blush ist nicht verantwortlich für Inhalte, die Nutzer in Kommentaren oder Direktnachrichten auf unseren Social-Media-Kanälen veröffentlichen. Beleidigende, rechtswidrige oder diskriminierende Kommentare werden umgehend gelöscht. Meldungen an: <a href="mailto:contact@bloom-and-blush.com">contact@bloom-and-blush.com</a>.</p>
+
+    </div>
+  </div>
+
+  <!-- ══ 4. ONLINE-WERBUNG ══ -->
+  <div class="card" id="werbung">
+    <div class="card-head">
+      <div class="card-num">04</div>
+      <div class="card-titles">
+        <div class="card-over">Werbeanzeigen · Tracking · Opt-out</div>
+        <div class="card-title">Online-<em>Werbung</em></div>
+      </div>
+    </div>
+    <div class="card-body">
+
+      <h3>Werbeanzeigen auf bloom-and-blush.com</h3>
+      <p>Auf bloom-and-blush.com können Werbeanzeigen erscheinen. Diese sind stets durch die Beschriftung <strong>„Anzeige"</strong> oder <strong>„Werbung"</strong> klar von redaktionellen Inhalten getrennt und optisch unterscheidbar. Wir akzeptieren keine Werbung, die irreführend, diskriminierend oder gegen geltendes deutsches Recht verstößt.</p>
+
+      <h3>Eingesetzte Werbetechnologien</h3>
+      <table class="kv">
+        <tr>
+          <td>Google Ads</td>
+          <td>Bezahlte Suchanzeigen und Display-Kampagnen zur Neukundengewinnung. Betreiber: Google Ireland Ltd., Gordon House, Dublin 4. Opt-out: <a href="https://adssettings.google.com" target="_blank">adssettings.google.com</a></td>
+        </tr>
+        <tr>
+          <td>Google Analytics 4</td>
+          <td>Anonymisierte Websiteanalyse mit aktivierter IP-Anonymisierung. Nur nach Einwilligung. Opt-out: <a href="https://tools.google.com/dlpage/gaoptout" target="_blank">tools.google.com/dlpage/gaoptout</a></td>
+        </tr>
+        <tr>
+          <td>Meta Ads</td>
+          <td>Werbeanzeigen auf Facebook &amp; Instagram. Meta Pixel nur nach Einwilligung aktiv. Opt-out: <a href="https://www.facebook.com/ads/preferences" target="_blank">facebook.com/ads/preferences</a></td>
+        </tr>
+        <tr>
+          <td>Pinterest Ads</td>
+          <td>Promoted Pins auf Pinterest. Opt-out: pinterest.de → Einstellungen → Datenschutz → Personalisierte Werbung</td>
+        </tr>
+        <tr>
+          <td>Retargeting</td>
+          <td>Personalisierte Werbung für frühere Websitebesucher — ausschließlich nach Cookie-Einwilligung. Widerspruch über Cookie-Banner jederzeit möglich.</td>
+        </tr>
+        <tr>
+          <td>Amazon Ads</td>
+          <td>Native Shopping Ads von Amazon (im Rahmen des PartnerNet-Programms). Kennzeichnung als Affiliate-Werbung mit *</td>
+        </tr>
+      </table>
+
+      <h3>Opt-out &amp; Werbeeinstellungen</h3>
+      <p>Du hast das Recht, interessenbasierter Werbung jederzeit zu widersprechen. Nutze dafür:</p>
+      <ul>
+        <li><strong>Cookie-Einstellungen auf bloom-and-blush.com</strong> — jederzeit anpassbar über das Cookie-Banner</li>
+        <li><strong>youronlinechoices.eu</strong> — zentrale Opt-out-Plattform für alle teilnehmenden Netzwerke</li>
+        <li><strong>adssettings.google.com</strong> — Google-Werbeeinstellungen</li>
+        <li><strong>facebook.com/ads/preferences</strong> — Meta-Werbeeinstellungen</li>
+        <li><strong>pinterest.de/settings/privacy</strong> — Pinterest-Datenschutzeinstellungen</li>
+      </ul>
+
+      <div class="box">
+        <p><strong>Transparenzgrundsatz:</strong> Bloom &amp; Blush verpflichtet sich, alle werblich beeinflussten Inhalte eindeutig zu kennzeichnen. <strong>Redaktionelle Inhalte stehen niemals zum Verkauf</strong> — kein Unternehmen kann sich durch Zahlungen positive Berichterstattung erkaufen. Unsere Empfehlungen basieren ausschließlich auf redaktioneller Überzeugung.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══ 5. HAFTUNG & URHEBERRECHT ══ -->
+  <div class="card" id="haftung">
+    <div class="card-head">
+      <div class="card-num">05</div>
+      <div class="card-titles">
+        <div class="card-over">Haftung · Links · Urheberrecht</div>
+        <div class="card-title">Haftung &amp; <em>Urheberrecht</em></div>
+      </div>
+    </div>
+    <div class="card-body">
+
+      <h3>Haftung für Inhalte</h3>
+      <p>Die Inhalte auf bloom-and-blush.com wurden mit größtmöglicher Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen. Als Diensteanbieter sind wir gemäß <strong>§ 7 Abs. 1 TMG</strong> für eigene Inhalte nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8–10 TMG sind wir als Diensteanbieter nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen.</p>
+
+      <h3>Haftung für Links</h3>
+      <p>Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.</p>
+
+      <h3>Urheberrecht</h3>
+      <p>Die durch die Seitenbetreiberin erstellten Inhalte und Werke auf bloom-and-blush.com unterliegen dem deutschen <strong>Urheberrecht</strong>. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechts bedürfen der schriftlichen Zustimmung der Betreiberin. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet.</p>
+      <ul>
+        <li>Fotos von <strong>Unsplash</strong> unterliegen der Unsplash License (unsplash.com/license)</li>
+        <li>Fotos von <strong>Produktherstellern</strong> werden im Rahmen von Presserechten oder mit ausdrücklicher Genehmigung verwendet</li>
+        <li>Eigene Fotos und Texte: © 2026 Bloom &amp; Blush — alle Rechte vorbehalten</li>
+      </ul>
+
+      <h3>EU-Streitschlichtung</h3>
+      <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr" target="_blank">ec.europa.eu/consumers/odr</a>. Unsere E-Mail-Adresse findest du oben im Impressum.</p>
+
+      <h3>Verbraucherstreitbeilegung / Universalschlichtungsstelle</h3>
+      <p>Wir sind <strong>nicht bereit oder verpflichtet</strong>, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen (§ 36 VSBG).</p>
+
+    </div>
+  </div>
+
+  <!-- ══ STAND & AKTUALISIERUNG ══ -->
+  <div class="card">
+    <div class="card-head">
+      <div class="card-num">06</div>
+      <div class="card-titles">
+        <div class="card-over">Aktualität</div>
+        <div class="card-title">Stand &amp; <em>Änderungen</em></div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>Letzte Aktualisierung</h3>
+      <table class="kv">
+        <tr><td>Erstellt</td><td>09. Mai 2026</td></tr>
+        <tr><td>Gültig ab</td><td>09. Mai 2026</td></tr>
+        <tr><td>Rechtsstand</td><td>TMG, UWG, DSGVO, MStV — Stand Mai 2026</td></tr>
+        <tr><td>Nächste Prüfung</td><td>Empfohlen: jährlich oder bei Gesetzesänderungen</td></tr>
+        <tr><td>Erstellt für</td><td>bloom-and-blush.com — Fashion &amp; Beauty</td></tr>
+      </table>
+      <div class="warn">
+        <p><strong>Rechtlicher Hinweis:</strong> Dieses Impressum wurde nach bestem Wissen erstellt, ersetzt jedoch keine rechtliche Beratung. Wir empfehlen, das Impressum vor Veröffentlichung von einem auf Medien- und Internetrecht spezialisierten Anwalt prüfen zu lassen — insbesondere die Pflichtangaben unter § 5 TMG (Name, Adresse, Telefon).</p>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /wrap -->
+
+<!-- STICKY ACTION BAR -->
+<div class="action-bar">
+  <div class="action-note">✦ Impressum · bloom-and-blush.com · § 5 TMG · Mai 2026</div>
+  <div>
+    <button class="action-btn outline" onclick="window.print()">Als PDF drucken</button>
+    <button class="action-btn" onclick="selectAll()">Gesamten Text markieren</button>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 Bloom &amp; Blush — Fashion &amp; Beauty</p>
+  <p><a href="mailto:contact@bloom-and-blush.com">contact@bloom-and-blush.com</a> · <a href="https://www.bloom-and-blush.com">www.bloom-and-blush.com</a></p>
+  <p style="margin-top:6px;opacity:.5">Gemäß § 5 TMG · § 6 UWG · § 18 MStV · DSGVO</p>
+</footer>
+
+<script>
+function selectAll(){
+  const r=document.createRange();
+  r.selectNode(document.querySelector('.wrap'));
+  window.getSelection().removeAllRanges();
+  window.getSelection().addRange(r);
+  document.execCommand && document.execCommand('copy');
+}
+</script>
+
+<style>
+@media print{
+  .topbar,.action-bar{display:none}
+  body{background:#fff}
+  .wrap{max-width:100%;padding:20px}
+  .hero{padding:30px 20px}
+}
+</style>
+</body>
+</html>
