@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cookie-Richtlinie — Bloom & Blush</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,200;0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --rose:#c8607a;--rose-mid:#d4788e;--rose-light:#f5e8ec;
+  --rose-pale:#fdf5f7;--ink:#18080e;--muted:#8a6a76;
+  --border:#e8d5dc;--white:#fff;--grey:#f9f4f6;
+  --green:#1a6640;--green-light:#eaf5ef;--green-border:#a8d8b8;
+  --gold:#b8880a;--gold-light:#fff8e6;--gold-border:#f0d060;
+  --blue:#1a4a88;--blue-light:#eef3fc;--blue-border:#a8c0e8;
+  --red:#c02020;--red-light:#faeaea;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;background:var(--rose-pale);color:var(--ink);line-height:1.7}
+
+/* ── TOP BAR ── */
+.topbar{
+  background:var(--ink);padding:10px 48px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.topbar-brand{font-family:'Cormorant Garamond',serif;font-size:1.1rem;letter-spacing:.12em;color:rgba(255,255,255,.4)}
+.topbar-r{display:flex;gap:10px;align-items:center}
+.t-pill{font-size:.44rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.07);padding:3px 11px;border-radius:20px}
+
+/* ── HERO ── */
+.hero{
+  background:linear-gradient(148deg,#fef0f3 0%,#f7e4ea 42%,#efd8e4 100%);
+  padding:62px 48px 52px;border-bottom:1px solid var(--border);
+  position:relative;overflow:hidden;
+}
+.hero::after{
+  content:'COOKIES';
+  position:absolute;right:-20px;top:50%;transform:translateY(-50%);
+  font-family:'Cormorant Garamond',serif;font-size:10rem;font-weight:200;
+  color:rgba(200,96,122,.04);letter-spacing:-.02em;pointer-events:none;user-select:none;
+}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:.5rem;letter-spacing:.4em;text-transform:uppercase;
+  color:var(--rose);margin-bottom:14px;
+}
+.hero-tag::before,.hero-tag::after{content:'—';opacity:.35}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:3.6rem;font-weight:200;line-height:.95;color:var(--ink);margin-bottom:12px}
+.hero h1 em{font-style:italic;color:var(--rose);display:block}
+.hero-sub{font-size:.7rem;font-weight:300;color:var(--muted);letter-spacing:.04em;max-width:530px;line-height:1.8;margin-bottom:22px}
+.hero-pills{display:flex;flex-wrap:wrap;gap:7px}
+.h-pill{font-size:.46rem;letter-spacing:.2em;text-transform:uppercase;padding:4px 13px;border-radius:20px;border:1px solid rgba(200,96,122,.2);color:var(--rose);background:rgba(200,96,122,.04)}
+
+/* ── LIVE BANNER (simulated consent bar) ── */
+.consent-preview{
+  background:var(--ink);padding:18px 48px;
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.consent-text{font-size:.62rem;font-weight:300;color:rgba(255,255,255,.5);letter-spacing:.03em;max-width:560px;line-height:1.6}
+.consent-text strong{color:rgba(255,255,255,.8);font-weight:400}
+.consent-btns{display:flex;gap:8px;flex-shrink:0}
+.c-btn{font-size:.5rem;letter-spacing:.22em;text-transform:uppercase;padding:9px 18px;border-radius:2px;cursor:pointer;border:none;white-space:nowrap}
+.c-btn-all{background:var(--rose);color:#fff}
+.c-btn-sel{background:transparent;color:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.15)}
+.c-btn-rej{background:transparent;color:rgba(255,255,255,.3);border:1px solid rgba(255,255,255,.08)}
+.consent-preview-label{font-size:.42rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,.2);text-align:center;padding:6px 48px;background:rgba(255,255,255,.02);border-bottom:1px solid rgba(255,255,255,.04)}
+
+/* ── TOC ── */
+.toc-wrap{max-width:900px;margin:36px auto 0;padding:0 24px}
+.toc{background:var(--white);border:1px solid var(--border);border-radius:3px;padding:24px 30px}
+.toc-lbl{font-size:.48rem;letter-spacing:.38em;text-transform:uppercase;color:var(--rose);margin-bottom:14px}
+.toc-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px 28px}
+.toc-a{font-size:.67rem;font-weight:300;color:var(--muted);text-decoration:none;padding:3px 0;border-bottom:1px solid transparent;transition:all .2s;display:flex;align-items:center;gap:7px}
+.toc-a::before{content:'→';font-size:.46rem;color:var(--rose);opacity:.4;flex-shrink:0}
+.toc-a:hover{color:var(--rose);border-bottom-color:rgba(200,96,122,.12)}
+
+/* ── WRAP ── */
+.wrap{max-width:900px;margin:0 auto;padding:38px 24px 100px}
+
+/* ── CARD ── */
+.card{background:var(--white);border:1px solid var(--border);border-radius:3px;margin-bottom:20px;overflow:hidden}
+.card-head{display:flex;align-items:center;gap:18px;padding:18px 30px;background:linear-gradient(135deg,#fdf0f3,#f8e6ee);border-bottom:1px solid var(--border)}
+.card-n{font-family:'Cormorant Garamond',serif;font-size:2.6rem;font-weight:200;color:rgba(200,96,122,.13);line-height:1;flex-shrink:0;width:48px}
+.card-over{font-size:.43rem;letter-spacing:.38em;text-transform:uppercase;color:rgba(200,96,122,.38);margin-bottom:3px}
+.card-title{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:300;color:var(--ink);line-height:1}
+.card-title em{font-style:italic;color:var(--rose)}
+.card-body{padding:24px 30px}
+
+/* ── TYPOGRAPHY ── */
+.card-body h3{font-family:'Cormorant Garamond',serif;font-size:1.0rem;font-weight:400;color:var(--ink);border-bottom:1px solid var(--border);padding-bottom:5px;margin:20px 0 9px}
+.card-body h3:first-child{margin-top:0}
+.card-body p{font-size:.7rem;font-weight:300;color:#4a3040;line-height:1.88;margin-bottom:9px}
+.card-body p:last-child{margin-bottom:0}
+.card-body p strong{font-weight:500;color:var(--ink)}
+.card-body a{color:var(--rose);text-decoration:none}
+.card-body a:hover{text-decoration:underline}
+.card-body ul{list-style:none;margin:6px 0 10px}
+.card-body ul li{font-size:.68rem;font-weight:300;color:#4a3040;line-height:1.75;padding:2px 0 2px 16px;position:relative}
+.card-body ul li::before{content:'–';position:absolute;left:0;color:var(--rose);opacity:.5}
+
+/* ── BOXES ── */
+.box{padding:13px 18px;margin:12px 0;border-radius:2px;border-left:2px solid var(--rose);background:var(--rose-light)}
+.box p{font-size:.67rem;color:#5a253a;line-height:1.75;margin:0}
+.box p strong{color:var(--rose);font-weight:500}
+.box-green{padding:13px 18px;margin:12px 0;border-radius:2px;border-left:2px solid var(--green);background:var(--green-light)}
+.box-green p{font-size:.67rem;color:#0a3a20;line-height:1.75;margin:0}
+.box-green p strong{color:var(--green);font-weight:500}
+.box-gold{padding:13px 18px;margin:12px 0;border-radius:2px;border-left:2px solid var(--gold);background:var(--gold-light)}
+.box-gold p{font-size:.67rem;color:#5a4010;line-height:1.75;margin:0}
+.box-gold p strong{color:var(--gold);font-weight:500}
+.box-blue{padding:13px 18px;margin:12px 0;border-radius:2px;border-left:2px solid var(--blue);background:var(--blue-light)}
+.box-blue p{font-size:.67rem;color:#0a203a;line-height:1.75;margin:0}
+.box-blue p strong{color:var(--blue);font-weight:500}
+
+/* ── COOKIE TABLE ── */
+.ctable{width:100%;border-collapse:collapse;margin:12px 0;font-size:.65rem}
+.ctable thead tr{background:linear-gradient(135deg,#fdf0f3,#f8e6ee)}
+.ctable th{padding:9px 12px;text-align:left;font-size:.48rem;letter-spacing:.22em;text-transform:uppercase;color:var(--rose);font-weight:500;border-bottom:1px solid var(--border)}
+.ctable td{padding:9px 12px;font-weight:300;color:#4a3040;border-bottom:1px solid rgba(232,213,220,.4);vertical-align:top;line-height:1.55}
+.ctable tr:last-child td{border-bottom:none}
+.ctable td:first-child{font-weight:500;color:var(--ink);width:22%}
+.ctable td:nth-child(2){width:22%}
+.ctable td:nth-child(3){width:18%}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.dot-green{background:#1a8850}
+.dot-gold{background:#c8a020}
+.dot-blue{background:#2060c0}
+.dot-red{background:#c02020}
+.dot-row{display:flex;align-items:center;gap:7px}
+
+/* ── CATEGORY CARDS ── */
+.cat-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.cat{border-radius:2px;padding:16px 18px;border:1px solid}
+.cat-nec{background:var(--green-light);border-color:var(--green-border)}
+.cat-ana{background:var(--gold-light);border-color:var(--gold-border)}
+.cat-mkt{background:var(--blue-light);border-color:var(--blue-border)}
+.cat-aff{background:var(--rose-light);border-color:rgba(200,96,122,.2)}
+.cat-head{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.cat-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+.cat-name{font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;font-weight:500}
+.cat-nec .cat-name{color:var(--green)}
+.cat-ana .cat-name{color:var(--gold)}
+.cat-mkt .cat-name{color:var(--blue)}
+.cat-aff .cat-name{color:var(--rose)}
+.cat-nec .cat-dot{background:var(--green)}
+.cat-ana .cat-dot{background:var(--gold)}
+.cat-mkt .cat-dot{background:var(--blue)}
+.cat-aff .cat-dot{background:var(--rose)}
+.cat-req{font-size:.44rem;letter-spacing:.18em;text-transform:uppercase;padding:2px 8px;border-radius:10px;margin-left:auto}
+.cat-nec .cat-req{background:rgba(26,102,64,.1);color:var(--green)}
+.cat-ana .cat-req,.cat-mkt .cat-req,.cat-aff .cat-req{background:rgba(0,0,0,.05);color:var(--muted)}
+.cat-desc{font-size:.64rem;font-weight:300;color:#4a3040;line-height:1.6}
+
+/* ── PLATFORM GRID ── */
+.plat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+.plat{background:var(--grey);border:1px solid var(--border);border-radius:2px;padding:12px 16px}
+.plat-name{font-size:.54rem;letter-spacing:.2em;text-transform:uppercase;color:var(--rose);font-weight:500;margin-bottom:4px}
+.plat-info{font-size:.62rem;color:#5a3a48;font-weight:300;line-height:1.55}
+
+/* ── CHIPS ── */
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.chip{font-size:.45rem;letter-spacing:.15em;text-transform:uppercase;padding:4px 11px;border-radius:20px;border:1px solid var(--border);color:var(--muted);background:var(--grey)}
+.chip.r{border-color:rgba(200,96,122,.25);color:var(--rose);background:rgba(200,96,122,.04)}
+.chip.g{border-color:var(--green-border);color:var(--green);background:var(--green-light)}
+
+/* ── OPT-OUT LINKS ── */
+.opt-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0}
+.opt-item{background:var(--grey);border:1px solid var(--border);border-radius:2px;padding:10px 14px;display:flex;align-items:flex-start;gap:10px}
+.opt-icon{font-size:.7rem;color:var(--rose);margin-top:1px;flex-shrink:0}
+.opt-body{}
+.opt-name{font-size:.54rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);font-weight:500;margin-bottom:3px}
+.opt-url{font-size:.6rem;color:var(--rose);font-weight:300}
+.opt-note{font-size:.56rem;color:var(--muted);font-weight:300;margin-top:2px}
+
+/* ── TOGGLE SIMULATOR ── */
+.toggle-row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(232,213,220,.5)}
+.toggle-row:last-child{border-bottom:none}
+.toggle-info{}
+.toggle-name{font-size:.62rem;font-weight:500;color:var(--ink);margin-bottom:2px}
+.toggle-desc{font-size:.57rem;font-weight:300;color:var(--muted)}
+.toggle{position:relative;width:38px;height:21px;flex-shrink:0}
+.toggle input{opacity:0;width:0;height:0}
+.slider{position:absolute;inset:0;border-radius:21px;background:#ddd;transition:.3s;cursor:pointer}
+.slider::before{content:'';position:absolute;width:15px;height:15px;border-radius:50%;background:#fff;left:3px;top:3px;transition:.3s;box-shadow:0 1px 4px rgba(0,0,0,.2)}
+input:checked + .slider{background:var(--rose)}
+input:checked + .slider::before{transform:translateX(17px)}
+input:disabled + .slider{background:#c0d0c0;cursor:not-allowed}
+input:disabled:checked + .slider{background:var(--green)}
+.toggle-locked{font-size:.44rem;letter-spacing:.15em;text-transform:uppercase;color:var(--green);margin-left:6px}
+
+/* ── SECTION RULE ── */
+.srule{text-align:center;margin:26px 0 20px;font-size:.44rem;letter-spacing:.4em;text-transform:uppercase;color:rgba(200,96,122,.22);position:relative}
+.srule::before,.srule::after{content:'';position:absolute;top:50%;width:calc(50% - 65px);height:.5px;background:var(--border)}
+.srule::before{left:0}.srule::after{right:0}
+
+/* ── KV ── */
+.kv{width:100%;border-collapse:collapse;margin:10px 0}
+.kv tr{border-bottom:1px solid var(--border)}
+.kv tr:last-child{border-bottom:none}
+.kv td{padding:8px 4px;font-size:.69rem;font-weight:300;color:#4a3040;vertical-align:top}
+.kv td:first-child{font-weight:500;color:var(--ink);width:185px;padding-right:16px;font-size:.64rem;letter-spacing:.03em}
+
+/* ── ACTION BAR ── */
+.action-bar{position:sticky;bottom:0;z-index:50;background:rgba(253,245,247,.96);backdrop-filter:blur(12px);border-top:1px solid var(--border);padding:11px 32px;display:flex;align-items:center;justify-content:space-between}
+.action-note{font-size:.52rem;letter-spacing:.18em;color:var(--muted);text-transform:uppercase}
+.btns{display:flex;gap:8px}
+.btn{font-size:.52rem;letter-spacing:.2em;text-transform:uppercase;padding:9px 20px;border-radius:2px;cursor:pointer;border:none;transition:all .2s}
+.btn-outline{background:transparent;color:var(--rose);border:1px solid rgba(200,96,122,.3)}
+.btn-outline:hover{background:var(--rose-light)}
+.btn-solid{background:var(--rose);color:#fff}
+.btn-solid:hover{background:var(--rose-mid)}
+
+/* ── FOOTER ── */
+footer{text-align:center;padding:28px 24px;border-top:1px solid var(--border);background:var(--white);font-size:.54rem;letter-spacing:.15em;color:var(--muted);text-transform:uppercase;line-height:2}
+footer a{color:var(--rose);text-decoration:none}
+
+@media print{.topbar,.consent-preview,.consent-preview-label,.action-bar{display:none}body{background:#fff}.wrap{padding:20px}.hero{padding:28px 24px}}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-brand">Bloom &amp; Blush — Fashion &amp; Beauty</div>
+  <div class="topbar-r">
+    <div class="t-pill">Cookie-Richtlinie</div>
+    <div class="t-pill">ePrivacy · DSGVO</div>
+    <div class="t-pill">Stand Mai 2026</div>
+  </div>
+</div>
+
+<!-- LIVE CONSENT BANNER PREVIEW -->
+<div class="consent-preview-label">↓ Vorschau — So sieht dein Cookie-Banner aus</div>
+<div class="consent-preview">
+  <div class="consent-text">
+    <strong>Bloom &amp; Blush verwendet Cookies.</strong> Wir nutzen technisch notwendige Cookies für den Betrieb der Website sowie — mit deiner Einwilligung — Analyse-Cookies (Google Analytics), Marketing-Cookies (Meta, Pinterest) und Affiliate-Tracking-Cookies (Amazon PartnerNet). Weitere Informationen findest du in unserer Cookie-Richtlinie.
+  </div>
+  <div class="consent-btns">
+    <button class="c-btn c-btn-rej">Ablehnen</button>
+    <button class="c-btn c-btn-sel">Auswahl speichern</button>
+    <button class="c-btn c-btn-all">Alle akzeptieren</button>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">Transparenz &amp; Kontrolle</div>
+  <h1>Cookie-<em>Richtlinie</em></h1>
+  <p class="hero-sub">Diese Cookie-Richtlinie erklärt dir klar und verständlich, welche Cookies bloom-and-blush.com setzt, welchen Zwecken sie dienen — und wie du deine Einwilligung jederzeit anpassen oder widerrufen kannst.</p>
+  <div class="hero-pills">
+    <div class="h-pill">ePrivacy-Richtlinie</div>
+    <div class="h-pill">DSGVO Art. 6</div>
+    <div class="h-pill">§ 25 TTDSG</div>
+    <div class="h-pill">Google Analytics 4</div>
+    <div class="h-pill">Amazon PartnerNet</div>
+    <div class="h-pill">Meta Pixel</div>
+    <div class="h-pill">Stand: 09.05.2026</div>
+  </div>
+</div>
+
+<!-- TOC -->
+<div class="toc-wrap">
+  <div class="toc">
+    <div class="toc-lbl">Inhaltsverzeichnis — 9 Abschnitte</div>
+    <div class="toc-grid">
+      <a class="toc-a" href="#c1">1 · Was sind Cookies?</a>
+      <a class="toc-a" href="#c6">6 · Affiliate-Marketing Cookies</a>
+      <a class="toc-a" href="#c2">2 · Cookie-Kategorien im Überblick</a>
+      <a class="toc-a" href="#c7">7 · Social-Media-Marketing Cookies</a>
+      <a class="toc-a" href="#c3">3 · Technisch notwendige Cookies</a>
+      <a class="toc-a" href="#c8">8 · Online-Werbung &amp; Retargeting</a>
+      <a class="toc-a" href="#c4">4 · Analyse-Cookies</a>
+      <a class="toc-a" href="#c9">9 · Einwilligung &amp; Opt-out</a>
+      <a class="toc-a" href="#c5">5 · Marketing-Cookies</a>
+      <a class="toc-a" href="#ctable">· Vollständige Cookie-Tabelle</a>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- ══ 1. WAS SIND COOKIES ══ -->
+  <div class="card" id="c1">
+    <div class="card-head">
+      <div class="card-n">01</div>
+      <div class="card-tt">
+        <div class="card-over">Grundlagen · Technik · Arten</div>
+        <div class="card-title">Was sind <em>Cookies?</em></div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>Definition</h3>
+      <p>Cookies sind kleine Textdateien, die beim Besuch einer Website von deinem Browser auf deinem Endgerät (Computer, Smartphone, Tablet) gespeichert werden. Sie ermöglichen es der Website, bei deinem nächsten Besuch Informationen über dich abzurufen — z. B. deine Spracheinstellung, deinen Login-Status oder deine Cookie-Präferenzen.</p>
+      <p>Neben klassischen Cookies können auch ähnliche Technologien wie <strong>Local Storage, Session Storage, Pixel-Tags, Web Beacons</strong> und <strong>Fingerprinting</strong> eingesetzt werden. Diese Richtlinie gilt für alle diese Technologien gleichermaßen.</p>
+
+      <h3>Cookie-Typen nach Laufzeit</h3>
+      <div class="cat-grid">
+        <div class="cat cat-nec">
+          <div class="cat-head"><div class="cat-dot" style="background:#1a6640"></div><div class="cat-name">Session-Cookies</div></div>
+          <div class="cat-desc">Werden beim Schließen des Browsers automatisch gelöscht. Kein dauerhaftes Speichern auf deinem Gerät.</div>
+        </div>
+        <div class="cat cat-ana">
+          <div class="cat-head"><div class="cat-dot" style="background:#b8880a"></div><div class="cat-name">Persistente Cookies</div></div>
+          <div class="cat-desc">Bleiben nach dem Schließen des Browsers gespeichert — für eine definierte Laufzeit (Stunden bis Jahre).</div>
+        </div>
+      </div>
+
+      <h3>Cookie-Typen nach Herkunft</h3>
+      <div class="cat-grid">
+        <div class="cat cat-nec">
+          <div class="cat-head"><div class="cat-dot" style="background:#1a6640"></div><div class="cat-name">First-Party-Cookies</div></div>
+          <div class="cat-desc">Von bloom-and-blush.com selbst gesetzt. Steuern grundlegende Funktionen wie Navigation, Formulare und Cookie-Präferenzen.</div>
+        </div>
+        <div class="cat cat-mkt">
+          <div class="cat-head"><div class="cat-dot" style="background:#1a4a88"></div><div class="cat-name">Third-Party-Cookies</div></div>
+          <div class="cat-desc">Von externen Anbietern gesetzt (Google, Meta, Amazon, Pinterest). Dienen Analyse, Werbung und Affiliate-Tracking.</div>
+        </div>
+      </div>
+
+      <h3>Rechtsgrundlage</h3>
+      <p>Das Setzen von Cookies auf deinem Endgerät richtet sich nach <strong>§ 25 TTDSG</strong> (Telekommunikation-Telemedien-Datenschutz-Gesetz) und der europäischen <strong>ePrivacy-Richtlinie</strong>. Technisch notwendige Cookies dürfen ohne Einwilligung gesetzt werden. Alle anderen Cookies erfordern deine ausdrückliche, freiwillige und informierte <strong>Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO</strong>.</p>
+    </div>
+  </div>
+
+  <!-- ══ 2. KATEGORIEN ÜBERBLICK ══ -->
+  <div class="card" id="c2">
+    <div class="card-head">
+      <div class="card-n">02</div>
+      <div class="card-tt">
+        <div class="card-over">Übersicht · Einwilligung · Steuerung</div>
+        <div class="card-title">Cookie-Kategorien <em>im Überblick</em></div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p>bloom-and-blush.com nutzt vier Cookie-Kategorien. Du kannst deine Einwilligung für jede Kategorie einzeln erteilen oder verweigern — mit Ausnahme der technisch notwendigen Cookies, die für den Betrieb der Website unverzichtbar sind.</p>
+
+      <div class="cat-grid">
+        <div class="cat cat-nec">
+          <div class="cat-head">
+            <div class="cat-dot" style="background:#1a6640"></div>
+            <div class="cat-name">Notwendig</div>
+            <div class="cat-req">Immer aktiv</div>
+          </div>
+          <div class="cat-desc">Unverzichtbar für den Betrieb der Website. Kein Login, kein Warenkorb, keine Spracheinstellung ohne diese Cookies. Keine Einwilligung erforderlich — § 25 Abs. 2 TTDSG.</div>
+        </div>
+        <div class="cat cat-ana">
+          <div class="cat-head">
+            <div class="cat-dot" style="background:#b8880a"></div>
+            <div class="cat-name">Analyse</div>
+            <div class="cat-req">Opt-in</div>
+          </div>
+          <div class="cat-desc">Helfen uns zu verstehen, wie Besucherinnen und Besucher die Website nutzen — anonym. Ermöglichen Verbesserungen des Angebots. Z. B. Google Analytics 4.</div>
+        </div>
+        <div class="cat cat-mkt">
+          <div class="cat-head">
+            <div class="cat-dot" style="background:#1a4a88"></div>
+            <div class="cat-name">Marketing</div>
+            <div class="cat-req">Opt-in</div>
+          </div>
+          <div class="cat-desc">Für personalisierte Werbeanzeigen auf anderen Plattformen (Retargeting). Z. B. Meta Pixel, Google Ads, Pinterest Tag.</div>
+        </div>
+        <div class="cat cat-aff">
+          <div class="cat-head">
+            <div class="cat-dot" style="background:#c8607a"></div>
+            <div class="cat-name">Affiliate</div>
+            <div class="cat-req">Opt-in</div>
+          </div>
+          <div class="cat-desc">Für die Zuordnung von Käufen zu unseren Empfehlungslinks. Z. B. Amazon PartnerNet. Werden beim Klick auf einen Affiliate-Link gesetzt.</div>
+        </div>
+      </div>
+
+      <!-- LIVE TOGGLE SIMULATOR -->
+      <h3>Deine Cookie-Einstellungen (Vorschau)</h3>
+      <p>So kannst du auf bloom-and-blush.com deine Cookie-Präferenzen individuell steuern:</p>
+      <div style="background:var(--grey);border:1px solid var(--border);border-radius:2px;padding:16px 20px;margin:12px 0">
+        <div class="toggle-row">
+          <div class="toggle-info">
+            <div class="toggle-name">● Technisch notwendige Cookies</div>
+            <div class="toggle-desc">Unverzichtbar — können nicht deaktiviert werden</div>
+          </div>
+          <div style="display:flex;align-items:center">
+            <label class="toggle"><input type="checkbox" checked disabled><span class="slider"></span></label>
+            <span class="toggle-locked">Immer aktiv</span>
+          </div>
+        </div>
+        <div class="toggle-row">
+          <div class="toggle-info">
+            <div class="toggle-name">● Analyse-Cookies</div>
+            <div class="toggle-desc">Google Analytics 4 — anonymisierte Nutzungsstatistiken</div>
+          </div>
+          <label class="toggle"><input type="checkbox"><span class="slider"></span></label>
+        </div>
+        <div class="toggle-row">
+          <div class="toggle-info">
+            <div class="toggle-name">● Marketing-Cookies</div>
+            <div class="toggle-desc">Meta Pixel, Google Ads, Pinterest Tag</div>
+          </div>
+          <label class="toggle"><input type="checkbox"><span class="slider"></span></label>
+        </div>
+        <div class="toggle-row">
+          <div class="toggle-info">
+            <div class="toggle-name">● Affiliate-Tracking-Cookies</div>
+            <div class="toggle-desc">Amazon PartnerNet, AWIN, weitere Netzwerke</div>
+          </div>
+          <label class="toggle"><input type="checkbox"><span class="slider"></span></label>
+        </div>
+      </div>
+      <div class="box-green">
+        <p><strong>Dein Recht:</strong> Du kannst deine Einwilligung jederzeit widerrufen — ohne Angabe von Gründen und ohne Nachteile. Rufe dafür die Cookie-Einstellungen auf bloom-and-blush.com auf (Link im Footer) oder deaktiviere Cookies direkt in deinem Browser. Ein Widerruf wirkt nicht rückwirkend, aber ab dem Zeitpunkt des Widerrufs sofort.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 3. NOTWENDIGE COOKIES ══ -->
+  <div class="card" id="c3">
+    <div class="card-head">
+      <div class="card-n">03</div>
+      <div class="card-tt">
+        <div class="card-over">§ 25 Abs. 2 TTDSG · Keine Einwilligung erforderlich</div>
+        <div class="card-title">Technisch <em>notwendige Cookies</em></div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="box-green">
+        <p><strong>Rechtsgrundlage:</strong> § 25 Abs. 2 Nr. 2 TTDSG i.V.m. Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse). Diese Cookies sind für den technischen Betrieb der Website zwingend erforderlich und dürfen ohne deine Einwilligung gesetzt werden.</p>
+      </div>
+      <p>Technisch notwendige Cookies gewährleisten die grundlegende Funktionalität von bloom-and-blush.com. Ohne diese Cookies ist ein normaler Betrieb der Website nicht möglich. Sie speichern keine personenbezogenen Daten, die für Werbezwecke genutzt werden könnten.</p>
+
+      <table class="ctable">
+        <thead>
+          <tr>
+            <th>Cookie-Name</th>
+            <th>Anbieter</th>
+            <th>Zweck</th>
+            <th>Laufzeit</th>
+            <th>Typ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>bloom_cookie_consent</td>
+            <td>bloom-and-blush.com</td>
+            <td>Speichert deine Cookie-Einwilligung</td>
+            <td>12 Monate</td>
+            <td><div class="dot-row"><div class="dot dot-green"></div>1st Party</div></td>
+          </tr>
+          <tr>
+            <td>bloom_session</td>
+            <td>bloom-and-blush.com</td>
+            <td>Session-Verwaltung, Navigation</td>
+            <td>Session</td>
+            <td><div class="dot-row"><div class="dot dot-green"></div>1st Party</div></td>
+          </tr>
+          <tr>
+            <td>bloom_lang</td>
+            <td>bloom-and-blush.com</td>
+            <td>Spracheinstellung speichern</td>
+            <td>12 Monate</td>
+            <td><div class="dot-row"><div class="dot dot-green"></div>1st Party</div></td>
+          </tr>
+          <tr>
+            <td>PHPSESSID / wp-settings</td>
+            <td>bloom-and-blush.com</td>
+            <td>CMS-Session, WordPress-Einstellungen</td>
+            <td>Session</td>
+            <td><div class="dot-row"><div class="dot dot-green"></div>1st Party</div></td>
+          </tr>
+          <tr>
+            <td>__cf_bm</td>
+            <td>Cloudflare (Infrastruktur)</td>
+            <td>Bot-Erkennung, DDoS-Schutz</td>
+            <td>30 Minuten</td>
+            <td><div class="dot-row"><div class="dot dot-gold"></div>3rd Party</div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ══ 4. ANALYSE-COOKIES ══ -->
+  <div class="card" id="c4">
+    <div class="card-head">
+      <div class="card-n">04</div>
+      <div class="card-tt">
+        <div class="card-over">Google Analytics 4 · Opt-in erforderlich</div>
+        <div class="card-title">Analyse-<em>Cookies</em></div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="box-gold">
+        <p><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. a DSGVO (Einwilligung). Analyse-Cookies werden ausschließlich nach deiner ausdrücklichen Einwilligung gesetzt. Du kannst sie jederzeit über die Cookie-Einstellungen deaktivieren.</p>
+      </div>
+      <h3>Google Analytics 4 (GA4)</h3>
+      <p>Bloom &amp; Blush nutzt <strong>Google Analytics 4</strong> (Betreiber: Google Ireland Ltd., Gordon House, Barrow Street, Dublin 4, Irland) zur Analyse des Nutzungsverhaltens auf der Website. GA4 ist mit folgenden Datenschutzmaßnahmen konfiguriert:</p>
+      <ul>
+        <li><strong>IP-Anonymisierung</strong> ist aktiviert — deine vollständige IP-Adresse wird nicht gespeichert</li>
+        <li><strong>Datenaufbewahrung</strong> ist auf 14 Monate begrenzt</li>
+        <li><strong>Demografische Berichte</strong> sind deaktiviert</li>
+        <li><strong>Signale</strong> (Google-Account-Daten) werden nicht genutzt</li>
+        <li>Keine Weitergabe von Daten an Google-Werbenetzwerke</li>
+        <li>Google ist nach dem <strong>EU-US Data Privacy Framework</strong> zertifiziert</li>
+      </ul>
+
+      <table class="ctable">
+        <thead>
+          <tr><th>Cookie</th><th>Anbieter</th><th>Zweck</th><th>Laufzeit</th><th>Typ</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>_ga</td>
+            <td>Google Analytics</td>
+            <td>Eindeutige Besucherkennung (anonym)</td>
+            <td>2 Jahre</td>
+            <td><div class="dot-row"><div class="dot dot-gold"></div>3rd Party</div></td>
+          </tr>
+          <tr>
+            <td>_ga_[ID]</td>
+            <td>Google Analytics</td>
+            <td>Session-Status für GA4</td>
+            <td>2 Jahre</td>
+            <td><div class="dot-row"><div class="dot dot-gold"></div>3rd Party</div></td>
+          </tr>
+          <tr>
+            <td>_gid</td>
+            <td>Google Analytics</td>
+            <td>Seitenaufrufe unterscheiden</td>
+            <td>24 Stunden</td>
+            <td><div class="dot-row"><div class="dot dot-gold"></div>3rd Party</div></td>
+          </tr>
+          <tr>
+            <td>_gat</td>
+            <td>Google Analytics</td>
+            <td>Anfrage-Rate drosseln</td>
+            <td>1 Minute</td>
+            <td><div class="dot-row"><div class="dot dot-gold"></div>3rd Party</div></td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Opt-out: <a href="https://tools.google.com/dlpage/gaoptout" target="_blank">tools.google.com/dlpage/gaoptout</a> · Datenschutz Google: <a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a></p>
+    </div>
+  </div>
+
+  <!-- ══ 5. MARKETING-COOKIES ══ -->
+  <div class="card" id="c5">
+    <div class="card-head">
+      <div class="card-n">05</div>
+      <div class="card-tt">
+        <div class="card-over">Meta · Google Ads · Pinterest · Opt-in erforderlich</div>
+        <div class="card-title">Marketing-<em>Cookies</em></div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="box-blue">
+        <p><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. a DSGVO (Einwilligung). Marketing-Cookies werden ausschließlich nach deiner Einwilligung gesetzt. Sie ermöglichen personalisierte Werbung auf Drittplattformen und Conversion-Tracking.</p>
+      </div>
+
+      <h3>Meta Pixel (Facebook &amp; Instagram)</h3>
+      <p>Der <strong>Meta Pixel</strong> (Meta Platforms Ireland Ltd., 4 Grand Canal Square, Dublin 2, Irland) ermöglicht Bloom &amp; Blush, den Erfolg von Werbekampagnen auf Facebook und Instagram zu messen sowie Zielgruppen für Retargeting-Kampagnen zu erstellen.</p>
+      <table class="ctable">
+        <thead><tr><th>Cookie</th><th>Anbieter</th><th>Zweck</th><th>Laufzeit</th><th>Typ</th></tr></thead>
+        <tbody>
+          <tr><td>_fbp</td><td>Meta</td><td>Besucher für Retargeting identifizieren</td><td>3 Monate</td><td><div class="dot-row"><div class="dot dot-blue"></div>3rd Party</div></td></tr>
+          <tr><td>_fbc</td><td>Meta</td><td>Click-ID aus Facebook-Anzeigen</td><td>3 Monate</td><td><div class="dot-row"><div class="dot dot-blue"></div>3rd Party</div></td></tr>
+          <tr><td>fr</td><td>Meta</td><td>Personalisierte Werbung auf Facebook</td><td>3 Monate</td><td><div class="dot-row"><div class="dot dot-blue"></div>3rd Party</div></td></tr>
+        </tbody>
+      </table>
+      <p>Opt-out: <a href="https://www.facebook.com/ads/preferences" target="_blank">facebook.com/ads/preferences</a></p>
+
+      <h3>Google Ads &amp; Conversion-Tracking</h3>
+      <p><strong>Google Ads</strong> (Google Ireland Ltd.) erlaubt die Erfolgsmessung bezahlter Suchanzeigen und Display-Kampagnen sowie die Erstellung von Retargeting-Zielgruppen.</p>
+      <table class="ctable">
+        <thead><tr><th>Cookie</th><th>Anbieter</th><th>Zweck</th><th>Laufzeit</th><th>Typ</th></tr></thead>
+        <tbody>
+          <tr><td>_gcl_au</td><td>Google Ads</td><td>Conversion-Tracking verknüpfen</td><td>3 Monate</td><td><div class="dot-row"><div class="dot dot-gold"></div>3rd Party</div></td></tr>
+          <tr><td>IDE</td><td>Google DoubleClick</td><td>Personalisierte Display-Werbung</td><td>13 Monate</td><td><div class="dot-row"><div class="dot dot-gold"></div>3rd Party</div></td></tr>
+        </tbody>
+      </table>
+      <p>Opt-out: <a href="https://adssettings.google.com" target="_blank">adssettings.google.com</a></p>
+
+      <h3>Pinterest Tag</h3>
+      <p>Der <strong>Pinterest Tag</strong> (Pinterest Europe Ltd., Palmerston House, Fenian Street, Dublin 2, Irland) ermöglicht die Messung von Conversions aus Pinterest-Kampagnen und die Erstellung von Zielgruppen für Promoted Pins.</p>
+      <table class="ctable">
+        <thead><tr><th>Cookie</th><th>Anbieter</th><th>Zweck</th><th>Laufzeit</th><th>Typ</th></tr></thead>
+        <tbody>
+          <tr><td>_pinterest_sess</td><td>Pinterest</td><td>Session-Verwaltung Pinterest</td><td>Session</td><td><div class="dot-row"><div class="dot dot-red"></div>3rd Party</div></td></tr>
+          <tr><td>_pin_unauth</td><td>Pinterest</td><td>Nicht eingeloggte Besucher tracken</td><td>12 Monate</td><td><div class="dot-row"><div class="dot dot-red"></div>3rd Party</div></td></tr>
+        </tbody>
+      </table>
+      <p>Opt-out: <a href="https://pinterest.de/settings/privacy" target="_blank">pinterest.de/settings/privacy</a></p>
+    </div>
+  </div>
+
+  <div class="srule">Affiliate &amp; Social Media</div>
+
+  <!-- ══ 6. AFFILIATE COOKIES ══ -->
+  <div class="card" id="c6">
+    <div class="card-head">
+      <div class="card-n">06</div>
+      <div class="card-tt">
+        <div class="card-over">Amazon PartnerNet · AWIN · LTK · Opt-in empfohlen</div>
+        <div class="card-title">Affiliate-Marketing <em>Cookies</em></div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="box">
+        <p><strong>Pflichthinweis Amazon PartnerNet:</strong> Bloom &amp; Blush ist Teilnehmerin des Partnerprogramms von Amazon Europe S.à r.l. und verdient an qualifizierten Verkäufen Werbekostenerstattungen. Amazon, das Amazon-Logo, AmazonSmile und das AmazonSmile-Logo sind eingetragene Warenzeichen von Amazon.com, Inc. oder einer seiner verbundenen Gesellschaften.</p>
+      </div>
+
+      <h3>Was sind Affiliate-Cookies?</h3>
+      <p>Wenn du auf einen Affiliate-Link auf bloom-and-blush.com klickst, wird ein <strong>Tracking-Cookie</strong> auf deinem Gerät gesetzt. Dieses Cookie ermöglicht es dem jeweiligen Affiliate-Netzwerk, einen späteren Kauf dem Klick auf unseren Link zuzuordnen. Bloom &amp; Blush erhält dann eine Provision — für dich entstehen <strong>keine Mehrkosten</strong>.</p>
+      <p>Affiliate-Cookies werden <strong>nur beim aktiven Klick</strong> auf einen gekennzeichneten Affiliate-Link gesetzt — nicht beim bloßen Besuch der Seite.</p>
+
+      <h3>Amazon PartnerNet</h3>
+      <table class="ctable">
+        <thead><tr><th>Cookie</th><th>Anbieter</th><th>Zweck</th><th>Laufzeit</th><th>Typ</th></tr></thead>
+        <tbody>
+          <tr><td>session-id</td><td>Amazon</td><td>Amazon-Session beim Klick</td><td>Session</td><td><div class="dot-row"><div class="dot dot-gold"></div>3rd Party</div></td></tr>
+          <tr><td>ubid-acbde</td><td>Amazon</td><td>Besucher-ID für Affiliate-Zuordnung</td><td>12 Monate</td><td><div class="dot-row"><div class="dot dot-gold"></div>3rd Party</div></td></tr>
+          <tr><td>x-acb[Region]</td><td>Amazon</td><td>Affiliate-Click-Tracking (24h-Fenster)</td><td>24 Stunden</td><td><div class="dot-row"><div class="dot dot-gold"></div>3rd Party</div></td></tr>
+          <tr><td>ad-id / ad-privacy</td><td>Amazon</td><td>Personalisierung Amazon-Ads</td><td>8 Monate</td><td><div class="dot-row"><div class="dot dot-gold"></div>3rd Party</div></td></tr>
+        </tbody>
+      </table>
+      <p>Amazon-Datenschutz: <a href="https://www.amazon.de/gp/help/customer/display.html?nodeId=201909010" target="_blank">amazon.de → Datenschutzerklärung</a></p>
+
+      <h3>AWIN Affiliate Network</h3>
+      <table class="ctable">
+        <thead><tr><th>Cookie</th><th>Anbieter</th><th>Zweck</th><th>Laufzeit</th><th>Typ</th></tr></thead>
+        <tbody>
+          <tr><td>aw_source</td><td>AWIN</td><td>Affiliate-Klick-Zuordnung</td><td>30 Tage</td><td><div class="dot-row"><div class="dot dot-blue"></div>3rd Party</div></td></tr>
+          <tr><td>awinClickref</td><td>AWIN</td><td>Click-Referenz für Provision</td><td>30 Tage</td><td><div class="dot-row"><div class="dot dot-blue"></div>3rd Party</div></td></tr>
+        </tbody>
+      </table>
+
+      <h3>LTK (LikeToKnow.it)</h3>
+      <table class="ctable">
+        <thead><tr><th>Cookie</th><th>Anbieter</th><th>Zweck</th><th>Laufzeit</th><th>Typ</th></tr></thead>
+        <tbody>
+          <tr><td>_ltk_track</td><td>LTK</td><td>Shopping-Link-Tracking</td><td>90 Tage</td><td><div class="dot-row"><div class="dot dot-red"></div>3rd Party</div></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ══ 7. SOCIAL MEDIA COOKIES ══ -->
+  <div class="card" id="c7">
+    <div class="card-head">
+      <div class="card-n">07</div>
+      <div class="card-tt">
+        <div class="card-over">Instagram · Pinterest · TikTok · YouTube</div>
+        <div class="card-title">Social-Media-<em>Cookies</em></div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="box-blue">
+        <p><strong>Hinweis:</strong> Eingebettete Social-Media-Inhalte (Instagram-Posts, Pinterest-Boards, YouTube-Videos) werden auf bloom-and-blush.com erst nach deiner ausdrücklichen Zustimmung geladen (2-Klick-Lösung oder Consent-Management). Erst dann werden Verbindungen zu den Servern der jeweiligen Plattform hergestellt.</p>
+      </div>
+
+      <div class="plat-grid">
+        <div class="plat">
+          <div class="plat-name">Instagram / Meta</div>
+          <div class="plat-info">Meta Platforms Ireland Ltd., Dublin 2. Cookies: csrftoken, ig_did, ig_nrcb, mid, ds_user_id. Laufzeit: Session bis 12 Monate. Opt-out: facebook.com/ads/preferences</div>
+        </div>
+        <div class="plat">
+          <div class="plat-name">Pinterest</div>
+          <div class="plat-info">Pinterest Europe Ltd., Dublin 2. Cookies: _pinterest_sess, _pin_unauth, _pinterest_pfob. Laufzeit: Session bis 12 Monate. Opt-out: pinterest.de/settings/privacy</div>
+        </div>
+        <div class="plat">
+          <div class="plat-name">TikTok</div>
+          <div class="plat-info">TikTok Technology Ltd., Dublin 2. Cookies: tt_webid, tt_pixel_session_index, ttwid. Laufzeit: Session bis 13 Monate. Opt-out: TikTok App → Einstellungen → Datenschutz</div>
+        </div>
+        <div class="plat">
+          <div class="plat-name">YouTube (Google)</div>
+          <div class="plat-info">Google Ireland Ltd., Dublin 4. Cookies: YSC, VISITOR_INFO1_LIVE, GPS. Laufzeit: Session bis 6 Monate. Opt-out: adssettings.google.com</div>
+        </div>
+      </div>
+
+      <h3>Social Plugins</h3>
+      <p>Bloom &amp; Blush implementiert Social Plugins (z. B. Pinterest-Pin-Button, Instagram-Feed) mit dem <strong>2-Klick-Verfahren</strong>: Erst wenn du aktiv auf das Plugin klickst oder nach Erteilung deiner Einwilligung über das Cookie-Banner, wird eine Verbindung zu den Servern der Plattform hergestellt. Vorher findet keine Datenübertragung statt.</p>
+    </div>
+  </div>
+
+  <!-- ══ 8. ONLINE-WERBUNG ══ -->
+  <div class="card" id="c8">
+    <div class="card-head">
+      <div class="card-n">08</div>
+      <div class="card-tt">
+        <div class="card-over">Retargeting · Display · Personalisierung</div>
+        <div class="card-title">Online-Werbung &amp; <em>Retargeting</em></div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>Was ist Retargeting?</h3>
+      <p><strong>Retargeting</strong> (auch Remarketing) bedeutet, dass Besucherinnen und Besucher von bloom-and-blush.com auf anderen Websites personalisierte Werbeanzeigen sehen können — abgestimmt auf ihre Interessen auf unserer Website. Diese Technologie basiert auf den Marketing-Cookies (§ 5) und wird ausschließlich mit deiner Einwilligung eingesetzt.</p>
+
+      <h3>Eingesetzte Werbetechnologien</h3>
+      <table class="ctable">
+        <thead><tr><th>Technologie</th><th>Anbieter</th><th>Zweck</th><th>Einwilligung</th></tr></thead>
+        <tbody>
+          <tr><td>Google Ads Remarketing</td><td>Google Ireland Ltd.</td><td>Personalisierte Anzeigen im Google-Netzwerk</td><td><span class="chip r" style="font-size:.4rem">Opt-in</span></td></tr>
+          <tr><td>Meta Custom Audiences</td><td>Meta Platforms Ireland</td><td>Zielgruppen für Facebook/Instagram-Ads</td><td><span class="chip r" style="font-size:.4rem">Opt-in</span></td></tr>
+          <tr><td>Pinterest Retargeting</td><td>Pinterest Europe Ltd.</td><td>Personalisierte Promoted Pins</td><td><span class="chip r" style="font-size:.4rem">Opt-in</span></td></tr>
+          <tr><td>Amazon DSP</td><td>Amazon EU</td><td>Display-Anzeigen im Amazon-Netzwerk</td><td><span class="chip r" style="font-size:.4rem">Opt-in</span></td></tr>
+        </tbody>
+      </table>
+
+      <h3>Kennzeichnung von Werbeanzeigen</h3>
+      <p>Alle Werbeanzeigen auf bloom-and-blush.com werden eindeutig als <strong>„Anzeige"</strong> gekennzeichnet und sind optisch klar von redaktionellen Inhalten getrennt. Personalisierte Retargeting-Anzeigen auf externen Plattformen tragen dort die plattformübliche Kennzeichnung (z. B. „Warum sehe ich diese Anzeige?" bei Google).</p>
+
+      <div class="box-gold">
+        <p><strong>Affiliate-Kennzeichnung auf Werbemitteln:</strong> Werbeanzeigen, die Affiliate-Links enthalten, sind stets mit <strong>„*"</strong> (Asterisk) oder dem Hinweis <strong>„Werbung / Affiliate-Link"</strong> gekennzeichnet. Diese Kennzeichnung gilt auf der Website, im Newsletter und auf allen Social-Media-Kanälen von Bloom &amp; Blush.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 9. EINWILLIGUNG & OPT-OUT ══ -->
+  <div class="card" id="c9">
+    <div class="card-head">
+      <div class="card-n">09</div>
+      <div class="card-tt">
+        <div class="card-over">Widerruf · Browser · Zentrale Opt-out-Portale</div>
+        <div class="card-title">Einwilligung &amp; <em>Opt-out</em></div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>Einwilligung erteilen &amp; widerrufen</h3>
+      <p>Beim ersten Besuch von bloom-and-blush.com erscheint ein <strong>Cookie-Banner</strong>, über das du deine Einwilligung für jede Cookie-Kategorie einzeln erteilen oder ablehnen kannst. Du kannst diese Einstellung jederzeit anpassen — ohne Nachteile für dein Nutzungserlebnis.</p>
+      <p>Die Einwilligung wird in einem Cookie (bloom_cookie_consent) für 12 Monate gespeichert. Nach 12 Monaten wirst du erneut um deine Einwilligung gebeten. Du kannst die Einwilligung jederzeit durch Löschen dieses Cookies zurücksetzen.</p>
+
+      <h3>Opt-out-Möglichkeiten im Überblick</h3>
+      <div class="opt-grid">
+        <div class="opt-item">
+          <div class="opt-icon">⚙</div>
+          <div class="opt-body">
+            <div class="opt-name">Cookie-Einstellungen</div>
+            <div class="opt-url">bloom-and-blush.com → Cookie-Präferenzen</div>
+            <div class="opt-note">Jederzeit anpassbar — empfohlener Weg</div>
+          </div>
+        </div>
+        <div class="opt-item">
+          <div class="opt-icon">🌐</div>
+          <div class="opt-body">
+            <div class="opt-name">Zentrale Opt-out-Plattform</div>
+            <div class="opt-url">youronlinechoices.eu</div>
+            <div class="opt-note">Alle teilnehmenden Werbenetzwerke verwalten</div>
+          </div>
+        </div>
+        <div class="opt-item">
+          <div class="opt-icon">G</div>
+          <div class="opt-body">
+            <div class="opt-name">Google Analytics Opt-out</div>
+            <div class="opt-url">tools.google.com/dlpage/gaoptout</div>
+            <div class="opt-note">Browser-Add-on für alle Google-Analytics-Websites</div>
+          </div>
+        </div>
+        <div class="opt-item">
+          <div class="opt-icon">G</div>
+          <div class="opt-body">
+            <div class="opt-name">Google Werbeeinstellungen</div>
+            <div class="opt-url">adssettings.google.com</div>
+            <div class="opt-note">Personalisierte Google-Ads verwalten</div>
+          </div>
+        </div>
+        <div class="opt-item">
+          <div class="opt-icon">f</div>
+          <div class="opt-body">
+            <div class="opt-name">Meta / Facebook Ads</div>
+            <div class="opt-url">facebook.com/ads/preferences</div>
+            <div class="opt-note">Werbeeinstellungen für Facebook &amp; Instagram</div>
+          </div>
+        </div>
+        <div class="opt-item">
+          <div class="opt-icon">P</div>
+          <div class="opt-body">
+            <div class="opt-name">Pinterest Datenschutz</div>
+            <div class="opt-url">pinterest.de/settings/privacy</div>
+            <div class="opt-note">Personalisierte Pinterest-Werbung deaktivieren</div>
+          </div>
+        </div>
+        <div class="opt-item">
+          <div class="opt-icon">A</div>
+          <div class="opt-body">
+            <div class="opt-name">Amazon Werbeeinstellungen</div>
+            <div class="opt-url">amazon.de/adprefs</div>
+            <div class="opt-note">Interessenbasierte Amazon-Werbung verwalten</div>
+          </div>
+        </div>
+        <div class="opt-item">
+          <div class="opt-icon">🗑</div>
+          <div class="opt-body">
+            <div class="opt-name">Browser-Einstellungen</div>
+            <div class="opt-url">Alle Cookies löschen / blockieren</div>
+            <div class="opt-note">Chrome / Firefox / Safari → Datenschutz &amp; Sicherheit</div>
+          </div>
+        </div>
+      </div>
+
+      <h3>Auswirkungen der Ablehnung</h3>
+      <ul>
+        <li><strong>Notwendige Cookies ablehnen:</strong> Nicht möglich — für den Betrieb der Website unverzichtbar</li>
+        <li><strong>Analyse-Cookies ablehnen:</strong> Website funktioniert vollständig — keine Einschränkungen für dich</li>
+        <li><strong>Marketing-Cookies ablehnen:</strong> Keine personalisierten Werbeanzeigen. Werbung wird weiterhin angezeigt, aber nicht auf deine Interessen zugeschnitten</li>
+        <li><strong>Affiliate-Cookies ablehnen:</strong> Du kannst Produkte weiterhin kaufen — Bloom &amp; Blush erhält jedoch keine Provision. Der Preis für dich bleibt identisch</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ══ VOLLSTÄNDIGE COOKIE-TABELLE ══ -->
+  <div class="card" id="ctable">
+    <div class="card-head">
+      <div class="card-n">✦</div>
+      <div class="card-tt">
+        <div class="card-over">Alle Cookies · Alphabetisch · Vollständig</div>
+        <div class="card-title">Vollständige <em>Cookie-Tabelle</em></div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p>Nachfolgend findest du eine vollständige, nach Kategorien geordnete Übersicht aller Cookies, die bloom-and-blush.com setzt oder setzen kann:</p>
+
+      <h3>● Notwendige Cookies</h3>
+      <table class="ctable">
+        <thead><tr><th>Cookie</th><th>Anbieter</th><th>Zweck</th><th>Laufzeit</th><th>Einwilligung</th></tr></thead>
+        <tbody>
+          <tr><td>bloom_cookie_consent</td><td>Bloom &amp; Blush</td><td>Cookie-Einwilligung speichern</td><td>12 Monate</td><td><span class="chip g" style="font-size:.4rem">Nicht nötig</span></td></tr>
+          <tr><td>bloom_session</td><td>Bloom &amp; Blush</td><td>Session-Verwaltung</td><td>Session</td><td><span class="chip g" style="font-size:.4rem">Nicht nötig</span></td></tr>
+          <tr><td>bloom_lang</td><td>Bloom &amp; Blush</td><td>Spracheinstellung</td><td>12 Monate</td><td><span class="chip g" style="font-size:.4rem">Nicht nötig</span></td></tr>
+          <tr><td>__cf_bm</td><td>Cloudflare</td><td>Bot-Schutz / Infrastruktur</td><td>30 Minuten</td><td><span class="chip g" style="font-size:.4rem">Nicht nötig</span></td></tr>
+        </tbody>
+      </table>
+
+      <h3>● Analyse-Cookies</h3>
+      <table class="ctable">
+        <thead><tr><th>Cookie</th><th>Anbieter</th><th>Zweck</th><th>Laufzeit</th><th>Einwilligung</th></tr></thead>
+        <tbody>
+          <tr><td>_ga</td><td>Google Analytics</td><td>Anonyme Besucherkennung</td><td>2 Jahre</td><td><span class="chip r" style="font-size:.4rem">Opt-in</span></td></tr>
+          <tr><td>_ga_[ID]</td><td>Google Analytics</td><td>GA4-Session-Status</td><td>2 Jahre</td><td><span class="chip r" style="font-size:.4rem">Opt-in</span></td></tr>
+          <tr><td>_gid</td><td>Google Analytics</td><td>Seitenaufrufe unterscheiden</td><td>24 Std.</td><td><span class="chip r" style="font-size:.4rem">Opt-in</span></td></tr>
+          <tr><td>_gat</td><td>Google Analytics</td><td>Anfrage-Begrenzung</td><td>1 Minute</td><td><span class="chip r" style="font-size:.4rem">Opt-in</span></td></tr>
+        </tbody>
+      </table>
+
+      <h3>● Marketing-Cookies</h3>
+      <table class="ctable">
+        <thead><tr><th>Cookie</th><th>Anbieter</th><th>Zweck</th><th>Laufzeit</th><th>Einwilligung</th></tr></thead>
+        <tbody>
+          <tr><td>_fbp</td><td>Meta</td><td>Retargeting Facebook/Instagram</td><td>3 Monate</td><td><span class="chip r" style="font-size:.4rem">Opt-in</span></td></tr>
+          <tr><td>_fbc</td><td>Meta</td><td>Click-ID aus Facebook-Ads</td><td>3 Monate</td><td><span class="chip r" style="font-size:.4rem">Opt-in</span></td></tr>
+          <tr><td>_gcl_au</td><td>Google Ads</td><td>Conversion-Tracking</td><td>3 Monate</td><td><span class="chip r" style="font-size:.4rem">Opt-in</span></td></tr>
+          <tr><td>IDE</td><td>Google DoubleClick</td><td>Personalisierte Display-Ads</td><td>13 Monate</td><td><span class="chip r" style="font-size:.4rem">Opt-in</span></td></tr>
+          <tr><td>_pinterest_sess</td><td>Pinterest</td><td>Pinterest-Session</td><td>Session</td><td><span class="chip r" style="font-size:.4rem">Opt-in</span></td></tr>
+          <tr><td>_pin_unauth</td><td>Pinterest</td><td>Anonymes Pinterest-Tracking</td><td>12 Monate</td><td><span class="chip r" style="font-size:.4rem">Opt-in</span></td></tr>
+        </tbody>
+      </table>
+
+      <h3>● Affiliate-Cookies</h3>
+      <table class="ctable">
+        <thead><tr><th>Cookie</th><th>Anbieter</th><th>Zweck</th><th>Laufzeit</th><th>Einwilligung</th></tr></thead>
+        <tbody>
+          <tr><td>ubid-acbde</td><td>Amazon</td><td>Affiliate-Besucher-ID</td><td>12 Monate</td><td><span class="chip r" style="font-size:.4rem">Opt-in</span></td></tr>
+          <tr><td>x-acb[Region]</td><td>Amazon</td><td>Affiliate Click-Tracking</td><td>24 Std.</td><td><span class="chip r" style="font-size:.4rem">Opt-in</span></td></tr>
+          <tr><td>aw_source</td><td>AWIN</td><td>Affiliate-Klick-Zuordnung</td><td>30 Tage</td><td><span class="chip r" style="font-size:.4rem">Opt-in</span></td></tr>
+          <tr><td>_ltk_track</td><td>LTK</td><td>Shopping-Link-Tracking</td><td>90 Tage</td><td><span class="chip r" style="font-size:.4rem">Opt-in</span></td></tr>
+        </tbody>
+      </table>
+
+      <h3>Kontakt &amp; Stand</h3>
+      <table class="kv">
+        <tr><td>Verantwortliche</td><td>Bloom &amp; Blush — bloom-and-blush.com</td></tr>
+        <tr><td>E-Mail</td><td><a href="mailto:contact@bloom-and-blush.com">contact@bloom-and-blush.com</a></td></tr>
+        <tr><td>Letzte Aktualisierung</td><td>09. Mai 2026</td></tr>
+        <tr><td>Rechtsgrundlage</td><td>§ 25 TTDSG · Art. 6 DSGVO · ePrivacy-RL 2002/58/EG</td></tr>
+        <tr><td>Nächste Prüfung</td><td>Empfohlen: jährlich oder bei Anbieteränderungen</td></tr>
+      </table>
+    </div>
+  </div>
+
+</div><!-- /wrap -->
+
+<!-- ACTION BAR -->
+<div class="action-bar">
+  <div class="action-note">✦ Cookie-Richtlinie · bloom-and-blush.com · § 25 TTDSG · DSGVO · Mai 2026</div>
+  <div class="btns">
+    <button class="btn btn-outline" onclick="window.print()">Als PDF drucken</button>
+    <button class="btn btn-solid" onclick="selectAll()">Gesamten Text markieren</button>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 Bloom &amp; Blush — Fashion &amp; Beauty · <a href="mailto:contact@bloom-and-blush.com">contact@bloom-and-blush.com</a> · <a href="https://www.bloom-and-blush.com">www.bloom-and-blush.com</a></p>
+  <p style="margin-top:6px;opacity:.5">§ 25 TTDSG · Art. 6 Abs. 1 lit. a DSGVO · ePrivacy-Richtlinie 2002/58/EG · Stand Mai 2026</p>
+</footer>
+
+<script>
+function selectAll(){
+  const r=document.createRange();
+  r.selectNode(document.querySelector('.wrap'));
+  window.getSelection().removeAllRanges();
+  window.getSelection().addRange(r);
+  try{
+    document.execCommand('copy');
+    const b=document.querySelector('.btn-solid');
+    b.textContent='✓ Kopiert!';
+    setTimeout(()=>b.textContent='Gesamten Text markieren',2200);
+  }catch(e){}
+}
+</script>
+</body>
+</html>
