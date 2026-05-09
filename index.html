@@ -2076,13 +2076,21 @@
   });
 
   mobileLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      mobileNav.classList.remove('open');
-      hamburger.classList.remove('open');
-      hamburger.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
-    });
+  link.addEventListener('click', (e) => {
+
+    const href = link.getAttribute('href');
+
+    if (href && !href.startsWith('#')) {
+      window.location.href = href;
+      return;
+    }
+
+    mobileNav.classList.remove('open');
+    hamburger.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
   });
+});
 
   // ─── BACK TO TOP ───
   const backTop = document.getElementById('backTop');
