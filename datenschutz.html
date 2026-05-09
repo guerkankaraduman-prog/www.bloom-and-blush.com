@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Datenschutz & Rechtliches — Bloom & Blush</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --rose:#c8607a;
+  --rose-light:#f5e8ec;
+  --rose-pale:#fdf5f7;
+  --ink:#1a0a10;
+  --muted:#8a6a76;
+  --border:#e8d8de;
+  --white:#ffffff;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Jost',sans-serif;
+  background:var(--rose-pale);
+  color:var(--ink);
+  line-height:1.7;
+}
+
+/* ── STICKY NAV ── */
+.top-nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(253,245,247,.95);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);
+  padding:14px 40px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.nav-brand{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.25rem;font-weight:400;letter-spacing:.08em;
+  color:var(--rose);
+}
+.nav-links{
+  display:flex;gap:20px;list-style:none;
+  font-size:.58rem;letter-spacing:.25em;text-transform:uppercase;
+}
+.nav-links a{color:var(--muted);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--rose)}
+
+/* ── HERO ── */
+.hero{
+  background:linear-gradient(150deg,#fdf0f3 0%,#f7e4ea 50%,#f0d8e2 100%);
+  padding:70px 40px 60px;
+  text-align:center;
+  border-bottom:1px solid var(--border);
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;top:-40px;left:50%;transform:translateX(-50%);
+  width:500px;height:300px;border-radius:50%;
+  background:radial-gradient(ellipse,rgba(200,96,122,.08) 0%,transparent 70%);
+}
+.hero-tag{
+  display:inline-block;
+  font-size:.52rem;letter-spacing:.4em;text-transform:uppercase;
+  color:var(--rose);border:1px solid rgba(200,96,122,.25);
+  padding:5px 18px;border-radius:20px;margin-bottom:20px;
+  background:rgba(200,96,122,.05);
+}
+.hero h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:3.2rem;font-weight:300;line-height:1.1;
+  color:var(--ink);margin-bottom:14px;
+}
+.hero h1 em{font-style:italic;color:var(--rose)}
+.hero p{
+  font-size:.75rem;font-weight:300;color:var(--muted);
+  letter-spacing:.05em;max-width:520px;margin:0 auto 20px;
+}
+.hero-meta{
+  display:flex;justify-content:center;gap:30px;
+  font-size:.52rem;letter-spacing:.2em;color:var(--muted);text-transform:uppercase;
+}
+.hero-meta span::before{content:'·';margin-right:8px;color:var(--rose)}
+
+/* ── TOC ── */
+.toc-wrap{
+  max-width:860px;margin:40px auto 0;padding:0 24px;
+}
+.toc{
+  background:var(--white);border:1px solid var(--border);border-radius:3px;
+  padding:28px 32px;
+}
+.toc-title{
+  font-size:.55rem;letter-spacing:.35em;text-transform:uppercase;
+  color:var(--rose);margin-bottom:18px;
+}
+.toc-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:6px 24px;
+}
+.toc-link{
+  font-size:.68rem;font-weight:300;color:var(--muted);
+  text-decoration:none;padding:4px 0;
+  border-bottom:1px solid transparent;transition:all .2s;
+  display:flex;align-items:center;gap:8px;
+}
+.toc-link::before{content:'→';font-size:.5rem;color:var(--rose);opacity:.5}
+.toc-link:hover{color:var(--rose);border-bottom-color:rgba(200,96,122,.15)}
+
+/* ── MAIN LAYOUT ── */
+.main{max-width:860px;margin:0 auto;padding:40px 24px 80px}
+
+/* ── SECTION CARD ── */
+.section-card{
+  background:var(--white);border:1px solid var(--border);border-radius:3px;
+  margin-bottom:28px;overflow:hidden;
+}
+.section-head{
+  background:linear-gradient(135deg,#fdf0f3,#f7e5ec);
+  padding:24px 36px;
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:flex-start;gap:20px;
+}
+.section-icon{
+  font-family:'Cormorant Garamond',serif;
+  font-size:2rem;font-weight:200;color:var(--rose);opacity:.5;
+  flex-shrink:0;line-height:1;margin-top:4px;
+}
+.section-head-text{}
+.section-number{
+  font-size:.48rem;letter-spacing:.35em;text-transform:uppercase;
+  color:rgba(200,96,122,.5);margin-bottom:5px;
+}
+.section-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.65rem;font-weight:300;color:var(--ink);line-height:1.1;
+}
+.section-title em{font-style:italic;color:var(--rose)}
+.section-body{padding:28px 36px}
+
+/* ── TYPOGRAPHY WITHIN SECTIONS ── */
+.section-body h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.1rem;font-weight:400;color:var(--ink);
+  margin:24px 0 8px;padding-bottom:6px;
+  border-bottom:1px solid var(--border);
+}
+.section-body h3:first-child{margin-top:0}
+.section-body p{
+  font-size:.72rem;font-weight:300;color:#4a3040;
+  line-height:1.85;margin-bottom:10px;
+}
+.section-body p strong{font-weight:500;color:var(--ink)}
+.section-body ul{
+  list-style:none;margin:8px 0 12px;
+}
+.section-body ul li{
+  font-size:.7rem;font-weight:300;color:#4a3040;
+  line-height:1.7;padding:3px 0 3px 18px;position:relative;
+}
+.section-body ul li::before{
+  content:'–';position:absolute;left:0;color:var(--rose);opacity:.6;
+}
+
+/* ── INFO BOX ── */
+.info-box{
+  background:var(--rose-light);border:1px solid rgba(200,96,122,.2);
+  border-left:3px solid var(--rose);
+  border-radius:2px;padding:14px 18px;margin:14px 0;
+}
+.info-box p{font-size:.68rem;color:#5a2535;margin:0;line-height:1.7}
+.info-box strong{color:var(--rose)}
+
+/* ── WARNING BOX ── */
+.warn-box{
+  background:#fffbf0;border:1px solid #f0d890;
+  border-left:3px solid #c8a020;
+  border-radius:2px;padding:14px 18px;margin:14px 0;
+}
+.warn-box p{font-size:.68rem;color:#5a4a10;margin:0;line-height:1.7}
+
+/* ── AFFILIATE BADGE ── */
+.affiliate-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:linear-gradient(135deg,#fff8e6,#fff3d0);
+  border:1px solid #f0d060;
+  border-radius:2px;padding:8px 16px;
+  font-size:.62rem;color:#8a6010;letter-spacing:.08em;
+  margin:10px 0;
+}
+.affiliate-badge::before{content:'⭐';font-size:.8rem}
+
+/* ── CONTACT TABLE ── */
+.contact-table{
+  width:100%;border-collapse:collapse;margin:14px 0;
+}
+.contact-table td{
+  font-size:.68rem;font-weight:300;color:#4a3040;
+  padding:8px 12px;border-bottom:1px solid var(--border);
+  vertical-align:top;
+}
+.contact-table td:first-child{
+  font-weight:500;color:var(--ink);white-space:nowrap;
+  width:160px;
+}
+.contact-table tr:last-child td{border-bottom:none}
+
+/* ── RIGHTS GRID ── */
+.rights-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0;
+}
+.right-item{
+  background:var(--rose-pale);border:1px solid var(--border);
+  border-radius:2px;padding:14px 16px;
+}
+.right-title{
+  font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--rose);margin-bottom:5px;font-weight:500;
+}
+.right-desc{font-size:.64rem;font-weight:300;color:#5a3a48;line-height:1.6}
+
+/* ── PLATFORM CHIPS ── */
+.platform-row{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.platform{
+  font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;
+  padding:5px 14px;border-radius:20px;
+  border:1px solid var(--border);
+  color:var(--muted);background:var(--rose-pale);
+}
+
+/* ── FOOTER ── */
+.doc-footer{
+  text-align:center;
+  padding:40px 24px;
+  border-top:1px solid var(--border);
+  font-size:.58rem;letter-spacing:.15em;color:var(--muted);
+  text-transform:uppercase;
+  background:var(--white);
+}
+.doc-footer a{color:var(--rose);text-decoration:none}
+
+/* ── COPY HINT BANNER ── */
+.copy-banner{
+  background:linear-gradient(135deg,#1a0a10,#2a1020);
+  padding:16px 40px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.copy-banner p{font-size:.6rem;letter-spacing:.2em;color:#c8a0b0;text-transform:uppercase}
+.copy-btn{
+  font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;
+  color:#e8c0d0;border:1px solid rgba(200,96,122,.35);
+  padding:7px 20px;border-radius:2px;cursor:pointer;background:transparent;
+  transition:all .2s;
+}
+.copy-btn:hover{background:rgba(200,96,122,.1)}
+</style>
+</head>
+<body>
+
+<!-- COPY HINT BANNER -->
+<div class="copy-banner">
+  <p>✦ Bloom &amp; Blush — Rechtliche Seite · DSGVO-konform · Direkt einfügbar</p>
+  <button class="copy-btn" onclick="selectAll()">Gesamten Inhalt markieren</button>
+</div>
+
+<!-- NAV -->
+<nav class="top-nav">
+  <div class="nav-brand">Bloom &amp; Blush</div>
+  <ul class="nav-links">
+    <li><a href="#datenschutz">Datenschutz</a></li>
+    <li><a href="#affiliate">Affiliate</a></li>
+    <li><a href="#social">Social Media</a></li>
+    <li><a href="#werbung">Online-Werbung</a></li>
+    <li><a href="#rechte">Deine Rechte</a></li>
+    <li><a href="#kontakt">Kontakt</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">Rechtliche Informationen · Stand: Mai 2026</div>
+  <h1>Datenschutz &amp; <em>Transparenz</em></h1>
+  <p>Wir nehmen den Schutz deiner Daten ernst. Diese Seite erklärt dir klar und verständlich, wie Bloom &amp; Blush mit deinen Daten, Werbung und Partnerlinks umgeht.</p>
+  <div class="hero-meta">
+    <span>DSGVO-konform</span>
+    <span>Amazon PartnerNet</span>
+    <span>Social Media Hinweise</span>
+    <span>Letzte Aktualisierung: 09.05.2026</span>
+  </div>
+</div>
+
+<!-- TOC -->
+<div class="toc-wrap">
+  <div class="toc">
+    <div class="toc-title">Inhaltsverzeichnis</div>
+    <div class="toc-grid">
+      <a class="toc-link" href="#datenschutz">1. Datenschutzerklärung</a>
+      <a class="toc-link" href="#cookies">2. Cookies &amp; Tracking</a>
+      <a class="toc-link" href="#newsletter">3. Newsletter &amp; E-Mail</a>
+      <a class="toc-link" href="#affiliate">4. Affiliate-Marketing</a>
+      <a class="toc-link" href="#social">5. Social-Media-Marketing</a>
+      <a class="toc-link" href="#werbung">6. Online-Werbung</a>
+      <a class="toc-link" href="#rechte">7. Deine Rechte (DSGVO)</a>
+      <a class="toc-link" href="#kontakt">8. Kontakt &amp; Verantwortlicher</a>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<main class="main">
+
+  <!-- ═══ 1. DATENSCHUTZERKLÄRUNG ═══ -->
+  <div class="section-card" id="datenschutz">
+    <div class="section-head">
+      <div class="section-icon">§</div>
+      <div class="section-head-text">
+        <div class="section-number">01 · Datenschutzerklärung</div>
+        <div class="section-title">Datenschutz<em>erklärung</em></div>
+      </div>
+    </div>
+    <div class="section-body">
+
+      <h3>1.1 Grundlegendes</h3>
+      <p>Der Schutz deiner persönlichen Daten ist uns, dem Team von <strong>Bloom &amp; Blush</strong> (bloom-and-blush.com), ein zentrales Anliegen. Diese Datenschutzerklärung informiert dich gemäß <strong>Art. 13 und 14 der Datenschutz-Grundverordnung (DSGVO)</strong> sowie dem deutschen Bundesdatenschutzgesetz (BDSG) darüber, welche personenbezogenen Daten wir erheben, wie wir sie verarbeiten und welche Rechte du hast.</p>
+
+      <div class="info-box">
+        <p><strong>Verantwortliche Stelle:</strong> Bloom &amp; Blush, kontaktierbar unter contact@bloom-and-blush.com. Alle Verarbeitungen personenbezogener Daten erfolgen ausschließlich im Einklang mit der DSGVO und dem BDSG.</p>
+      </div>
+
+      <h3>1.2 Welche Daten wir erheben</h3>
+      <p>Beim Besuch von bloom-and-blush.com werden folgende Daten automatisch erhoben:</p>
+      <ul>
+        <li>IP-Adresse (anonymisiert, soweit möglich)</li>
+        <li>Datum und Uhrzeit des Zugriffs</li>
+        <li>Aufgerufene Seiten und Unterseiten</li>
+        <li>Referrer-URL (die zuvor besuchte Seite)</li>
+        <li>Verwendeter Browser und Betriebssystem</li>
+        <li>Übertragene Datenmenge</li>
+      </ul>
+      <p>Diese Daten werden in Server-Logfiles gespeichert und dienen ausschließlich der technischen Absicherung und Fehlerbehebung. Die Rechtsgrundlage ist <strong>Art. 6 Abs. 1 lit. f DSGVO</strong> (berechtigtes Interesse).</p>
+
+      <h3>1.3 Daten, die du uns freiwillig mitteilst</h3>
+      <ul>
+        <li><strong>Newsletter-Anmeldung:</strong> Deine E-Mail-Adresse und ggf. dein Name werden zur Versendung unseres Newsletters verwendet (Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO – Einwilligung).</li>
+        <li><strong>Kontaktformular / E-Mail:</strong> Angaben aus Kontaktanfragen werden zur Bearbeitung deiner Anfrage genutzt und nach Erledigung gelöscht.</li>
+        <li><strong>Kommentare:</strong> Sofern du auf unserem Blog kommentierst, speichern wir Name, E-Mail und Inhalt. Pflichtangaben sind mit * gekennzeichnet.</li>
+      </ul>
+
+      <h3>1.4 Speicherdauer</h3>
+      <p>Personenbezogene Daten werden nur so lange gespeichert, wie es für den jeweiligen Zweck erforderlich ist oder gesetzliche Aufbewahrungspflichten bestehen. Newsletter-Daten werden nach der Abmeldung unverzüglich gelöscht. Server-Logs werden spätestens nach <strong>30 Tagen</strong> automatisch gelöscht.</p>
+
+      <h3>1.5 Weitergabe an Dritte</h3>
+      <p>Wir geben deine personenbezogenen Daten <strong>nicht ohne deine ausdrückliche Einwilligung</strong> an Dritte weiter, es sei denn, wir sind gesetzlich dazu verpflichtet. Auftragsverarbeiter (z. B. E-Mail-Dienstleister für den Newsletter) sind durch Auftragsverarbeitungsverträge nach Art. 28 DSGVO gebunden.</p>
+
+    </div>
+  </div>
+
+  <!-- ═══ 2. COOKIES & TRACKING ═══ -->
+  <div class="section-card" id="cookies">
+    <div class="section-head">
+      <div class="section-icon">◎</div>
+      <div class="section-head-text">
+        <div class="section-number">02 · Technologien</div>
+        <div class="section-title">Cookies &amp; <em>Tracking</em></div>
+      </div>
+    </div>
+    <div class="section-body">
+
+      <h3>2.1 Was sind Cookies?</h3>
+      <p>Cookies sind kleine Textdateien, die beim Besuch unserer Website auf deinem Gerät gespeichert werden. Sie ermöglichen es uns, die Website optimal zu gestalten und dir ein besseres Nutzungserlebnis zu bieten.</p>
+
+      <h3>2.2 Cookie-Kategorien auf bloom-and-blush.com</h3>
+      <ul>
+        <li><strong>Technisch notwendige Cookies:</strong> Diese sind für den Betrieb der Website unerlässlich und können nicht deaktiviert werden. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO.</li>
+        <li><strong>Analyse-Cookies (Google Analytics 4):</strong> Mit deiner Einwilligung nutzen wir Google Analytics 4 zur anonymisierten Analyse des Nutzungsverhaltens. IP-Anonymisierung ist aktiviert. Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO.</li>
+        <li><strong>Marketing-Cookies:</strong> Für personalisierte Werbeanzeigen auf unserer Website und externen Plattformen – nur nach Einwilligung. Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO.</li>
+        <li><strong>Affiliate-Tracking-Cookies:</strong> Amazon und andere Partnerprogramme setzen Cookies, um Kaufvermittlungen zuzuordnen. Details im Abschnitt Affiliate-Marketing.</li>
+      </ul>
+
+      <div class="info-box">
+        <p><strong>Cookie-Einwilligung:</strong> Beim ersten Besuch wirst du über ein Cookie-Banner um deine Einwilligung gebeten. Du kannst diese jederzeit unter <strong>Einstellungen → Cookie-Präferenzen</strong> widerrufen. Die Ablehnung von Analyse-Cookies hat keinerlei Auswirkung auf dein Nutzungserlebnis.</p>
+      </div>
+
+      <h3>2.3 Google Analytics 4</h3>
+      <p>Wir setzen <strong>Google Analytics 4</strong> (Google Ireland Ltd., Gordon House, Barrow Street, Dublin 4, Irland) mit aktivierter IP-Anonymisierung ein. Die so erhobenen Daten werden auf Servern von Google in der EU und ggf. in den USA verarbeitet. Google ist nach dem <strong>EU-US Data Privacy Framework</strong> zertifiziert.</p>
+      <ul>
+        <li>Opt-out über Browser-Add-on: <strong>tools.google.com/dlpage/gaoptout</strong></li>
+        <li>Alternativ: Cookie-Einstellungen auf unserer Website</li>
+        <li>Datenschutzerklärung Google: policies.google.com/privacy</li>
+      </ul>
+
+    </div>
+  </div>
+
+  <!-- ═══ 3. NEWSLETTER ═══ -->
+  <div class="section-card" id="newsletter">
+    <div class="section-head">
+      <div class="section-icon">✉</div>
+      <div class="section-head-text">
+        <div class="section-number">03 · E-Mail Marketing</div>
+        <div class="section-title">Newsletter &amp; <em>E-Mail</em></div>
+      </div>
+    </div>
+    <div class="section-body">
+
+      <h3>3.1 Unser Newsletter</h3>
+      <p>Auf bloom-and-blush.com kannst du unseren wöchentlichen Newsletter abonnieren. Wir versenden darin Trend-Updates, Beauty-Tipps, Produktempfehlungen und Insider-Angebote. Der Newsletter erscheint jeden Freitag.</p>
+
+      <h3>3.2 Anmeldeverfahren (Double Opt-In)</h3>
+      <p>Nach der Anmeldung erhältst du eine <strong>Bestätigungs-E-Mail</strong> mit einem Aktivierungslink (Double-Opt-In-Verfahren gemäß § 7 Abs. 2 Nr. 3 UWG). Erst nach Bestätigung wirst du in unsere Empfängerliste aufgenommen. Gespeichert werden:</p>
+      <ul>
+        <li>Deine E-Mail-Adresse (Pflichtfeld)</li>
+        <li>Datum und Uhrzeit der Anmeldung und Bestätigung</li>
+        <li>Deine IP-Adresse zum Zeitpunkt der Anmeldung (zur Nachweissicherung)</li>
+      </ul>
+
+      <h3>3.3 Abmeldung</h3>
+      <p>Du kannst den Newsletter jederzeit durch Klick auf den <strong>Abmeldelink</strong> am Ende jeder E-Mail kündigen. Deine Daten werden nach der Abmeldung unverzüglich aus unserer Empfängerliste gelöscht. Die Abmeldung hat keinerlei nachteilige Folgen.</p>
+
+      <div class="info-box">
+        <p><strong>Kein Spam:</strong> Wir geben deine E-Mail-Adresse niemals an Dritte weiter und verwenden sie ausschließlich für den Versand unseres Newsletters. Rechtsgrundlage: <strong>Art. 6 Abs. 1 lit. a DSGVO</strong> (Einwilligung).</p>
+      </div>
+
+      <h3>3.4 E-Mail-Dienstleister</h3>
+      <p>Für den Versand nutzen wir einen professionellen E-Mail-Dienstleister (z. B. Mailchimp, Klaviyo oder vergleichbar), mit dem ein Auftragsverarbeitungsvertrag nach Art. 28 DSGVO geschlossen wurde. Der Dienstleister hat keinen Zugriff auf deine Daten für eigene Zwecke.</p>
+
+    </div>
+  </div>
+
+  <!-- ═══ 4. AFFILIATE-MARKETING ═══ -->
+  <div class="section-card" id="affiliate">
+    <div class="section-head">
+      <div class="section-icon">★</div>
+      <div class="section-head-text">
+        <div class="section-number">04 · Werbliche Hinweise</div>
+        <div class="section-title">Affiliate<em>-Marketing</em></div>
+      </div>
+    </div>
+    <div class="section-body">
+
+      <div class="affiliate-badge">Pflichthinweis: Diese Seite enthält Affiliate-Links — gekennzeichnet mit * oder „Werbung"</div>
+
+      <h3>4.1 Was ist Affiliate-Marketing?</h3>
+      <p>Bloom &amp; Blush nimmt an <strong>Partnerprogrammen (Affiliate-Programme)</strong> teil. Das bedeutet: Wenn du über einen als Affiliate-Link gekennzeichneten Link auf unserer Website einkaufst, erhalten wir eine kleine <strong>Provision</strong> vom jeweiligen Anbieter — für dich entstehen dabei <strong>keinerlei Mehrkosten</strong>. Der Kaufpreis bleibt identisch.</p>
+
+      <h3>4.2 Amazon PartnerNet (Hauptprogramm)</h3>
+      <p>Bloom &amp; Blush ist Teilnehmerin des <strong>Amazon PartnerNet-Programms</strong>, einem Affiliate-Werbeprogramm, das für Websites die Möglichkeit bietet, Werbekostenerstattungen zu verdienen. Betreiber: <strong>Amazon Europe Core S.à.r.l., 38 avenue John F. Kennedy, L-1855 Luxemburg</strong>.</p>
+      <ul>
+        <li>Amazon-Links auf unserer Website sind mit dem Zusatz <strong>„*" (Affiliate-Link)</strong> oder <strong>„[Werbung]"</strong> gekennzeichnet.</li>
+        <li>Amazon setzt beim Klick auf einen solchen Link Cookies auf deinem Gerät, um die Provision zuzuordnen (Cookie-Laufzeit: 24 Stunden nach Klick).</li>
+        <li>Wir empfehlen Produkte nur dann, wenn wir von ihrer Qualität überzeugt sind — unabhängig von der Vergütung.</li>
+        <li>Datenschutzerklärung Amazon: amazon.de/gp/help/customer/display.html?nodeId=201909010</li>
+      </ul>
+
+      <div class="info-box">
+        <p><strong>Redaktionelle Unabhängigkeit:</strong> Unsere Produktempfehlungen und Testberichte sind redaktionell unabhängig. Die Vergütung durch Affiliate-Programme beeinflusst unsere Meinungen und Bewertungen nicht. Produkte, die wir nicht empfehlen können, empfehlen wir auch nicht — unabhängig davon, ob eine Vergütung möglich wäre.</p>
+      </div>
+
+      <h3>4.3 Weitere Partnerprogramme</h3>
+      <p>Neben Amazon kann Bloom &amp; Blush an weiteren Affiliate-Programmen teilnehmen, beispielsweise:</p>
+      <ul>
+        <li><strong>AWIN / Zanox</strong> — Modemarken und Beauty-Shops</li>
+        <li><strong>ShareASale</strong> — internationale Beauty-Brands</li>
+        <li><strong>LTK (LikeToKnow.it)</strong> — kuratierte Shopping-Links</li>
+        <li><strong>Direkte Partnerschaften</strong> mit einzelnen Marken (gekennzeichnet als „In Zusammenarbeit mit" oder „Anzeige")</li>
+      </ul>
+
+      <h3>4.4 Kennzeichnungspflicht</h3>
+      <p>Gemäß <strong>§ 5a UWG</strong>, den <strong>Richtlinien der Landesmedienanstalten</strong> sowie den Anforderungen des <strong>TMG</strong> kennzeichnen wir alle Werbeinhalte transparent. Die Kennzeichnung erfolgt durch:</p>
+      <ul>
+        <li>Sternchen <strong>*</strong> hinter dem Produktnamen oder Link (= Affiliate-Link)</li>
+        <li>Den Hinweis <strong>„Werbung"</strong> oder <strong>„Anzeige"</strong> am Anfang von bezahlten Beiträgen</li>
+        <li>Den Hinweis <strong>„In Kooperation mit [Marke]"</strong> bei bezahlten Partnerschaften</li>
+        <li>Den Hinweis <strong>„Produkt wurde zur Verfügung gestellt"</strong> bei unbeauftragten Warenmustern</li>
+      </ul>
+
+      <div class="warn-box">
+        <p><strong>Wichtig:</strong> Nicht jeder Beitrag über ein Produkt ist bezahlt oder werblich. Viele unserer Empfehlungen basieren auf eigenen Erfahrungen und Käufen. Nur als Werbung oder Affiliate-Link gekennzeichnete Inhalte unterliegen einem Vergütungsverhältnis.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══ 5. SOCIAL MEDIA ═══ -->
+  <div class="section-card" id="social">
+    <div class="section-head">
+      <div class="section-icon">◈</div>
+      <div class="section-head-text">
+        <div class="section-number">05 · Plattformen</div>
+        <div class="section-title">Social-Media-<em>Marketing</em></div>
+      </div>
+    </div>
+    <div class="section-body">
+
+      <h3>5.1 Unsere Präsenz auf Social-Media-Plattformen</h3>
+      <p>Bloom &amp; Blush ist auf folgenden Social-Media-Plattformen aktiv:</p>
+      <div class="platform-row">
+        <div class="platform">Instagram</div>
+        <div class="platform">Pinterest</div>
+        <div class="platform">TikTok</div>
+        <div class="platform">Facebook</div>
+        <div class="platform">YouTube</div>
+      </div>
+      <p>Wenn du unseren Seiten auf diesen Plattformen folgst oder mit unseren Inhalten interagierst, verarbeitest du deine Daten zunächst durch die jeweilige Plattform. Wir haben auf diese Verarbeitung keinen Einfluss.</p>
+
+      <h3>5.2 Instagram (Meta Platforms)</h3>
+      <p>Betreiber: <strong>Meta Platforms Ireland Ltd., 4 Grand Canal Square, Dublin 2, Irland.</strong></p>
+      <ul>
+        <li>Wir nutzen Instagram für die Präsentation unserer Mode- und Beauty-Inhalte sowie Produktempfehlungen.</li>
+        <li>Affiliate-Links in unserer Bio oder in Stories werden mit <strong>„Werbung" / „Paid Partnership"</strong> gekennzeichnet.</li>
+        <li>Meta kann deine Interaktionen (Likes, Kommentare, Profilbesuche) zur Profilerstellung nutzen. Wir erhalten nur aggregierte, anonymisierte Insights.</li>
+        <li>Datenschutz Meta: facebook.com/privacy/policy</li>
+      </ul>
+
+      <h3>5.3 Pinterest</h3>
+      <p>Betreiber: <strong>Pinterest Europe Ltd., Palmerston House, 2nd Floor, Fenian Street, Dublin 2, Irland.</strong></p>
+      <ul>
+        <li>Auf Pinterest teilen wir kuratierte Mood Boards, Produktpins und Beauty-Inspiration.</li>
+        <li>Produkt-Pins, die zu Amazon oder anderen Shops führen, sind Affiliate-Links und entsprechend gekennzeichnet.</li>
+        <li>Pinterest verwendet Cookies für Analyse und personalisierte Werbung. Opt-out unter: pinterest.de/settings/privacy</li>
+      </ul>
+
+      <h3>5.4 TikTok</h3>
+      <p>Betreiber: <strong>TikTok Technology Ltd., 10 Earlsfort Terrace, Dublin 2, Irland.</strong></p>
+      <ul>
+        <li>Auf TikTok produzieren wir Kurzvideos zu Beauty-Reviews, Styling-Tipps und Produktunboxings.</li>
+        <li>Bezahlte Kooperationen werden mit <strong>#Werbung #Ad #Anzeige</strong> oder dem TikTok-eigenen „Paid Partnership"-Label gekennzeichnet.</li>
+        <li>TikTok verarbeitet umfangreiche Nutzungsdaten. Details: tiktok.com/legal/privacy-policy-eea</li>
+      </ul>
+
+      <h3>5.5 Influencer-Kennzeichnung &amp; Werberecht</h3>
+      <p>Bloom &amp; Blush hält sich an die Vorgaben des <strong>Gesetzes gegen unlauteren Wettbewerb (UWG)</strong>, den <strong>Richtlinien der deutschen Landesmedienanstalten</strong> und den <strong>Leitfaden der Bundeszentrale für Medien und Kommunikation</strong> zur Influencer-Kennzeichnung.</p>
+
+      <div class="info-box">
+        <p><strong>Kennzeichnungsregel:</strong> Jede Kooperation, bei der wir eine Gegenleistung erhalten (Geld, Produkte, Rabatte, Einladungen o. Ä.), wird als Werbung gekennzeichnet — unabhängig von der Plattform. Wenn wir Produkte auf eigene Kosten kaufen und diese vorstellen, ist keine Kennzeichnung erforderlich, es sei denn, wir erhalten eine weitere Vergütung.</p>
+      </div>
+
+      <h3>5.6 Social Plugins auf unserer Website</h3>
+      <p>Bloom-and-blush.com kann Social-Plugins (z. B. Pinterest-Pin-Button, Instagram-Feed-Einbindung) enthalten. Diese werden mit dem <strong>2-Klick-Verfahren</strong> oder einem Consent-Management implementiert: Die Verbindung zu den Servern der Anbieter wird erst hergestellt, wenn du aktiv zustimmst.</p>
+
+    </div>
+  </div>
+
+  <!-- ═══ 6. ONLINE-WERBUNG ═══ -->
+  <div class="section-card" id="werbung">
+    <div class="section-head">
+      <div class="section-icon">⬡</div>
+      <div class="section-head-text">
+        <div class="section-number">06 · Werbung</div>
+        <div class="section-title">Online-<em>Werbung</em></div>
+      </div>
+    </div>
+    <div class="section-body">
+
+      <h3>6.1 Werbeanzeigen auf bloom-and-blush.com</h3>
+      <p>Auf unserer Website können Werbeanzeigen von Drittanbietern erscheinen. Diese sind stets als <strong>„Anzeige"</strong> oder <strong>„Werbung"</strong> gekennzeichnet und klar von redaktionellen Inhalten getrennt. Wir verkaufen keine Werbeflächen, deren Inhalt wir nicht kontrollieren oder freigegeben haben.</p>
+
+      <h3>6.2 Google Ads &amp; Display-Werbung</h3>
+      <p>Wir können <strong>Google Ads</strong> (Google Ireland Ltd.) für bezahlte Suchanzeigen und Display-Kampagnen nutzen, um neue Leserinnen auf Bloom &amp; Blush aufmerksam zu machen. Dabei wird das <strong>Google Tag Manager</strong>-System eingesetzt.</p>
+      <ul>
+        <li>Für Retargeting-Kampagnen werden Cookies eingesetzt — nur nach deiner Einwilligung.</li>
+        <li>Du kannst personalisierte Werbung unter <strong>adssettings.google.com</strong> deaktivieren.</li>
+        <li>Opt-out von interessenbasierter Werbung: <strong>youronlinechoices.eu</strong></li>
+      </ul>
+
+      <h3>6.3 Meta Ads (Facebook &amp; Instagram)</h3>
+      <p>Zur Bewerbung unseres Contents und unserer Kollektionen kann Bloom &amp; Blush <strong>Meta Ads</strong> einsetzen. Meta kann dabei den <strong>Meta Pixel</strong> verwenden, um Conversion-Tracking durchzuführen. Dieser Pixel wird nur nach deiner ausdrücklichen Cookie-Einwilligung aktiviert.</p>
+      <ul>
+        <li>Opt-out: facebook.com/ads/preferences</li>
+        <li>Widerspruch gegen Custom-Audience-Nutzung: facebook.com/help/568137493302217</li>
+      </ul>
+
+      <h3>6.4 Pinterest Ads</h3>
+      <p>Als Teil unserer Pinterest-Marketing-Strategie können wir <strong>Pinterest Promoted Pins</strong> schalten. Pinterest nutzt dazu deine Interaktionsdaten auf der Plattform.</p>
+      <ul>
+        <li>Opt-out: pinterest.de/settings/privacy → „Personalisierte Werbung"</li>
+      </ul>
+
+      <h3>6.5 Retargeting</h3>
+      <p><strong>Retargeting</strong> (auch Remarketing) bedeutet, dass Besucherinnen unserer Website auf anderen Plattformen gezielte Werbeanzeigen sehen können. Diese Technologie basiert auf Cookies und wird nur eingesetzt, wenn du dem entsprechend eingewilligt hast.</p>
+
+      <div class="info-box">
+        <p><strong>Dein Opt-out-Recht:</strong> Du hast jederzeit das Recht, der Verarbeitung deiner Daten für Werbezwecke zu widersprechen. Nutze dafür die <strong>Cookie-Einstellungen</strong> auf unserer Website oder die plattformspezifischen Opt-out-Links oben. Auch unter <strong>youronlinechoices.eu</strong> kannst du Präferenzen für alle teilnehmenden Netzwerke verwalten.</p>
+      </div>
+
+      <h3>6.6 Transparenzgrundsatz</h3>
+      <p>Bloom &amp; Blush verpflichtet sich, <strong>alle werblichen Inhalte transparent zu kennzeichnen</strong>. Redaktionelle Beiträge, die nicht durch externe Vergütung beeinflusst sind, werden nicht als Werbung deklariert. Gesponserte Inhalte sind stets zu Beginn des Beitrags klar erkennbar.</p>
+
+    </div>
+  </div>
+
+  <!-- ═══ 7. DEINE RECHTE ═══ -->
+  <div class="section-card" id="rechte">
+    <div class="section-head">
+      <div class="section-icon">◉</div>
+      <div class="section-head-text">
+        <div class="section-number">07 · DSGVO-Rechte</div>
+        <div class="section-title">Deine <em>Rechte</em></div>
+      </div>
+    </div>
+    <div class="section-body">
+
+      <p>Als betroffene Person hast du gemäß DSGVO folgende Rechte, die du jederzeit gegenüber uns geltend machen kannst:</p>
+
+      <div class="rights-grid">
+        <div class="right-item">
+          <div class="right-title">Art. 15 DSGVO — Auskunft</div>
+          <div class="right-desc">Du hast das Recht zu erfahren, welche Daten wir über dich gespeichert haben und zu welchem Zweck.</div>
+        </div>
+        <div class="right-item">
+          <div class="right-title">Art. 16 DSGVO — Berichtigung</div>
+          <div class="right-desc">Du kannst jederzeit die Korrektur unrichtiger oder unvollständiger Daten verlangen.</div>
+        </div>
+        <div class="right-item">
+          <div class="right-title">Art. 17 DSGVO — Löschung</div>
+          <div class="right-desc">Du hast das Recht auf Löschung deiner Daten, sofern keine gesetzlichen Aufbewahrungspflichten entgegenstehen.</div>
+        </div>
+        <div class="right-item">
+          <div class="right-title">Art. 18 DSGVO — Einschränkung</div>
+          <div class="right-desc">Du kannst die Einschränkung der Verarbeitung deiner Daten verlangen, z. B. während einer Prüfung.</div>
+        </div>
+        <div class="right-item">
+          <div class="right-title">Art. 20 DSGVO — Portabilität</div>
+          <div class="right-desc">Du hast das Recht, deine Daten in einem strukturierten, maschinenlesbaren Format zu erhalten.</div>
+        </div>
+        <div class="right-item">
+          <div class="right-title">Art. 21 DSGVO — Widerspruch</div>
+          <div class="right-desc">Du kannst der Verarbeitung deiner Daten auf Basis berechtigter Interessen jederzeit widersprechen.</div>
+        </div>
+        <div class="right-item">
+          <div class="right-title">Art. 7 Abs. 3 DSGVO — Widerruf</div>
+          <div class="right-desc">Eine erteilte Einwilligung kannst du jederzeit und ohne Angabe von Gründen widerrufen.</div>
+        </div>
+        <div class="right-item">
+          <div class="right-title">Art. 77 DSGVO — Beschwerde</div>
+          <div class="right-desc">Du hast das Recht, bei einer Datenschutzaufsichtsbehörde Beschwerde einzulegen (z. B. BayLDA oder zuständige Landesbehörde).</div>
+        </div>
+      </div>
+
+      <div class="info-box">
+        <p>Für alle Anliegen zu deinen Datenschutzrechten wende dich bitte an: <strong>contact@bloom-and-blush.com</strong>. Wir bearbeiten Anfragen innerhalb von <strong>30 Tagen</strong> gemäß Art. 12 Abs. 3 DSGVO.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══ 8. KONTAKT ═══ -->
+  <div class="section-card" id="kontakt">
+    <div class="section-head">
+      <div class="section-icon">◌</div>
+      <div class="section-head-text">
+        <div class="section-number">08 · Verantwortlicher</div>
+        <div class="section-title">Kontakt &amp; <em>Impressum</em></div>
+      </div>
+    </div>
+    <div class="section-body">
+
+      <h3>Verantwortliche Stelle gemäß Art. 4 Nr. 7 DSGVO</h3>
+
+      <table class="contact-table">
+        <tr><td>Website</td><td>www.bloom-and-blush.com</td></tr>
+        <tr><td>Markenname</td><td>Bloom &amp; Blush — Fashion &amp; Beauty</td></tr>
+        <tr><td>E-Mail</td><td>contact@bloom-and-blush.com</td></tr>
+        <tr><td>Inhalt</td><td>Mode, Beauty, Lifestyle — kuratierte Empfehlungen &amp; Inspiration</td></tr>
+        <tr><td>Affiliate</td><td>Amazon PartnerNet (Europa), weitere Programme</td></tr>
+        <tr><td>Stand</td><td>09. Mai 2026</td></tr>
+        <tr><td>Zuständige Aufsicht</td><td>Zuständige Datenschutzaufsichtsbehörde (je nach Sitz)</td></tr>
+      </table>
+
+      <h3>Haftungsausschluss</h3>
+      <p>Bloom &amp; Blush übernimmt keine Haftung für die Inhalte externer Websites, auf die über Links verwiesen wird. Für die Inhalte der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich. Links wurden zum Zeitpunkt der Erstellung auf mögliche Rechtsverstöße überprüft.</p>
+
+      <h3>Urheberrecht</h3>
+      <p>Alle Inhalte auf bloom-and-blush.com (Texte, Fotos, Grafiken, Design) sind urheberrechtlich geschützt. Die Vervielfältigung, Bearbeitung oder Verbreitung bedarf der schriftlichen Genehmigung. Fotos von Unsplash unterliegen der Unsplash-Lizenz.</p>
+
+      <h3>Änderungsvorbehalt</h3>
+      <p>Bloom &amp; Blush behält sich das Recht vor, diese Datenschutzerklärung jederzeit zu aktualisieren, um gesetzlichen Anforderungen oder Änderungen in unseren Leistungen zu entsprechen. Die jeweils aktuelle Version ist auf dieser Seite abrufbar. Das Datum der letzten Aktualisierung ist oben angegeben.</p>
+
+    </div>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="doc-footer">
+  <p>© 2026 Bloom &amp; Blush — Fashion &amp; Beauty · <a href="mailto:contact@bloom-and-blush.com">contact@bloom-and-blush.com</a> · <a href="https://www.bloom-and-blush.com">bloom-and-blush.com</a></p>
+  <p style="margin-top:8px">DSGVO-konform · Stand: 09. Mai 2026 · Erstellt für Bloom &amp; Blush</p>
+</footer>
+
+<script>
+function selectAll(){
+  const range = document.createRange();
+  range.selectNode(document.body);
+  window.getSelection().removeAllRanges();
+  window.getSelection().addRange(range);
+}
+</script>
+</body>
+</html>
