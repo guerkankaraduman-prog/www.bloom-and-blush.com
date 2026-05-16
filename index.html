@@ -532,14 +532,16 @@
     position: relative;
     overflow: hidden;
   }
-  .page-hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    opacity: 0.05;
-    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='30' cy='30' r='25' fill='none' stroke='%23C9A46E' stroke-width='0.5'/%3E%3C/svg%3E");
-    background-size: 60px 60px;
-  }
+.page-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.05;
+
+  background-image: url("https://www.bloom-and-blush.com/img/fashion8.jpg");
+  background-size: 60px 60px;
+  background-repeat: repeat;
+}
   .page-hero-label { font-size: 10px; letter-spacing: 5px; color: var(--gold); text-transform: uppercase; font-weight: 500; display: block; margin-bottom: 20px; }
   .page-hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(48px, 6vw, 80px); font-weight: 300; color: var(--white); line-height: 1.1; margin-bottom: 20px; }
   .page-hero-text { font-size: 16px; color: rgba(255,255,255,0.7); max-width: 480px; margin: 0 auto; font-weight: 300; }
