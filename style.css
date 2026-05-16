@@ -242,10 +242,11 @@ nav a{
 ========================= */
 
 .about-container{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:40px;
-  align-items:center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  padding: 80px 20px;
 }
 
 .about-image,
