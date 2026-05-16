@@ -590,5 +590,16 @@ nav a{
   .bb-icon-btn{
     display:flex;
   }
+.amazon-picks img {
+  width: 100%;
+  max-width: 220px;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 18px;
+  transition: transform 0.3s ease;
+}
 
+.amazon-picks img:hover {
+  transform: scale(1.03);
+}
 }
