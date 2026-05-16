@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico.png">
-<link rel="apple-touch-icon" href="/favicon.ico.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon.png">
+<link rel="apple-touch-icon" href="/favicon.png">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bloom & Blush — Fashion & Beauty</title>
@@ -227,7 +227,8 @@
   .hero-pattern {
     position: absolute; inset: 0;
     opacity: 0.04;
-    background-image: url("data:img/favicon.ico.png;
+    background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 10 C30 10 10 30 10 40 C10 50 30 70 40 70 C50 70 70 50 70 40 C70 30 50 10 40 10Z' fill='none' stroke='%23C9A46E' stroke-width='1'/%3E%3C/svg%3E");
+    background-size: 80px 80px;
   }
   .hero-overlay {
     position: absolute; inset: 0;
@@ -539,76 +540,6 @@
     background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='30' cy='30' r='25' fill='none' stroke='%23C9A46E' stroke-width='0.5'/%3E%3C/svg%3E");
     background-size: 60px 60px;
   }
-  <style>
-
-/* =========================
-   PAGE HERO
-========================= */
-
-.page-hero-label{
-  font-size:10px;
-  letter-spacing:5px;
-  color:var(--gold);
-  text-transform:uppercase;
-  font-weight:500;
-  display:block;
-  margin-bottom:20px;
-}
-
-.page-hero-title{
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(48px,6vw,80px);
-  font-weight:300;
-  color:var(--white);
-  line-height:1.1;
-  margin-bottom:20px;
-}
-
-.page-hero-text{
-  font-size:16px;
-  color:rgba(255,255,255,0.7);
-  max-width:480px;
-  margin:0 auto;
-  font-weight:300;
-}
-
-
-/* =========================
-   FASHION GRID
-========================= */
-
-.fashion-grid{
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:24px;
-  background:transparent;
-}
-
-.fashion-item{
-  background:var(--white);
-  overflow:hidden;
-  cursor:pointer;
-
-  border-radius:28px;
-
-  transition:
-    transform .35s ease,
-    box-shadow .35s ease;
-}
-
-.fashion-item:hover{
-  transform:translateY(-4px);
-
-  box-shadow:
-    0 20px 60px rgba(0,0,0,.08);
-}
-
-
-/* =========================
-   FIXED IMAGE
-========================= */
-
-  .fashion-item img    hier ist meine html:   }
   .page-hero-label { font-size: 10px; letter-spacing: 5px; color: var(--gold); text-transform: uppercase; font-weight: 500; display: block; margin-bottom: 20px; }
   .page-hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(48px, 6vw, 80px); font-weight: 300; color: var(--white); line-height: 1.1; margin-bottom: 20px; }
   .page-hero-text { font-size: 16px; color: rgba(255,255,255,0.7); max-width: 480px; margin: 0 auto; font-weight: 300; }
@@ -634,46 +565,16 @@
   .trend-list li { padding: 14px 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 16px; font-size: 15px; color: var(--ink-mid); }
   .trend-list li::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
 
-
-/* =========================
-   RESPONSIVE
-========================= */
-
-@media (max-width:980px){
-
-  .fashion-grid{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .trend-inner{
-    grid-template-columns:1fr;
-    gap:48px;
-  }
-}
-
-@media (max-width:640px){
-
-  .fashion-grid{
-    grid-template-columns:1fr;
-  }
-
-  .fashion-item img{
-    aspect-ratio:4/5;
-  }
-
-  .trend-img{
-    aspect-ratio:4/5;
-  }
-}
-
-</style>
-
-  .trend-section { background: var(--white); }
-  .trend-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-  .trend-img { width: 100%; height: 500px; object-fit: cover; display: block; }
-  .trend-list { list-style: none; margin: 24px 0; }
-  .trend-list li { padding: 14px 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 16px; font-size: 15px; color: var(--ink-mid); }
-  .trend-list li::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+  .outfit-week { background: var(--blush-light); padding: 80px 40px; }
+  .outfit-week-inner { max-width: 1400px; margin: 0 auto; }
+  .outfit-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 50px; }
+  .outfit-card { background: var(--white); overflow: hidden; transition: transform 0.3s; cursor: pointer; }
+  .outfit-card:hover { transform: translateY(-4px); }
+  .outfit-card img { width: 100%; height: 380px; object-fit: cover; display: block; }
+  .outfit-card-body { padding: 20px; }
+  .outfit-card-name { font-family: 'Cormorant Garamond', serif; font-size: 19px; font-weight: 500; color: var(--rose-deep); }
+  .outfit-card-desc { font-size: 13px; color: var(--ink-light); margin-top: 6px; }
+  .outfit-card-price { font-size: 15px; color: var(--rose); font-weight: 500; margin-top: 12px; }
 
   /* ══════════════════════════════
      BEAUTY PAGE
@@ -715,77 +616,152 @@
   .makeup-title-static { font-family: 'Cormorant Garamond', serif; font-size: 18px; color: var(--rose-deep); font-weight: 500; margin-top: 10px; padding: 0 4px; }
   .makeup-tag-static { font-size: 10px; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; padding: 10px 4px 0; display: block; }
 
-  /* ══════════════════════════════
+<!-- ═══════════════════════════════════════
      AMAZON PICKS PAGE
-  ══════════════════════════════ */
-  .amazon-hero { background: linear-gradient(135deg, #1A0A12, #3D1830, #6B2D50); }
-  .amazon-filter { display: flex; gap: 12px; margin-bottom: 50px; flex-wrap: wrap; }
-  .filter-btn {
-    padding: 10px 24px;
-    border: 1px solid var(--border);
-    background: var(--white);
-    font-family: 'Jost', sans-serif;
-    font-size: 11px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    font-weight: 500;
-    color: var(--ink-mid);
-    cursor: pointer;
-    transition: all 0.2s;
-  }
-  .filter-btn:hover, .filter-btn.active { background: var(--rose); color: var(--white); border-color: var(--rose); }
-  .amazon-products { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
-  .product-card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    overflow: hidden;
-    transition: transform 0.3s, box-shadow 0.3s;
-    cursor: pointer;
-    position: relative;
-  }
-  .product-card:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(92,26,51,0.1); }
-  .product-badge {
-    position: absolute;
-    top: 16px; left: 16px;
-    background: var(--rose);
-    color: var(--white);
-    font-size: 10px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    font-weight: 500;
-    padding: 5px 12px;
-    z-index: 1;
-  }
-  .product-badge.gold { background: var(--gold); }
-  .product-card img { width: 100%; height: 260px; object-fit: cover; display: block; transition: transform 0.4s; }
-  .product-card:hover img { transform: scale(1.03); }
-  .product-body { padding: 20px; }
-  .product-brand { font-size: 10px; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; font-weight: 500; }
-  .product-name { font-family: 'Cormorant Garamond', serif; font-size: 19px; font-weight: 500; color: var(--rose-deep); margin: 6px 0; line-height: 1.2; }
-  .product-desc { font-size: 12px; color: var(--ink-light); line-height: 1.7; margin-bottom: 12px; }
-  .product-stars { color: var(--gold); font-size: 13px; margin-bottom: 4px; }
-  .product-reviews { font-size: 11px; color: var(--ink-light); }
-  .product-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border); }
-  .product-price { font-size: 20px; font-weight: 500; color: var(--rose-deep); font-family: 'Cormorant Garamond', serif; }
-  .product-price-orig { font-size: 13px; color: var(--ink-light); text-decoration: line-through; margin-left: 6px; }
-  .product-amazon-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: #FF9900;
-    color: var(--ink);
-    font-size: 11px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    font-weight: 600;
-    padding: 8px 16px;
-    border: none;
-    cursor: pointer;
-    transition: background 0.2s;
-    text-decoration: none;
-    font-family: 'Jost', sans-serif;
-  }
-  .product-amazon-btn:hover { background: #e68a00; }
+═══════════════════════════════════════ -->
+<div id="page-amazon" class="page">
+  <div class="page-hero amazon-hero">
+    <span class="page-hero-label">✦ Kuratiert mit Liebe</span>
+    <h1 class="page-hero-title">Amazon Picks</h1>
+    <p class="page-hero-text">Die besten Fashion- und Beauty-Finds auf Amazon — von uns getestet, für dich kuratiert.</p>
+  </div>
+
+  <section class="section">
+    <div class="amazon-filter">
+      <button class="filter-btn active" onclick="filterProducts(this,'all')">Alle</button>
+      <button class="filter-btn" onclick="filterProducts(this,'skincare')">Skincare</button>
+      <button class="filter-btn" onclick="filterProducts(this,'makeup')">Makeup</button>
+      <button class="filter-btn" onclick="filterProducts(this,'fashion')">Fashion</button>
+      <button class="filter-btn" onclick="filterProducts(this,'hair')">Haarpflege</button>
+      <button class="filter-btn" onclick="filterProducts(this,'tools')">Beauty-Tools</button>
+    </div>
+
+    <div class="amazon-products" id="product-grid">
+
+      <div class="product-card" data-cat="skincare">
+        <div class="product-badge gold">Editor's Pick</div>
+        <img src="https://www.bloom-and-blush.com/img/medicube1.jpg" alt="Serum">
+        <div class="product-body">
+          <div class="product-brand">MEDICUBE</div>
+          <div class="product-name">Collagen Night Wrapping Cream</div>
+          <div class="product-desc">Overnight Sleeping Mask to protect skin elasticity with Collagen | Skin elasticity visible improved | Korean skincare 2.53 fl.oz (75ml).</div>
+          <div class="product-stars">★★★★★</div>
+          <div class="product-reviews">19.380 Bewertungen</div>
+          <div class="product-footer">
+            <div><span class="product-price">€12,50</span><span class="product-price-orig">€17,15</span></div>
+            <a class="product-amazon-btn" href="https://amzn.to/4ddJnwD" target="_blank">Bei Amazon</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="makeup">
+        <div class="product-badge">Bestseller</div>
+        <img src="https://www.bloom-and-blush.com/img/foundation1.jpg" alt="Foundation">
+        <div class="product-body">
+          <div class="product-brand">L'Oréal Paris</div>
+          <div class="product-name">True Match Foundation</div>
+          <div class="product-desc">nahtlos verblendbar, mit Hyaluronsäure, vegane Formel, flüssige Textur, mittlere Deckkraft, natürliches Finish, für alle Hauttypen, 2.N Neutral Light, 30 ml </div>
+          <div class="product-stars">★★★★★</div>
+          <div class="product-reviews">30.983 Bewertungen</div>
+          <div class="product-footer">
+            <div><span class="product-price">€8,88</span></div>
+            <a class="product-amazon-btn" href="https://amzn.to/4tNtUIU" target="_blank">Bei Amazon</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="fashion">
+        <div class="product-badge gold">Neu</div>
+        <img src="https://www.bloom-and-blush.com/img/fashion3.jpg" alt="Blazer">
+        <div class="product-body">
+          <div class="product-brand">JOYSPELS</div>
+          <div class="product-name">Scrunch Butt Leggings Damen</div>
+          <div class="product-desc">High Waist Booty Lifting Po Push Up Gym Sporthose Seamless </div>
+          <div class="product-stars">★★★★☆</div>
+          <div class="product-reviews">8.792 Bewertungen</div>
+          <div class="product-footer">
+            <div><span class="product-price">€28,99</span><span class="product-price-orig">€38,99</span></div>
+            <a class="product-amazon-btn" href="https://amzn.to/4fmKQCa" target="_blank">Bei Amazon</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="tools">
+        <img src="https://bloom-and-blush.com/img/Skin1.jpg">
+        <div class="product-body">
+          <div class="product-brand">Beauty of Joseon</div>
+          <div class="product-name">Kühlende Porenmaske mit roten Bohnen</div>
+          <div class="product-desc">[Kaolin] Kaolin absorbiert Öl und roter Bohnenextrakt und rotes Bohnenpulver helfen beim Peeling und klären die Hautstruktur.</div>
+          <div class="product-stars">★★★★★</div>
+          <div class="product-reviews">2.343 Bewertungen</div>
+          <div class="product-footer">
+            <div><span class="product-price">€11,99</span></div>
+            <a class="product-amazon-btn" href="https://amzn.to/4uQEBv0" target="_blank">Bei Amazon</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="hair">
+        <div class="product-badge">Top Rated</div>
+        <img src="https://www.bloom-and-blush.com/img/redken1.jpg" alt="Haarpflege">
+        <div class="product-body">
+          <div class="product-brand">Redken</div>
+          <div class="product-name">Spülung für trockenes und brüchiges Haar</div>
+          <div class="product-desc">Intensive Tiefenpflege-Maske für trockenes bis sehr trockenes Haar — sichtbar nach der ersten Anwendung.</div>
+          <div class="product-stars">★★★★★</div>
+          <div class="product-reviews">4.680 Bewertungen</div>
+          <div class="product-footer">
+            <div><span class="product-price">€21,34</span><span class="product-price-orig">€29,99</span></div>
+            <a class="product-amazon-btn" href="https://amzn.to/3PkTNBA" target="_blank">Bei Amazon</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="skincare">
+        <img src="https://www.bloom-and-blush.com/img/masam.jpg" alt="Sonnencreme">
+        <div class="product-body">
+          <div class="product-brand">M Asam</div>
+          <div class="product-name">SUN Drop FLuid LSF 50</div>
+          <div class="product-desc">(30 ml) – Pflegendes Sonnenschutzserum fürs Gesicht mit intensivem Schutz vor UVA- & UVB-Strahlung, Mit Aloe Vera & Hyaluron, Veganer Gesichtssonnenschutz</div>
+          <div class="product-stars">★★★★☆</div>
+          <div class="product-reviews">376 Bewertungen</div>
+          <div class="product-footer">
+            <div><span class="product-price">€15,96</span></div>
+            <a class="product-amazon-btn" href="https://amzn.to/4dxwRap" target="_blank">Bei Amazon</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="makeup">
+        <div class="product-badge gold">Editor's Pick</div>
+        <img src="https://www.bloom-and-blush.com/img/maybeline1.jpg" alt="Mascara">
+        <div class="product-body">
+          <div class="product-brand">Maybeline Newyork</div>
+          <div class="product-name">Sky High Schwarze Wimperntusche</div>
+          <div class="product-desc">für extrem lange Wimpern und Volumen, Lash Sensational Sky High Mascara, Farbe: Very Black, 7,2 ml.</div>
+          <div class="product-stars">★★★★☆</div>
+          <div class="product-reviews">77.779 Bewertungen</div>
+          <div class="product-footer">
+            <div><span class="product-price">€8,54</span></div>
+            <a class="product-amazon-btn" href="https://amzn.to/4diurMo" target="_blank">Bei Amazon</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="fashion">
+        <img src="https://www.bloom-and-blush.com/img/igolumon.jpg" alt="Tasche">
+        <div class="product-body">
+          <div class="product-brand">IGOLUMON</div>
+          <div class="product-name">Damen Handtasche Mittelgroß</div>
+          <div class="product-desc">Henkeltasche Damen-Henkeltaschen Tote Bag Handtaschen Taschen Schultertaschen Umhängetasche Schultertasche Damenhandtaschen Rosa."</div>
+          <div class="product-stars">★★★★☆</div>
+          <div class="product-reviews">995 Bewertungen</div>
+          <div class="product-footer">
+            <div><span class="product-price">€32,99</span><span class="product-price-orig">€39,90</span></div>
+            <a class="product-amazon-btn" href="https://amzn.to/496HWh3" target="_blank">Bei Amazon</a>
+          </div>
+        </div>
+      </div>
   .amazon-disclaimer { text-align: center; font-size: 12px; color: var(--ink-light); margin-top: 40px; padding: 20px; border: 1px solid var(--border); background: var(--white); }
 
   /* ══════════════════════════════
@@ -1135,7 +1111,7 @@
   <div class="featured-section">
     <div class="featured-inner">
       <div class="featured-img-wrap">
-        <img src=""https://www.bloom-and-blush.com/img/fashion6.jpg" class="featured-img">
+        <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=700&q=80" alt="Campaign" class="featured-img">
         <div class="featured-img-badge">Frühling<br>2026</div>
       </div>
       <div>
@@ -1240,7 +1216,7 @@
     <div class="divider"></div>
     <div class="fashion-grid" style="margin-top:50px;">
       <div class="fashion-item">
-        <img src="https://www.bloom-and-blush.com/img/fashion4.jpg" alt="Pastell">
+        <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&q=80" alt="Pastell">
         <div class="fashion-item-body">
           <div class="fashion-tag">Trend #1 · Farbe</div>
           <h3 class="fashion-item-title">Milky Pastels — Die Farben des Jahres</h3>
@@ -1249,7 +1225,7 @@
         </div>
       </div>
       <div class="fashion-item">
-        <img src="https://www.bloom-and-blush.com/img/fashion5.jpg" alt="Silhouetten">
+        <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=600&q=80" alt="Silhouetten">
         <div class="fashion-item-body">
           <div class="fashion-tag">Trend #2 · Silhouette</div>
           <h3 class="fashion-item-title">Weite Beine, schmale Schultern</h3>
@@ -1258,7 +1234,7 @@
         </div>
       </div>
       <div class="fashion-item">
-        <img src="https://www.bloom-and-blush.com/img/fashion6.jpg" alt="Details">
+        <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=600&q=80" alt="Details">
         <div class="fashion-item-body">
           <div class="fashion-tag">Trend #3 · Details</div>
           <h3 class="fashion-item-title">Romantische Details überall</h3>
@@ -1267,7 +1243,7 @@
         </div>
       </div>
       <div class="fashion-item">
-        <img src="https://www.bloom-and-blush.com/img/pink1.jpg" alt="Accessoires">
+        <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&q=80" alt="Accessoires">
         <div class="fashion-item-body">
           <div class="fashion-tag">Trend #4 · Accessoires</div>
           <h3 class="fashion-item-title">Statement-Taschen dominieren</h3>
@@ -1276,7 +1252,7 @@
         </div>
       </div>
       <div class="fashion-item">
-        <img src="https://www.bloom-and-blush.com/img/white1.jpg">
+        <img src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=600&q=80" alt="Schuhe">
         <div class="fashion-item-body">
           <div class="fashion-tag">Trend #5 · Schuhe</div>
           <h3 class="fashion-item-title">Mary-Janes & Ballet Flats</h3>
@@ -1285,7 +1261,7 @@
         </div>
       </div>
       <div class="fashion-item">
-        <img src="https://www.bloom-and-blush.com/img/botanik1.jpg" alt="Prints">
+        <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&q=80" alt="Prints">
         <div class="fashion-item-body">
           <div class="fashion-tag">Trend #6 · Prints</div>
           <h3 class="fashion-item-title">Botanische Prints in Großformat</h3>
@@ -1528,125 +1504,125 @@
 
       <div class="product-card" data-cat="skincare">
         <div class="product-badge gold">Editor's Pick</div>
-        <img src="https://www.bloom-and-blush.com/img/medicube1.jpg" alt="Serum">
+        <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=400&q=80" alt="Serum">
         <div class="product-body">
-          <div class="product-brand">MEDICUBE</div>
-          <div class="product-name">Collagen Night Wrapping Cream</div>
-          <div class="product-desc">Overnight Sleeping Mask to protect skin elasticity with Collagen | Skin elasticity visible improved | Korean skincare 2.53 fl.oz (75ml).</div>
+          <div class="product-brand">The Ordinary</div>
+          <div class="product-name">Hyaluronic Acid 2% + B5</div>
+          <div class="product-desc">Intensive Feuchtigkeitspflege mit 3 verschiedenen Hyaluronsäure-Gewichten für optimale Hydration.</div>
           <div class="product-stars">★★★★★</div>
-          <div class="product-reviews">19.380 Bewertungen</div>
+          <div class="product-reviews">12.847 Bewertungen</div>
           <div class="product-footer">
-            <div><span class="product-price">€12,50</span><span class="product-price-orig">€17,15</span></div>
-            <a class="product-amazon-btn" href="https://amzn.to/4ddJnwD" target="_blank">Bei Amazon</a>
+            <div><span class="product-price">€8,90</span><span class="product-price-orig">€12,50</span></div>
+            <a class="product-amazon-btn" href="https://www.amazon.de" target="_blank">Bei Amazon</a>
           </div>
         </div>
       </div>
 
       <div class="product-card" data-cat="makeup">
         <div class="product-badge">Bestseller</div>
-        <img src="https://www.bloom-and-blush.com/img/foundation1.jpg" alt="Foundation">
+        <img src="https://images.unsplash.com/photo-1583241801015-b57aa8f22d77?w=400&q=80" alt="Foundation">
         <div class="product-body">
-          <div class="product-brand">L'Oréal Paris</div>
-          <div class="product-name">True Match Foundation</div>
-          <div class="product-desc">nahtlos verblendbar, mit Hyaluronsäure, vegane Formel, flüssige Textur, mittlere Deckkraft, natürliches Finish, für alle Hauttypen, 2.N Neutral Light, 30 ml </div>
+          <div class="product-brand">NARS</div>
+          <div class="product-name">Natural Radiant Longwear Foundation</div>
+          <div class="product-desc">Langanhaltende Foundation mit strahlendem Finish — für 16 Stunden perfekten Teint.</div>
           <div class="product-stars">★★★★★</div>
-          <div class="product-reviews">30.983 Bewertungen</div>
+          <div class="product-reviews">8.234 Bewertungen</div>
           <div class="product-footer">
-            <div><span class="product-price">€8,88</span></div>
-            <a class="product-amazon-btn" href="https://amzn.to/4tNtUIU" target="_blank">Bei Amazon</a>
+            <div><span class="product-price">€42,00</span></div>
+            <a class="product-amazon-btn" href="https://www.amazon.de" target="_blank">Bei Amazon</a>
           </div>
         </div>
       </div>
 
       <div class="product-card" data-cat="fashion">
         <div class="product-badge gold">Neu</div>
-        <img src="https://www.bloom-and-blush.com/img/fashion3.jpg" alt="Blazer">
+        <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=400&q=80" alt="Blazer">
         <div class="product-body">
-          <div class="product-brand">JOYSPELS</div>
-          <div class="product-name">Scrunch Butt Leggings Damen</div>
-          <div class="product-desc">High Waist Booty Lifting Po Push Up Gym Sporthose Seamless </div>
+          <div class="product-brand">Only</div>
+          <div class="product-name">Oversized Blazer in Crème</div>
+          <div class="product-desc">Der perfekte Allrounder — lässig über Jeans oder elegant über einem Kleid. Zeitlos und vielseitig.</div>
           <div class="product-stars">★★★★☆</div>
-          <div class="product-reviews">8.792 Bewertungen</div>
+          <div class="product-reviews">3.120 Bewertungen</div>
           <div class="product-footer">
-            <div><span class="product-price">€28,99</span><span class="product-price-orig">€38,99</span></div>
-            <a class="product-amazon-btn" href="https://amzn.to/4fmKQCa" target="_blank">Bei Amazon</a>
+            <div><span class="product-price">€34,99</span><span class="product-price-orig">€49,99</span></div>
+            <a class="product-amazon-btn" href="https://www.amazon.de" target="_blank">Bei Amazon</a>
           </div>
         </div>
       </div>
 
       <div class="product-card" data-cat="tools">
-        <img src="https://bloom-and-blush.com/img/Skin1.jpg">
+        <img src="https://images.unsplash.com/photo-1522338242992-e1a54906a8da?w=400&q=80" alt="Gua Sha">
         <div class="product-body">
-          <div class="product-brand">Beauty of Joseon</div>
-          <div class="product-name">Kühlende Porenmaske mit roten Bohnen</div>
-          <div class="product-desc">[Kaolin] Kaolin absorbiert Öl und roter Bohnenextrakt und rotes Bohnenpulver helfen beim Peeling und klären die Hautstruktur.</div>
+          <div class="product-brand">Mount Lai</div>
+          <div class="product-name">Rose Quartz Gua Sha Set</div>
+          <div class="product-desc">Traditionelle Gesichtsmassage für verbessertes Lymphdrainage und sichtbar straffere Konturen.</div>
           <div class="product-stars">★★★★★</div>
-          <div class="product-reviews">2.343 Bewertungen</div>
+          <div class="product-reviews">5.903 Bewertungen</div>
           <div class="product-footer">
-            <div><span class="product-price">€11,99</span></div>
-            <a class="product-amazon-btn" href="https://amzn.to/4uQEBv0" target="_blank">Bei Amazon</a>
+            <div><span class="product-price">€24,90</span></div>
+            <a class="product-amazon-btn" href="https://www.amazon.de" target="_blank">Bei Amazon</a>
           </div>
         </div>
       </div>
 
       <div class="product-card" data-cat="hair">
         <div class="product-badge">Top Rated</div>
-        <img src="https://www.bloom-and-blush.com/img/redken1.jpg" alt="Haarpflege">
+        <img src="https://images.unsplash.com/photo-1526045612212-70caf35c14df?w=400&q=80" alt="Haarpflege">
         <div class="product-body">
-          <div class="product-brand">Redken</div>
-          <div class="product-name">Spülung für trockenes und brüchiges Haar</div>
+          <div class="product-brand">Kérastase</div>
+          <div class="product-name">Nutritive Masque Magistral</div>
           <div class="product-desc">Intensive Tiefenpflege-Maske für trockenes bis sehr trockenes Haar — sichtbar nach der ersten Anwendung.</div>
           <div class="product-stars">★★★★★</div>
-          <div class="product-reviews">4.680 Bewertungen</div>
+          <div class="product-reviews">7.456 Bewertungen</div>
           <div class="product-footer">
-            <div><span class="product-price">€21,34</span><span class="product-price-orig">€29,99</span></div>
-            <a class="product-amazon-btn" href="https://amzn.to/3PkTNBA" target="_blank">Bei Amazon</a>
+            <div><span class="product-price">€32,00</span><span class="product-price-orig">€41,00</span></div>
+            <a class="product-amazon-btn" href="https://www.amazon.de" target="_blank">Bei Amazon</a>
           </div>
         </div>
       </div>
 
       <div class="product-card" data-cat="skincare">
-        <img src="https://www.bloom-and-blush.com/img/masam.jpg" alt="Sonnencreme">
+        <img src="https://images.unsplash.com/photo-1570194065650-d99fb4bedf0a?w=400&q=80" alt="Sonnencreme">
         <div class="product-body">
-          <div class="product-brand">M Asam</div>
-          <div class="product-name">SUN Drop FLuid LSF 50</div>
-          <div class="product-desc">(30 ml) – Pflegendes Sonnenschutzserum fürs Gesicht mit intensivem Schutz vor UVA- & UVB-Strahlung, Mit Aloe Vera & Hyaluron, Veganer Gesichtssonnenschutz</div>
-          <div class="product-stars">★★★★☆</div>
-          <div class="product-reviews">376 Bewertungen</div>
+          <div class="product-brand">Altruist</div>
+          <div class="product-name">Fluid Sunscreen SPF 50</div>
+          <div class="product-desc">Dermatologisch geprüfter Lichtschutz ohne weißen Film — täglich anwendbar für alle Hauttöne.</div>
+          <div class="product-stars">★★★★★</div>
+          <div class="product-reviews">22.100 Bewertungen</div>
           <div class="product-footer">
-            <div><span class="product-price">€15,96</span></div>
-            <a class="product-amazon-btn" href="https://amzn.to/4dxwRap" target="_blank">Bei Amazon</a>
+            <div><span class="product-price">€4,50</span></div>
+            <a class="product-amazon-btn" href="https://www.amazon.de" target="_blank">Bei Amazon</a>
           </div>
         </div>
       </div>
 
       <div class="product-card" data-cat="makeup">
         <div class="product-badge gold">Editor's Pick</div>
-        <img src="https://www.bloom-and-blush.com/img/maybeline1.jpg" alt="Mascara">
+        <img src="https://images.unsplash.com/photo-1599733589046-10b0b5e3983c?w=400&q=80" alt="Mascara">
         <div class="product-body">
-          <div class="product-brand">Maybeline Newyork</div>
-          <div class="product-name">Sky High Schwarze Wimperntusche</div>
-          <div class="product-desc">für extrem lange Wimpern und Volumen, Lash Sensational Sky High Mascara, Farbe: Very Black, 7,2 ml.</div>
-          <div class="product-stars">★★★★☆</div>
-          <div class="product-reviews">77.779 Bewertungen</div>
+          <div class="product-brand">Charlotte Tilbury</div>
+          <div class="product-name">Pillow Talk Mascara</div>
+          <div class="product-desc">Wimperntusche für vollere, längere Wimpern ohne zu verklumpen — ein echter Klassiker.</div>
+          <div class="product-stars">★★★★★</div>
+          <div class="product-reviews">9.812 Bewertungen</div>
           <div class="product-footer">
-            <div><span class="product-price">€8,54</span></div>
-            <a class="product-amazon-btn" href="https://amzn.to/4diurMo" target="_blank">Bei Amazon</a>
+            <div><span class="product-price">€28,00</span></div>
+            <a class="product-amazon-btn" href="https://www.amazon.de" target="_blank">Bei Amazon</a>
           </div>
         </div>
       </div>
 
       <div class="product-card" data-cat="fashion">
-        <img src="https://www.bloom-and-blush.com/img/igolumon.jpg" alt="Tasche">
+        <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400&q=80" alt="Tasche">
         <div class="product-body">
-          <div class="product-brand">IGOLUMON</div>
-          <div class="product-name">Damen Handtasche Mittelgroß</div>
-          <div class="product-desc">Henkeltasche Damen-Henkeltaschen Tote Bag Handtaschen Taschen Schultertaschen Umhängetasche Schultertasche Damenhandtaschen Rosa."</div>
+          <div class="product-brand">Amazon Basics</div>
+          <div class="product-name">Leder-Crossbody Bag in Camel</div>
+          <div class="product-desc">Echtleder-Tasche im zeitlosen Design — kompakt genug für den Alltag, elegant genug für besondere Anlässe.</div>
           <div class="product-stars">★★★★☆</div>
-          <div class="product-reviews">995 Bewertungen</div>
+          <div class="product-reviews">2.345 Bewertungen</div>
           <div class="product-footer">
-            <div><span class="product-price">€32,99</span><span class="product-price-orig">€39,90</span></div>
-            <a class="product-amazon-btn" href="https://amzn.to/496HWh3" target="_blank">Bei Amazon</a>
+            <div><span class="product-price">€45,90</span><span class="product-price-orig">€59,90</span></div>
+            <a class="product-amazon-btn" href="https://www.amazon.de" target="_blank">Bei Amazon</a>
           </div>
         </div>
       </div>
@@ -2343,4 +2319,3 @@ function showToast(msg) {
 </script>
 </body>
 </html>
-
