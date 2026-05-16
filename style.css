@@ -254,10 +254,13 @@ nav a{
   min-width:0;
 }
 
-.about-image img{
-  width:100%;
-  height: auto;
-  object-fit:cover;
+.about img {
+  width: 100%;
+  max-width: 420px;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 24px;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.12);
 }
 
 .about-text{
