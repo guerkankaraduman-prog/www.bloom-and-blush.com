@@ -227,8 +227,7 @@
   .hero-pattern {
     position: absolute; inset: 0;
     opacity: 0.04;
-    background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 10 C30 10 10 30 10 40 C10 50 30 70 40 70 C50 70 70 50 70 40 C70 30 50 10 40 10Z' fill='none' stroke='%23C9A46E' stroke-width='1'/%3E%3C/svg%3E");
-    background-size: 80px 80px;
+    background-image: url("data:img/favicon.ico.png;
   }
   .hero-overlay {
     position: absolute; inset: 0;
@@ -550,20 +549,16 @@
     overflow: hidden;
     cursor: pointer;
   }
-  .fashion-item img { width: 100%; height: 340px; object-fit: cover; display: block; transition: transform 0.5s; }
-  .fashion-item:hover img { transform: scale(1.04); }
-  .fashion-item-body { padding: 24px; }
-  .fashion-tag { font-size: 10px; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; font-weight: 500; }
-  .fashion-item-title { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 500; color: var(--rose-deep); margin: 8px 0; line-height: 1.2; }
-  .fashion-item-text { font-size: 13px; color: var(--ink-light); line-height: 1.7; margin-bottom: 16px; }
-  .fashion-item-link { font-size: 11px; letter-spacing: 1.5px; color: var(--rose); text-transform: uppercase; font-weight: 500; cursor: pointer; }
+  .fashion-item img{
+  width:100%;
+  aspect-ratio:3/4;
 
-  .trend-section { background: var(--white); }
-  .trend-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-  .trend-img { width: 100%; height: 500px; object-fit: cover; display: block; }
-  .trend-list { list-style: none; margin: 24px 0; }
-  .trend-list li { padding: 14px 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 16px; font-size: 15px; color: var(--ink-mid); }
-  .trend-list li::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+  object-fit:cover;
+  object-position:center top;
+
+  display:block;
+  transition:transform .5s ease;
+}
 
   .outfit-week { background: var(--blush-light); padding: 80px 40px; }
   .outfit-week-inner { max-width: 1400px; margin: 0 auto; }
