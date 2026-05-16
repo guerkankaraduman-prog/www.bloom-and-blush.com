@@ -16,9 +16,9 @@ body{
 }
 
 img {
-  width: 100%;
+  width: auto;
   aspect-ratio: 1 / 1;   /* alle Bilder gleich groß */
-  object-fit: cover;
+  object-fit: contain;
 }
 /* =========================
    PINTEREST FEED IMAGES
