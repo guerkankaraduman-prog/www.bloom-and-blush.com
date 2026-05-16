@@ -20,23 +20,40 @@ img {
   aspect-ratio: 1 / 1;   /* alle Bilder gleich groß */
   object-fit: contain;
 }
+
 /* =========================
-   PINTEREST FEED IMAGES
+   PINTEREST FEED IMAGES (Fix für Bildboxen)
 ========================= */
+
+.post{
+  position:relative;
+  overflow:hidden;
+  border-radius:24px;
+  background:#fff;
+  border:1px solid #f7e9ec; /* Schicker minimaler Rahmen */
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  min-height:460px; /* Garantiert eine stabile Mindesthöhe */
+  box-shadow:0 4px 15px rgba(0,0,0,0.02);
+  transition:0.3s ease;
+}
+
+.post:hover{
+  transform:translateY(-4px);
+  box-shadow:0 10px 25px rgba(0,0,0,0.05);
+}
 
 .post img{
   width:100%;
-  height:420px;
-
+  height:300px; /* Festgelegter Platz fürs Produktbild */
   object-fit:contain;
   object-position:center;
-
   background:#fff;
-
-  padding:10px;
-
-  border-radius:24px;
+  padding:15px;
+  border-radius:24px 24px 0 0;
 }
+
 a{
   text-decoration:none;
   color:inherit;
@@ -62,6 +79,11 @@ nav a{
   margin-left:20px;
   color:#111;
   font-size:15px;
+  transition: color 0.2s ease;
+}
+
+nav a:hover{
+  color:#ff4d88;
 }
 
 /* =========================
@@ -71,11 +93,9 @@ nav a{
 .hero{
   min-height:80vh;
   padding:80px 20px 40px;
-
   display:flex;
   align-items:center;
   justify-content:center;
-
   text-align:center;
 }
 
@@ -116,16 +136,12 @@ nav a{
 .buy-big{
   display:inline-block;
   padding:14px 30px;
-
   border:none;
   border-radius:999px;
-
   background:#111;
   color:#fff;
-
   font-size:15px;
   cursor:pointer;
-
   transition:0.3s ease;
 }
 
@@ -133,23 +149,29 @@ nav a{
 .btn-primary:hover,
 .buy-big:hover{
   transform:translateY(-2px);
+  background:#222;
 }
 
 .buy{
   display:block;
-  margin-top:10px;
-
+  margin-top:12px;
   background:#ff4d88;
   color:#fff;
-
-  padding:10px;
+  padding:12px;
   border-radius:20px;
-
   text-align:center;
+  font-weight:bold;
+  font-size:14px;
+  transition:0.2s ease;
+}
+
+.buy:hover{
+  background:#e03973;
+  transform:translateY(-1px);
 }
 
 /* =========================
-   FEED
+   FEED & OVERLAY (Hier lag der Darstellungsfehler)
 ========================= */
 
 .feed{
@@ -158,24 +180,23 @@ nav a{
 
 .feed-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
-}
-
-.post{
-  position:relative;
-  overflow:hidden;
-  border-radius:20px;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:25px;
 }
 
 .overlay{
-  position:absolute;
-  bottom:0;
-
+  position:relative; /* Von absolute auf relative geändert, damit nichts überlappt */
   width:100%;
-  padding:10px;
+  padding:20px;
+  background:#fffaf8; /* Edler, weicher Hintergrund passend zur Brand */
+  border-top:1px solid #f7e9ec;
+}
 
-  background:rgba(255,255,255,0.9);
+.overlay h3{
+  font-size:16px;
+  margin-top:5px;
+  font-weight:500;
+  color:#2A1F1A;
 }
 
 /* =========================
@@ -200,7 +221,6 @@ nav a{
   display:flex;
   align-items:center;
   gap:50px;
-
   padding:80px;
 }
 
@@ -210,9 +230,12 @@ nav a{
 }
 
 .highlight{
+  display:inline-block;
   color:#ff4d88;
   font-weight:bold;
-  margin-bottom:15px;
+  font-size:13px;
+  text-transform:uppercase;
+  letter-spacing:0.5px;
 }
 
 .trust{
@@ -280,7 +303,6 @@ nav a{
 .trust-container{
   max-width:1200px;
   margin:0 auto;
-
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:60px;
@@ -334,10 +356,8 @@ nav a{
   display:flex;
   align-items:center;
   justify-content:space-between;
-
   gap:60px;
   padding:100px 8%;
-
   background:#fffaf8;
 }
 
@@ -348,7 +368,6 @@ nav a{
 .collection-text h2{
   font-size:56px;
   margin-bottom:20px;
-
   font-family:'Playfair Display',serif;
 }
 
@@ -356,7 +375,6 @@ nav a{
   font-size:18px;
   line-height:1.7;
   color:#555;
-
   margin-bottom:30px;
 }
 
@@ -367,23 +385,17 @@ nav a{
 .collection-image img{
   width:100%;
   object-fit:cover;
-
   border-radius:24px;
-
   box-shadow:0 20px 50px rgba(0,0,0,0.12);
 }
 
 .badge{
   display:inline-block;
-
   margin-bottom:20px;
   padding:10px 18px;
-
   border-radius:999px;
-
   background:#f7e9ec;
   color:#c05c7a;
-
   font-size:14px;
 }
 
@@ -394,24 +406,19 @@ nav a{
 .bb-icon-btn{
   width:36px;
   height:36px;
-
   display:none;
   align-items:center;
   justify-content:center;
-
   border:none;
   border-radius:50%;
-
   background:transparent;
   cursor:pointer;
 }
 
 .bb-hamburger span{
   display:block;
-
   width:100%;
   height:1.5px;
-
   background:#2A1F1A;
   border-radius:2px;
 }
@@ -423,12 +430,9 @@ nav a{
 .bb-drawer{
   position:fixed;
   inset:0;
-
   display:none;
   flex-direction:column;
-
   background:#FDF9F7;
-
   z-index:9999;
   overflow-y:auto;
 }
@@ -441,9 +445,7 @@ nav a{
   display:flex;
   justify-content:space-between;
   align-items:center;
-
   padding:14px 18px;
-
   border-bottom:.5px solid #E8D8D0;
 }
 
@@ -461,12 +463,9 @@ nav a{
 .bb-drawer-close{
   width:36px;
   height:36px;
-
   border:none;
   border-radius:50%;
-
   background:transparent;
-
   cursor:pointer;
 }
 
@@ -478,11 +477,8 @@ nav a{
   display:flex;
   justify-content:space-between;
   align-items:center;
-
   padding:16px 22px;
-
   border-bottom:.5px solid #F0E4DE;
-
   font-size:17px;
 }
 
@@ -493,18 +489,12 @@ nav a{
 @media(max-width:900px){
 
   header{
-    flex-direction:column;
+    flex-direction:row; /* Behält Logo & Hamburger nebeneinander bei Mobile */
     padding:15px;
   }
 
   nav{
-    flex-wrap:wrap;
-    justify-content:center;
-  }
-
-  nav a{
-    margin:8px;
-    font-size:14px;
+    display:none; /* Versteckt die normale Nav auf Mobilgeräten, da du den Drawer nutzt */
   }
 
   .hero{
@@ -526,11 +516,12 @@ nav a{
   }
 
   .feed{
-    padding:20px;
+    padding:30px 15px;
   }
 
   .feed-grid{
     grid-template-columns:1fr;
+    gap:30px;
   }
 
   .product-grid{
@@ -541,7 +532,6 @@ nav a{
   .product-container{
     flex-direction:column;
     text-align:center;
-
     padding:30px 20px;
     gap:20px;
   }
@@ -556,7 +546,9 @@ nav a{
   }
 
   .about-container{
-    grid-template-columns:1fr;
+    flex-direction:column-reverse; /* Bild wandert mobil unter den Text */
+    gap:20px;
+    padding:40px 20px;
   }
 
   .about-image img{
@@ -565,6 +557,7 @@ nav a{
 
   .trust-container{
     grid-template-columns:1fr;
+    gap:30px;
   }
 
   .trust-title{
@@ -574,10 +567,12 @@ nav a{
   .collection-section{
     flex-direction:column;
     text-align:center;
+    padding:60px 20px;
+    gap:30px;
   }
 
   .collection-text h2{
-    font-size:42px;
+    font-size:36px;
   }
 
   .btn,
@@ -590,16 +585,17 @@ nav a{
   .bb-icon-btn{
     display:flex;
   }
-.amazon-picks img {
-  width: 100%;
-  max-width: 220px;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
-  border-radius: 18px;
-  transition: transform 0.3s ease;
-}
 
-.amazon-picks img:hover {
-  transform: scale(1.03);
-}
+  .amazon-picks img {
+    width: 100%;
+    max-width: 220px;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border-radius: 18px;
+    transition: transform 0.3s ease;
+  }
+
+  .amazon-picks img:hover {
+    transform: scale(1.03);
+  }
 }
