@@ -4,102 +4,437 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- SEO & Pinterest Optimierung -->
-    <title>Bloom & Blush | Die besten Amazon Beauty & Fashion Bestseller</title>
+    <title>Bloom & Blush | Die besten Amazon Beauty & Fashion Trends</title>
     <meta name="description" content="Entdecke die meistverkauften Fashion-Trends und viralen Beauty-Produkte auf Amazon. Von Pinterest inspiriert, für dich getestet.">
-    
-    <!-- Open Graph Tags (Essentiell für Pinterest Rich Pins) -->
     <meta property="og:title" content="Bloom & Blush | Virale Amazon Fashion & Beauty Finds">
     <meta property="og:description" content="Die absolut meistverkauften Amazon-Produkte, die gerade durch die Decke gehen.">
-    <meta property="og:image" content="https://www.bloom-and-blush.com/bilder/pinterest-og-share.jpg"> <!-- Erstelle ein schönes Vorschaubild -->
+    <meta property="og:image" content="https://www.bloom-and-blush.com/bilder/pinterest-og-share.jpg">
     <meta property="og:url" content="https://www.bloom-and-blush.com/">
     <meta property="og:type" content="website">
 
-    <!-- Fonts (Werden in deinem CSS genutzt) -->
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,400&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-    
-    <!-- Dein bestehendes CSS (Verlinkung zu deiner CSS-Datei) -->
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ==========================================================================
+           COMPACT STYLING (RESET & CORE)
+           ========================================================================== */
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            font-family: Arial, sans-serif;
+            background: #fff;
+            color: #111;
+            overflow-x: hidden;
+        }
+
+        a{
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            width: auto;
+            object-fit: contain;
+        }
+
+        /* ==========================================================================
+           NAVIGATION & HEADER
+           ========================================================================== */
+        header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: #fff;
+        }
+
+        nav{
+            display: flex;
+            align-items: center;
+        }
+
+        nav a{
+            margin-left: 20px;
+            color: #111;
+            font-size: 15px;
+            transition: color 0.2s ease;
+        }
+
+        nav a:hover{
+            color: #ff4d88;
+        }
+
+        /* ==========================================================================
+           HERO SECTION
+           ========================================================================== */
+        .hero{
+            min-height: 70vh;
+            padding: 60px 20px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero-title{
+            font-family: 'Playfair Display', serif;
+            font-size: 38px;
+            font-weight: 400;
+            letter-spacing: -0.3px;
+            margin-bottom: 15px;
+            color: #2A1F1A;
+        }
+
+        .hero-desc{
+            font-size: 16px;
+            line-height: 1.6;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto 25px;
+        }
+
+        .hero-proof{
+            font-size: 12px;
+            color: #999;
+            margin-top: 15px;
+            letter-spacing: 0.3px;
+        }
+
+        /* ==========================================================================
+           FIXED FEED GRID & POSTS (Screenshot Bugfix)
+           ========================================================================== */
+        .feed{
+            padding: 40px 60px 80px;
+            background: #fff;
+        }
+
+        .feed-grid{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .post{
+            position: relative;
+            overflow: hidden;
+            border-radius: 24px;
+            background: #fff;
+            border: 1px solid #f7e9ec; 
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 480px; /* Garantiert stabile Boxen, selbst ohne Bild */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .post:hover{
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(247, 233, 236, 0.6);
+        }
+
+        .post img{
+            width: 100%;
+            height: 280px; 
+            object-fit: contain;
+            object-position: center;
+            background: #fff;
+            padding: 20px;
+        }
+
+        .overlay{
+            position: relative; /* Ändert absolute zu relative -> Verhindert Abschneiden */
+            width: 100%;
+            padding: 20px;
+            background: #fffaf8; 
+            border-top: 1px solid #f7e9ec;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .overlay h3{
+            font-size: 16px;
+            margin: 5px 0 15px;
+            font-weight: 500;
+            color: #2A1F1A;
+            line-height: 1.4;
+        }
+
+        /* ==========================================================================
+           BUTTONS & BADGES
+           ========================================================================== */
+        .btn-primary, .buy-big{
+            display: inline-block;
+            padding: 14px 30px;
+            border: none;
+            border-radius: 999px;
+            background: #111;
+            color: #fff;
+            font-size: 15px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .btn-primary:hover, .buy-big:hover{
+            transform: translateY(-2px);
+            background: #ff4d88;
+        }
+
+        .buy{
+            display: block;
+            background: #ff4d88;
+            color: #fff;
+            padding: 12px;
+            border-radius: 20px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 14px;
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+
+        .buy:hover{
+            background: #e03973;
+            transform: translateY(-1px);
+        }
+
+        .highlight{
+            color: #ff4d88;
+            font-weight: bold;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .badge{
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 10px 18px;
+            border-radius: 999px;
+            background: #f7e9ec;
+            color: #c05c7a;
+            font-size: 14px;
+        }
+
+        /* ==========================================================================
+           COLLECTION SECTION
+           ========================================================================== */
+        .collection-section{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 60px;
+            padding: 80px 8%;
+            background: #fffaf8;
+        }
+
+        .collection-text{ flex: 1; }
+        .collection-text h2{
+            font-size: 42px;
+            margin-bottom: 20px;
+            font-family: 'Playfair Display', serif;
+            color: #2A1F1A;
+        }
+        .collection-text p{
+            font-size: 16px;
+            line-height: 1.7;
+            color: #555;
+            margin-bottom: 30px;
+        }
+        .collection-image{ flex: 1; text-align: center; }
+        .collection-image img{
+            width: 100%;
+            max-width: 380px;
+            aspect-ratio: 4 / 5;
+            object-fit: cover;
+            border-radius: 24px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.06);
+            transition: transform 0.3s ease;
+        }
+        .collection-image img:hover{ transform: scale(1.02); }
+
+        /* ==========================================================================
+           TRUST & REVIEWS
+           ========================================================================== */
+        .trust-section{ padding: 80px 20px; background: #fff; }
+        .trust-container{
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .trust-title{
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 38px;
+            margin: 15px 0;
+            color: #2b2b2b;
+        }
+        .trust-list{ list-style: none; }
+        .trust-list li{ margin-bottom: 12px; font-size: 16px; color: #444; }
+        .review{ background: #fafafa; padding: 20px; border-radius: 16px; margin-bottom: 20px; border: 1px solid #f5f5f5; }
+        .stars{ color: #ffbc00; margin-bottom: 5px; font-size: 14px; }
+        .review span{ font-size: 13px; color: #888; display: block; margin-top: 5px; }
+
+        /* ==========================================================================
+           ABOUT SECTION
+           ========================================================================== */
+        .about-container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 60px;
+            padding: 80px 20px;
+            background: #fffaf8;
+        }
+        .about img {
+            width: 100%;
+            max-width: 340px;
+            aspect-ratio: 4 / 5;
+            object-fit: cover;
+            border-radius: 24px;
+        }
+        .about-text{ max-width: 500px; }
+        .about-text h2{ font-family: 'Playfair Display', serif; font-size: 32px; margin: 10px 0; }
+        .about-text p{ color: #555; line-height: 1.6; }
+
+        /* ==========================================================================
+           FOOTER (Rechtssicher für Amazon & DE)
+           ========================================================================== */
+        footer{
+            background: #2A1F1A;
+            color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+            font-size: 13px;
+        }
+        .amazon-disclaimer {
+            max-width: 600px;
+            margin: 0 auto 20px;
+            color: #b3a7a2;
+            line-height: 1.5;
+        }
+        .footer-links a {
+            color: #ff4d88;
+            margin: 0 10px;
+        }
+
+        /* ==========================================================================
+           DRAWER MOBILE MENU
+           ========================================================================== */
+        .bb-icon-btn{
+            width: 36px; height: 36px; display: none; flex-direction: column;
+            justify-content: center; gap: 4px; border: none; background: transparent; cursor: pointer;
+        }
+        .bb-hamburger span{ display: block; width: 24px; height: 2px; background: #2A1F1A; }
+        .bb-drawer{
+            position: fixed; inset: 0; display: none; flex-direction: column;
+            background: #FDF9F7; z-index: 9999;
+        }
+        .bb-drawer.open{ display: flex; }
+        .bb-drawer-header{
+            display: flex; justify-content: space-between; align-items: center; padding: 20px;
+            border-bottom: 0.5px solid #E8D8D0;
+        }
+        .bb-drawer-nav a{ display: block; padding: 20px; border-bottom: 0.5px solid #F0E4DE; font-size: 18px; }
+
+        /* ==========================================================================
+           RESPONSIVE FIXES (Mobile)
+           ========================================================================== */
+        @media(max-width:900px){
+            header{ padding: 20px; }
+            nav{ display: none; }
+            .bb-icon-btn{ display: flex; }
+            .hero-title{ font-size: 28px; }
+            .feed{ padding: 40px 20px; }
+            .feed-grid{ grid-template-columns: 1fr; gap: 40px; }
+            .collection-section, .about-container{ flex-direction: column; text-align: center; padding: 40px 20px; gap: 30px; }
+            .collection-text h2{ font-size: 32px; }
+            .trust-container{ grid-template-columns: 1fr; gap: 40px; }
+            .btn-primary, .buy-big, .buy{ width: 100%; }
+        }
+    </style>
 </head>
 <body>
 
-    <!-- NAVIGATION -->
     <header>
-        <div class="bb-logo">Bloom <span>&</span> Blush</div>
-        <nav id="main-nav">
+        <div class="bb-logo" style="font-family:'Cormorant Garamond',serif; font-size:24px;">Bloom <span style="font-style:italic; color:#C4826B;">&</span> Blush</div>
+        <nav>
             <a href="#home">Home</a>
             <a href="#trends">Beauty Trends</a>
             <a href="#fashion">Amazon Finds</a>
             <a href="#about">Über uns</a>
         </nav>
-        <!-- Mobiler Hamburger Button aus deinem CSS -->
-        <button class="bb-icon-btn bb-hamburger" onclick="toggleMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
+        <button class="bb-icon-btn" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
         </button>
     </header>
 
-    <!-- MOBILER DRAWER (Aus deinem CSS) -->
     <div class="bb-drawer" id="mobileDrawer">
         <div class="bb-drawer-header">
-            <div class="bb-logo">Bloom <span>&</span> Blush</div>
-            <button class="bb-drawer-close" onclick="toggleMenu()">✕</button>
+            <div class="bb-logo" style="font-family:'Cormorant Garamond',serif; font-size:24px;">Bloom <span>&</span> Blush</div>
+            <button style="border:none; background:transparent; font-size:24px;" onclick="toggleMenu()">✕</button>
         </div>
         <div class="bb-drawer-nav">
-            <a href="#home" class="bb-drawer-item" onclick="toggleMenu()">Home</a>
-            <a href="#trends" class="bb-drawer-item" onclick="toggleMenu()">Beauty Trends</a>
-            <a href="#fashion" class="bb-drawer-item" onclick="toggleMenu()">Amazon Finds</a>
-            <a href="#about" class="bb-drawer-item" onclick="toggleMenu()">Über uns</a>
+            <a href="#home" onclick="toggleMenu()">Home</a>
+            <a href="#trends" onclick="toggleMenu()">Beauty Trends</a>
+            <a href="#fashion" onclick="toggleMenu()">Amazon Finds</a>
+            <a href="#about" onclick="toggleMenu()">Über uns</a>
         </div>
     </div>
 
-    <!-- HERO SECTION -->
     <section class="hero" id="home">
         <div>
-            <span class="badge">TikTok & Pinterest Trends 2026</span>
-            <h1 class="hero-title">Die meistverkauften Amazon <br>Beauty & Fashion Must-Haves</h1>
-            <p class="hero-desc">Wir durchforsten täglich die Amazon Business- und Bestseller-Listen, damit du es nicht tun musst. Entdecke virale Dupes, stylische Key-Pieces und absolute Lieblinge der Community.</p>
-            <a href="#trends" class="btn-primary">Bestseller entdecken</a>
+            <span class="badge">TikTok & Pinterest Trends</span>
+            <h1 class="hero-title">Die meistverkauften Amazon<br>Beauty & Fashion Must-Haves</h1>
+            <p class="hero-desc">Wir filtern täglich die Amazon-Bestsellerlisten nach den schönsten Trends, viralen Dupes und Community-Favoriten – perfekt optimiert für deinen Style.</p>
+            <a href="#trends" class="btn-primary">Bestseller ansehen</a>
             <p class="hero-proof">✓ Unabhängig ausgewählt • Täglich aktualisiert</p>
         </div>
     </section>
 
-    <!-- TREND FEED (Der Pinterest-Style Grid) -->
     <section class="feed" id="trends">
         <div class="feed-grid">
             
-            <!-- PRODUKT 1 (Beispiel für Beauty) -->
             <div class="post">
                 <img src="bilder/beauty-bestseller-1.webp" alt="Viraler Lipgloss Amazon Bestseller">
                 <div class="overlay">
-                    <span class="highlight">#1 Amazon Bestseller</span>
-                    <h3>Hydrating Glow Lip Oil</h3>
-                    <!-- Wichtig: Kein Preis, DSGVO-konforme Affiliate-Struktur -->
-                    <a href="DEIN_AMAZON_PARTNER_LINK" target="_blank" rel="noopener nofollow" class="buy">
-                        Preis auf Amazon prüfen
-                    </a>
-                </div>
-            </div>
-
-            <!-- PRODUKT 2 (Beispiel für Fashion) -->
-            <div class="post">
-                <img src="bilder/fashion-find-1.webp" alt="Amazon Fashion Sommerkleid">
-                <div class="overlay">
-                    <span class="highlight">Viraler Fashion Find</span>
-                    <h3>Klassischer Sommer-Trenchcoat</h3>
+                    <div>
+                        <span class="highlight">#1 Bestseller • Viral auf TikTok</span>
+                        <h3>Hydrating Glow Lip Oil für intensiven Glanz</h3>
+                    </div>
                     <a href="DEIN_AMAZON_PARTNER_LINK" target="_blank" rel="noopener nofollow" class="buy">
                         Auf Amazon ansehen
                     </a>
                 </div>
             </div>
 
-            <!-- PRODUKT 3 -->
+            <div class="post">
+                <img src="bilder/fashion-find-1.webp" alt="Amazon Fashion Mantel">
+                <div class="overlay">
+                    <div>
+                        <span class="highlight">Community Favorit</span>
+                        <h3>Klassischer Übergangs-Trenchcoat (Slim Fit)</h3>
+                    </div>
+                    <a href="DEIN_AMAZON_PARTNER_LINK" target="_blank" rel="noopener nofollow" class="buy">
+                        Auf Amazon ansehen
+                    </a>
+                </div>
+            </div>
+
             <div class="post">
                 <img src="bilder/beauty-bestseller-2.webp" alt="Amazon Make-Up Organizer">
                 <div class="overlay">
-                    <span class="highlight">Sehr beliebt</span>
-                    <h3>Acryl Make-up Organizer</h3>
+                    <div>
+                        <span class="highlight">Beauty Must-Have</span>
+                        <h3>360° Drehbarer Acryl Make-up Organizer</h3>
+                    </div>
                     <a href="DEIN_AMAZON_PARTNER_LINK" target="_blank" rel="noopener nofollow" class="buy">
                         Auf Amazon ansehen
                     </a>
@@ -109,64 +444,70 @@
         </div>
     </section>
 
-    <!-- IM FOKUS: COLLECTION SECTION -->
     <section class="collection-section" id="fashion">
         <div class="collection-text">
-            <span class="badge">Monats-Favorit</span>
-            <h2>Die perfekte Capsule Wardrobe</h2>
-            <p>Minimalistisch, elegant und budgetfreundlich. Dieses Kleidungsstück stürmt aktuell die Amazon-Verkaufscharts in der Kategorie Damenmode. Perfekt kombinierbar für Alltag und Business.</p>
+            <span class="badge">Kollektion des Monats</span>
+            <h2>Die perfekte Capsule Wardrobe von Amazon</h2>
+            <p>Minimalistisch, elegant und unfassbar leicht zu kombinieren. Dieses Key-Piece stürmt aktuell die Amazon-Verkaufscharts im Bereich Damenmode. Perfekt für einen cleanen, luxuriösen Alltags-Look, ohne das Budget zu sprengen.</p>
             <a href="DEIN_AMAZON_PARTNER_LINK" target="_blank" rel="noopener nofollow" class="buy-big">
-                Jetzt Deal auf Amazon sichern
+                Jetzt Deal auf Amazon prüfen
             </a>
         </div>
-        <div class="collection-image amazon-picks">
-            <!-- Nutzt deine coole Hover-Klasse aus dem CSS -->
-            <img src="bilder/capsule-wardrobe-main.webp" alt="Amazon Fashion Bestseller Kollektion">
+        <div class="collection-image">
+            <img src="bilder/capsule-wardrobe-main.webp" alt="Amazon Fashion Capsule Wardrobe">
         </div>
     </section>
 
-    <!-- TRUST & REVIEWS SECTION -->
     <section class="trust-section">
         <div class="trust-container">
             <div>
-                <span class="highlight">Community Feedback</span>
-                <h2 class="trust-title">Warum wir Amazon Bestseller lieben</h2>
+                <span class="highlight" style="font-size:14px;">Deine Vorteile</span>
+                <h2 class="trust-title">Warum über Bloom & Blush shoppen?</h2>
                 <ul class="trust-list">
-                    <li>✦ Tausende echte Käuferbewertungen als Basis</li>
-                    <li>✦ Schneller, sicherer Versand über Amazon Prime</li>
-                    <li>✦ Unschlagbares Preis-Leistungs-Verhältnis</li>
+                    <li>✦ <b>Geprüfte Qualität:</b> Nur Produkte mit Top-Bewertungen.</li>
+                    <li>✦ <b>Sicherer Versand:</b> Direktabwicklung über Amazon Prime.</li>
+                    <li>✦ <b>Immer im Trend:</b> Inspiriert von Pinterest- & TikTok-Hypes.</li>
                 </ul>
             </div>
             <div>
                 <div class="review">
-                    <p>"Das Lip Oil aus den Trends ist der Wahnsinn. Hätte es ohne Bloom & Blush nie auf Amazon gesucht!"</p>
-                    <span>– Sarah M. (via Pinterest)</span>
+                    <div class="stars">★★★★★</div>
+                    <p>"Das Lip Oil ist der absolute Wahnsinn! Tolle Empfehlung."</p>
+                    <span>– Sarah M. via Pinterest</span>
                 </div>
                 <div class="review">
-                    <p>"Der Trenchcoat kam nach 2 Tagen an und sitzt perfekt. Absolute Kaufempfehlung!"</p>
+                    <div class="stars">★★★★★</div>
+                    <p>"Der Trenchcoat kam nach zwei Tagen an und sitzt wie angegossen."</p>
                     <span>– Jessica K.</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ABOUT SECTION -->
     <section class="about-container" id="about">
-        <div class="about-image">
+        <div class="about">
             <img src="bilder/about-bloom-and-blush.jpg" alt="Über Bloom and Blush">
         </div>
         <div class="about-text">
             <span class="highlight">Hinter den Kulissen</span>
             <h2>Hey, wir sind Bloom & Blush</h2>
-            <p>Wir lieben Ästhetik, Beauty-Routinen und großartige Fashion-Finds. Da der Markt auf Amazon riesig ist, filtern wir die absoluten Perlen für dich heraus. Alle Produkte verlinken wir als offizielle Amazon-Partner direkt zu den besten Angeboten.</p>
+            <p>Wir lieben Ästhetik, durchdachte Beauty-Routinen und Fashion-Finds, die teurer aussehen, als sie sind. Da das Angebot auf Amazon riesig ist, filtern wir die wirklichen Schätze für dich heraus und bereiten sie übersichtlich für dich vor.</p>
         </div>
     </section>
 
-    <!-- KLEINES JAVASCRIPT FÜR DEN MOBILEN HAMBURGER-DRAWER -->
+    <footer>
+        <p class="amazon-disclaimer">
+            Als Amazon-Partner verdiene ich an qualifizierten Verkäufen. Amazon und das Amazon-Logo sind Warenzeichen von Amazon.com, Inc. oder seinen Partnern.
+        </p>
+        <p style="margin-bottom: 15px;">&copy; 2026 Bloom & Blush. Alle Rechte vorbehalten.</p>
+        <div class="footer-links">
+            <a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutzerklärung</a>
+        </div>
+    </footer>
+
     <script>
         function toggleMenu() {
-            const drawer = document.getElementById('mobileDrawer');
-            drawer.classList.toggle('open');
+            document.getElementById('mobileDrawer').classList.toggle('open');
         }
     </script>
 </body>
